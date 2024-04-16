@@ -18,5 +18,17 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            level_seed::class,
+            keuangan_seed::class,
+            kk_penduduk_seed::class,
+            penduduk_seed::class,
+            penduduk_masuk_seed::class,
+            penduduk_keluar_seed::class,
+            surat_seed::class,
+            bantuan_sosial_seed::class,
+            user_seed::class
+        ]);
     }
 }
