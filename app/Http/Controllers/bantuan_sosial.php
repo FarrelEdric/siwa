@@ -22,6 +22,8 @@ class bantuan_sosial extends Controller
     public function create()
     {
         //
+        return "ini tambah";
+
     }
 
     /**
