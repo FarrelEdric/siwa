@@ -11,7 +11,9 @@ class level extends Controller
      */
     public function index()
     {
+
         return view('levels.index');
+
     }
 
     /**
