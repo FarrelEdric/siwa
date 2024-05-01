@@ -19,7 +19,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="./index.html" class="nav-link" style="color: white;">
+            <a href="{{url('/surat')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Kelola Persuratan</p>
             </a>
@@ -34,7 +34,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="#" class="nav-link " style="color: white;">
+        <a href="{{url('/keuangan')}}" class="nav-link " style="color: white;">
           <i class="nav-icon fas fa-coins"></i>
           <p>
             Keuangan
@@ -43,7 +43,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="./index.html" class="nav-link" style="color: white;">
+            <a href="{{url('/keuangan')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Data Keuangan</p>
             </a>
@@ -103,7 +103,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="./index.html" class="nav-link" style="color: white;">
+            <a href="{{url('/penduduk')}} " class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Data Seluruh Warga</p>
             </a>
@@ -127,13 +127,13 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="./index.html" class="nav-link" style="color: white;">
+            <a href="#" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>List Penerima</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
+            <a href="{{url('/bantuanSosial')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Informasi</p>
             </a>

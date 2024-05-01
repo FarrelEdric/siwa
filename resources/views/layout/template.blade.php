@@ -9,6 +9,7 @@
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;400i;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- DataTables -->
@@ -20,6 +21,17 @@
 
   @stack('css')
 </head>
+
+
+@php($i= array ( 1 =>    'Senin',
+'Selasa',
+'Rabu',
+'Kamis',
+'Jumat',
+'Sabtu',
+'Minggu'
+))
+@php($num = date('N', strtotime(now())))
 <body class="hold-transition sidebar-mini" style="font-family: 'Poppins', sans-serif;">
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -30,6 +42,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-yellow elevation-4" style="background-color: #1D3752;">
     <!-- Brand Logo -->
+
     <a href="{{ url('/') }}" class="brand-link" style="display: flex; align-items: center;">
       <img src="{{ asset('adminlte/dist/img/SiwaLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-rectangle" style="color: white;">
       <span class="brand-text" style="color: white; font-family: 'Righteous', sans-serif; font-size: 25px; margin-left: 5px;">SiWA</span>

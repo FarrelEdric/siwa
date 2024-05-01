@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nama_user', 100);
             $table->string('username', 100);
             $table->string('password', 100);
+            $table->timestamps();
         });
     }
 
