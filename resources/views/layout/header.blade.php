@@ -8,7 +8,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
+      <h1 class="ml-72 text-xl font-main">{{$i[$num]}} {{date('d F Y',strtotime(now()))}}</h1>
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
