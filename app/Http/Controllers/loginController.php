@@ -16,23 +16,30 @@ class LoginController extends Controller
     }
     public function proses_login(Request $request)
     {
-        // set validasi
-
-
-
-        // dapatkan kredensial dari permintaan
-        if (Auth::attempt($request->validate([
+        $request->validate([
             'username' => 'required',
             'password' => 'required'
-        ]))) {
-            return redirect(url('surat'));
+        ]);
+        
+        $credential = $request->only('username', 'password');
+        if(Auth::attempt($credential)) {
+            // $user = Auth::user();
+
+            // if() {
+
+            // }
+            return redirect()->intended('/penduduk');
         }
 
-
-        // jika autentikasi gagal
-
-
         // jika autentikasi berhasil
-        return url('/login');
+        return redirect('/');
+    }
+
+    public function logout(Request $request) 
+    {
+        $request->session()->flush();
+
+        Auth::logout();
+        return redirect('/');
     }
 }
