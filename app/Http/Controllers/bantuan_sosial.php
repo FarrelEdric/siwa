@@ -14,12 +14,12 @@ class bantuan_sosial extends Controller
     public function index()
     {
         $breadcrumb = (object)[
-            'title' => 'Daftar Level',
-            'list' => ['Home', 'Level']
+            'title' => 'Daftar keuangan',
+            'list' => ['Home', 'Keuangan']
         ];
 
         $page = (object)[
-            'title' => 'Daftar Level yang ada'
+            'title' => 'Daftar Keuangan yang ada'
         ];
 
         $activeMenu = 'bantuan_sosial';
