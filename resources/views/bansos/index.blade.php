@@ -1,24 +1,30 @@
 @extends('layout.template')
 
 @section('content')
-<div class="container">
-    <h1>Edit Data keuangan</h1>
-    <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
-        <thead>
-            <tr>
-                <th>id_keuagan</th>
-                <th>no kk</th>
-                <th>jenis_iuran</th>
-                <th>jumlah_iurans</th>
-    
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
-</div>
-
-
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-outline card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Edit Data Bansos</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
+                    <thead>
+                        <tr>
+                            <th>ID Keuangan</th>
+                            <th>No KK</th>
+                            <th>Jenis Iuran</th>
+                            <th>Jumlah Iuran</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
+
 @push('css')
 @endpush
 

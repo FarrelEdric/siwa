@@ -1,23 +1,40 @@
 @extends('layout.template')
 
 @section('content')
-<div class="container">
-    <h1>Edit Data surat</h1>
-    <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>ID PENDUDUK</th>
-                <th>Tanggal SURAT</th>
-                <th>tujuan</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
-</div>
-
-
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-outline card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Edit Data Surat</h3>
+                <div class="card-tools">
+                    <a class="btn btn-sm btn-primary mt-1" href="{{ url('surat/create') }}">Tambah</a>
+                </div>
+            </div>
+            <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
+                <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID Penduduk</th>
+                            <th>Tanggal Surat</th>
+                            <th>Tujuan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
 @endsection
+
 @push('css')
 @endpush
 
