@@ -39,11 +39,10 @@ class surat extends Controller
         return DataTables::of($levels)
             ->addIndexColumn() // Menambahkan kolom index / no urut (default nmaa kolom: DT_RowINdex)
             ->addColumn('aksi', function ($level) {
-                $btn = '<a href="' . url('/level/' . $level->level_id) . '" class="btn btn-info btn-sm">Detail</a>';
-                $btn .= '<a href="' . url('/level/' . $level->level_id . '/edit') . '" class="btn btn-warning btn-sm">Edit</a> ';
+                $btn = '<a href="' . url('/level/' . $level->level_id) . '" class="btn btn-primary" style="width: 40px; height: 40px; margin-right: 5px;"><i class="fas fa-eye"></i></a> ';
+                $btn .= '<a href="' . url('/level/' . $level->level_id . '/edit') . '" class="btn btn-warning" style="width: 40px; height: 40px; margin-right: 5px;"><i class="fas fa-edit"></i></a> ';
                 $btn .= '<form class="d-inline-block" method="POST" action="' . url('/level/' . $level->level_id) . '">' . csrf_field() . method_field('DELETE')
-                    . '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah Anda yakit menghapus data 
-                ini?\');">Hapus</button></form>';
+                    . '<button type="submit" class="btn btn-danger" style="width: 40px; height: 40px;" onclick="return confirm(\'Apakah Anda Yakin Menghapus Data Ini ? \');"><i class="fas fa-trash-alt"></i></button></form>';
                 return $btn;
             })
 
@@ -55,7 +54,20 @@ class surat extends Controller
      */
     public function create()
     {
-        //
+        $breadcrumb = (object)[
+            'title' => 'Tambah Surat',
+            'list' => ['Home', 'Surat', 'Tambah']
+        ];
+
+        $page = (object)[
+            'title' => 'Tambah surat baru'
+        ];
+
+        $activeMenu = 'surat';
+
+        // Jika diperlukan, Anda dapat menambahkan logika tambahan di sini, seperti memuat data yang diperlukan dari model lain.
+
+        return view('surat.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
     }
 
     /**
@@ -63,7 +75,26 @@ class surat extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input yang diterima dari formulir
+        $request->validate([
+            'id_penduduk' => 'required|string', // Sesuaikan dengan aturan validasi yang sesuai dengan model
+            'tgl_surat' => 'required|date',
+            'tujuan' => 'required|string',
+            // Tambahkan aturan validasi lain sesuai kebutuhan
+        ]);
+
+        // Buat surat baru berdasarkan data yang diterima dari formulir
+        $surat = new suratModel();
+        $surat->id_penduduk = $request->id_penduduk;
+        $surat->tgl_surat = $request->tgl_surat;
+        $surat->tujuan = $request->tujuan;
+        // Atur atribut lainnya sesuai kebutuhan
+
+        // Simpan surat baru ke dalam database
+        $surat->save();
+
+        // Redirect pengguna ke halaman yang sesuai dengan pesan sukses
+        return redirect('/surat')->with('success', 'Surat berhasil disimpan');
     }
 
     /**
