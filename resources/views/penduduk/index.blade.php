@@ -1,28 +1,35 @@
 @extends('layout.template')
 
 @section('content')
-<div class="overflow-auto container">
-    <h1>Edit Data penduduk</h1>
-    <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>no_kk</th>
-                <th>nik_penduduk</th>
-                <th>nama_penduduk</th>
-                <th>kk_pendudukk</th>   
-                <th>pekerjaan_penduduk</th>               
-                <th>status_penduduk</th>
-                <th>tgl_lahir_penduduk</th>
-                <th>no_tlp_penduduk</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
-</div>
-
-
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-outline card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Edit Data Penduduk</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>No KK</th>
+                            <th>NIK Penduduk</th>
+                            <th>Nama Penduduk</th>
+                            <th>KK Penduduk</th>   
+                            <th>Pekerjaan Penduduk</th>               
+                            <th>Status Penduduk</th>
+                            <th>Tanggal Lahir Penduduk</th>
+                            <th>No Telepon Penduduk</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
+
 @push('css')
 @endpush
 
