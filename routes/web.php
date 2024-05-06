@@ -45,3 +45,19 @@ Route::post('penduduk/list', [penduduk::class, 'list']);
 // route bansos
 Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
 Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
+
+
+Route::group(['middleware' => ['auth'], function(){
+        // route keuangan
+    Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
+    Route::post('keuangan/list', [keuangan::class, 'list']);
+
+    // route penduduk
+    Route::get('penduduk', [penduduk::class, 'index'])->name('penduduk');
+    Route::post('penduduk/list', [penduduk::class, 'list']);
+
+    // route bansos
+    Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
+    Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
+});
+

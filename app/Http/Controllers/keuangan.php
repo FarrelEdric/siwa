@@ -14,12 +14,12 @@ class keuangan extends Controller
     public function index()
     {
         $breadcrumb = (object)[
-            'title' => 'Daftar Level',
-            'list' => ['Home', 'Level']
+            'title' => 'Daftar Keuangan',
+            'list' => ['Home', 'Keuangan']
         ];
 
         $page = (object)[
-            'title' => 'Daftar Level yang ada'
+            'title' => 'Daftar Keuangan yang ada'
         ];
 
         $activeMenu = 'keuangan';

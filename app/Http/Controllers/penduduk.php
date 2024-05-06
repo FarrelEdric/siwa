@@ -15,12 +15,12 @@ class penduduk extends Controller
     public function index()
     {
         $breadcrumb = (object)[
-            'title' => 'Daftar Level',
-            'list' => ['Home', 'Level']
+            'title' => 'Daftar Penduduk',
+            'list' => ['Home', 'Penduduk']
         ];
 
         $page = (object)[
-            'title' => 'Daftar Level yang ada'
+            'title' => 'Daftar Penduduk yang ada'
         ];
 
         $activeMenu = 'penduduk';

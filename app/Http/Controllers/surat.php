@@ -14,12 +14,12 @@ class surat extends Controller
     public function index()
     {
         $breadcrumb = (object)[
-            'title' => 'Daftar Level',
-            'list' => ['Home', 'Level']
+            'title' => 'Daftar Surat',
+            'list' => ['Home', 'surat']
         ];
 
         $page = (object)[
-            'title' => 'Daftar Level yang ada'
+            'title' => 'Daftar surat yang ada'
         ];
 
         $activeMenu = 'surat';
@@ -39,9 +39,9 @@ class surat extends Controller
         return DataTables::of($levels)
             ->addIndexColumn() // Menambahkan kolom index / no urut (default nmaa kolom: DT_RowINdex)
             ->addColumn('aksi', function ($level) {
-                $btn = '<a href="' . url('/level/' . $level->level_id) . '" class="btn btn-primary" style="width: 40px; height: 40px; margin-right: 5px;"><i class="fas fa-eye"></i></a> ';
-                $btn .= '<a href="' . url('/level/' . $level->level_id . '/edit') . '" class="btn btn-warning" style="width: 40px; height: 40px; margin-right: 5px;"><i class="fas fa-edit"></i></a> ';
-                $btn .= '<form class="d-inline-block" method="POST" action="' . url('/level/' . $level->level_id) . '">' . csrf_field() . method_field('DELETE')
+                $btn = '<a href="' . url('/surat/' . $level->id_surat) . '" class="btn btn-primary" style="width: 40px; height: 40px; margin-right: 5px;"><i class="fas fa-eye"></i></a> ';
+                $btn .= '<a href="' . url('/surat/' . $level->id_surat . '/edit') . '" class="btn btn-warning" style="width: 40px; height: 40px; margin-right: 5px;"><i class="fas fa-edit"></i></a> ';
+                $btn .= '<form class="d-inline-block" method="POST" action="' . url('/surat/' . $level->id_surat) . '">' . csrf_field() . method_field('DELETE')
                     . '<button type="submit" class="btn btn-danger" style="width: 40px; height: 40px;" onclick="return confirm(\'Apakah Anda Yakin Menghapus Data Ini ? \');"><i class="fas fa-trash-alt"></i></button></form>';
                 return $btn;
             })
@@ -102,9 +102,20 @@ class surat extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
+        $penduduk = suratModel::with(['penduduk'])->find($id);
 
+        $breadcrumb = (object)[
+            'title' => 'Detail Penduduk',
+            'list' => ['Home', 'Penduduk', 'Detail']
+        ];
+
+        $page = (object)[
+            'title' => 'Detail Penduduk'
+        ];
+
+        $activeMenu = 'penduduk';
+        return view('surat.show', ['breadcrumb' => $breadcrumb, 'page' => $page, 'surat' => $penduduk, 'activeMenu' => $activeMenu]);
+    }
     /**
      * Show the form for editing the specified resource.
      */
@@ -127,5 +138,7 @@ class surat extends Controller
     public function destroy(string $id)
     {
         //
+        $surat = suratModel::findOrFail($id)->delete();
+        return redirect('/surat');
     }
 }
