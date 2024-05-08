@@ -47,7 +47,11 @@ Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
 Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
 
 
+
+
+
 Route::group(['middleware' => ['auth'], function(){
+
         // route keuangan
     Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
     Route::post('keuangan/list', [keuangan::class, 'list']);
