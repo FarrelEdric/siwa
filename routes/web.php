@@ -39,24 +39,6 @@ Route::group(['middleware' => ['auth']
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ], function(){
         // route keuangan
     Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
