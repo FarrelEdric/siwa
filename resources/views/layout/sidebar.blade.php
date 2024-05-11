@@ -73,7 +73,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="./index.html" class="nav-link" style="color: white;">
+            <a href="./kegiatan" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Kegiatan Warga</p>
             </a>
