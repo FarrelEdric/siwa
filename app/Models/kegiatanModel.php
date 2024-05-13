@@ -14,13 +14,13 @@ class kegiatanModel extends Model
 
     protected $primaryKey = "id_kegiatan";
 
-    protected $fillalble = [
+    protected $fillable = [
         'id_user',
         'jenis_kegiatan',
         'tgl_kegitan',
         'lokasi'
-
     ];
+    public $timestamps = false;
     public function  user(): BelongsTo
     {
         return $this->belongsTo(userModel::class, 'id_user');

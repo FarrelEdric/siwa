@@ -20,26 +20,32 @@ class LoginController extends Controller
             'username' => 'required',
             'password' => 'required'
         ]);
-        
+
         $credential = $request->only('username', 'password');
-        if(Auth::attempt($credential)) {
+        if (Auth::attempt($credential)) {
             // $user = Auth::user();
 
             // if() {
 
             // }
-            return redirect()->intended('/penduduk');
+            $user = Auth::user();
+            if ($user->isAdmin()) {
+                return redirect()->intended('keuangan');
+            }
+            return redirect()->intended('/dashboard');
         }
 
         // jika autentikasi berhasil
         return redirect('/');
     }
 
-    public function logout(Request $request) 
+    public function logout(Request $request)
     {
-        $request->session()->flush();
-
         Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
         return redirect('/');
     }
 }
