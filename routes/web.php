@@ -9,6 +9,7 @@ use App\Http\Controllers\register;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\penduduk;
 use App\Http\Controllers\kegiatan;
+use App\Http\Controllers\dashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -90,9 +91,9 @@ Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
 
 
 
-Route::group(['middleware' => ['auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
 
-        // route keuangan
+    // route keuangan
     Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
     Route::post('keuangan/list', [keuangan::class, 'list']);
 
@@ -103,6 +104,8 @@ Route::group(['middleware' => ['auth'], function(){
     // route bansos
     Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
     Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
-}]);
 
-
+    //PENDUDUK
+    Route::get('dashboard', [dashboardController::class, 'index'])->name('dashboard');
+    
+});

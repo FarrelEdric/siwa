@@ -3,33 +3,17 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <div class="card card-outline card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Daftar Berita Kegiatan Warga</h3>
-                <div class="card-tools">
-                    <a class="btn btn-sm btn-primary mt-1" href="{{ url('kegiatan/create') }}">Tambah</a>
-                </div>
-            </div>
-            <div class="card-body">
-                @if (session('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                @endif
-                @if (session('error'))
-                    <div class="alert alert-danger">{{ session('error') }}</div>
-                @endif
-                <table class="table table-bordered table-striped table-hover table-sm" id="table_kegiatan">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Jenis Kegiatan</th>
-                            <th>Tanggal Kegiatan</th>
-                            <th>Lokasi</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
+       @foreach ($data as $item)
+       <div class="bg-white rounded d-flex gap-3 w-100 p-3 mb-3">
+        <img  style="width:300px"  src="{{asset('images/'.$item->image)}}" alt="">
+       <div>
+        <h1 style="font-size:24px;" class="font-weight-bold">{{$item->jenis_kegiatan}}</h1>
+        <h2 style="font-size:24px;" class="font-weight-bold">{{$item->tgl_kegiatan}}</h2>
+        <h2 style="font-size:16px;" class="">{{$item->deskripsi}}</h2>
+       </div>
+
+    </div>
+       @endforeach
     </div>
     <!-- /.container-fluid -->
 </section>
@@ -38,49 +22,3 @@
 @push('css')
 @endpush
 
-@push('js')
-    <script>
-        $(document).ready(function() {
-            var dataKegiatan = $('#table_kegiatan').DataTable({
-                serverSide: true, // Menggunakan server-side processing
-                ajax: {
-                    "url": "{{ url('/kegiatan/list') }}",
-                    "dataType": "json",
-                    "type": "POST"
-                },
-                columns: [
-                    {
-                        data: "DT_RowIndex", // Nomor urut dari laravel datatable addIndexColumn()
-                        className: "text-center",
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: "jenis_kegiatan",
-                        className: "",
-                        orderable: true,
-                        searchable: true
-                    },
-                    {
-                        data: "tgl_kegiatan",
-                        className: "",
-                        orderable: true,
-                        searchable: true
-                    },
-                    {
-                        data: "lokasi",
-                        className: "",
-                        orderable: true,
-                        searchable: true
-                    },
-                    {
-                        data: "aksi",
-                        className: "",
-                        orderable: false,
-                        searchable: false
-                    }
-                ]
-            });
-        });
-    </script>
-@endpush

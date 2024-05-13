@@ -23,7 +23,9 @@ class kegiatan extends Controller
         ];
 
         $activeMenu = 'kegiatan';
-        return view('kegiatan.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
+
+        $model  = kegiatanModel::all();
+        return view('kegiatan.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'data' => $model]);
     }
 
 

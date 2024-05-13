@@ -43,7 +43,7 @@
   <aside class="main-sidebar sidebar-dark-yellow elevation-4" style="background-color: #1D3752;">
     <!-- Brand Logo -->
 
-    <a href="{{ url('/') }}" class="brand-link" style="display: flex; align-items: center;">
+    <a href="{{ url('/dashboard') }}" class="brand-link" style="display: flex; align-items: center;">
       <img src="{{ asset('adminlte/dist/img/SiwaLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-rectangle" style="color: white;">
       <span class="brand-text" style="color: white; font-family: 'Righteous', sans-serif; font-size: 25px; margin-left: 5px;">SiWA</span>
     </a>

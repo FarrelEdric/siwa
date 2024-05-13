@@ -3,7 +3,7 @@
   <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
       <li class="nav-item">
-        <a href="{{ url('/') }}" class="nav-link {{ ($activeMenu == 'dashboard') ? 'active' : '' }}" style="color: white;">
+        <a href="{{ url('/dashboard') }}" class="nav-link {{ ($activeMenu == 'dashboard') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-home"></i>
           <p>Dashboard</p>
         </a>
@@ -93,7 +93,7 @@
         </ul>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item  {{Auth::user()->isAdmin() ? '':'d-none'}}" >
         <a href="#" class="nav-link " style="color: white;">
           <i class="nav-icon fas fa-list-ul"></i>
           <p>
@@ -117,7 +117,7 @@
         </ul>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item {{Auth::user()->isAdmin() ? '':'d-none'}}" >
         <a href="#" class="nav-link " style="color: white;">
           <i class="nav-icon fas fa-hands-helping"></i>
           <p>
@@ -147,13 +147,19 @@
         </ul>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item {{Auth::user()->isAdmin() ? '':'d-none'}}">
         <a href="{{ url('/user') }}" class="nav-link {{ ($activeMenu == 'user') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon far fa-user"></i>
           <p>Data User</p>
         </a>
       </li>
-
+      <!-- Tombol Logout -->
+      <li class="nav-item">
+        <a href="{{ url('/logout') }}" class="nav-link" style="color: white;">
+          <i class="nav-icon fas fa-sign-out-alt"></i>
+          <p>Logout</p>
+        </a>
+      </li>
     </ul>
   </nav>
 </div>
