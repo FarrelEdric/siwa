@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <style>
     body {
@@ -12,7 +13,8 @@
 }
 
 .container {
- 
+    /* background-color: #0056b3; */
+    /* color: yellow; */
     width: 400px;
     margin: 0 auto;
     text-align: center;
@@ -65,12 +67,15 @@ button:hover {
 }
 
 </style>
-<body>
+<body style="background-color: #1d3752">
     <div class="container">
-        <h1>SELAMAT DATANG DI</h1>
-        <h1>SISTEM INFORMASI</h1>
-        <h1>WARGA DESA</h1>
-        <div class="login-form">
+        {{-- <i class="bi bi-people-fill"></i> --}}
+        <div class="text-warning" style="margin-top:100px;">
+            <h1 class="fw-bold">SELAMAT DATANG DI</h1>
+            <h1 class="fw-bold">SISTEM INFORMASI</h1>
+            <h1 class="fw-bold">WARGA DESA</h1>
+        </div>
+        <div class="login-form" style="background-color: #D9D9D9;  margin-top:100px;">
             <h2>SILAHKAN LOGIN</h2>
             <form action="{{route('proses_login')}}" method="POST">
                 @csrf

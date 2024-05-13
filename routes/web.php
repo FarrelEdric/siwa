@@ -73,3 +73,36 @@ Route::get('/register', [register::class, 'register'])->name('register');
 Route::post('proses_login', [loginController::class, 'proses_login'])->name('proses_login');
 Route::get('logout', [loginController::class, 'logout'])->name('logout');
 Route::post('proses_register', [register::class, 'proses_register'])->name('proses_register');
+
+// route keuangan
+Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
+Route::post('keuangan/list', [keuangan::class, 'list']);
+
+// route penduduk
+Route::get('penduduk', [penduduk::class, 'index'])->name('penduduk');
+Route::post('penduduk/list', [penduduk::class, 'list']);
+
+// route bansos
+Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
+Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
+
+
+
+
+
+Route::group(['middleware' => ['auth'], function(){
+
+        // route keuangan
+    Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
+    Route::post('keuangan/list', [keuangan::class, 'list']);
+
+    // route penduduk
+    Route::get('penduduk', [penduduk::class, 'index'])->name('penduduk');
+    Route::post('penduduk/list', [penduduk::class, 'list']);
+
+    // route bansos
+    Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
+    Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
+}]);
+
+
