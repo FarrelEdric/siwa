@@ -44,7 +44,7 @@
             var dataLevel = $('#table_level').DataTable({
             serverSide: true, // serverSide: true, jika ingin menggunakan server side processing
             ajax: {
-                "url": "{{ url('/list') }}",
+                "url": "{{ url('/surat/list') }}",
                 "dataType": "json",
                 "type": "POST"
             },
