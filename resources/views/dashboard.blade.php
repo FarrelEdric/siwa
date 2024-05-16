@@ -59,7 +59,7 @@ mengucapkan Selamar Raya Idul Fitri
     <h2>Agenda Terbaru</h2>
     <ul>
         <li><p>Senin, 20 Maret 2023 - <span>Rapat Pengelola Keuangan</span></p></li>
-        <li><p>Senin, 20 Maret 2023 - <span>Rapat Pengelola Keuangan</span></p></li>
+        <li><p>Senin, 20 Maret 2023 - <span>Rapat Sosialisasi Bank Sampah</span></p></li>
     </ul>
 
 </div>
