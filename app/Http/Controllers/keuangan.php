@@ -29,13 +29,13 @@ class keuangan extends Controller
 
     public function list(Request $request)
     {
-        $levels = keuanganModel::all();
+        $keuangans = keuanganModel::all();
 
         // 
-        return DataTables::of($levels)
+        return DataTables::of($keuangans)
             ->addIndexColumn() // Menambahkan kolom index / no urut (default nmaa kolom: DT_RowINdex)
-            ->addColumn('aksi', function ($level) {
-                $btn = '<a   href="' . url('/level/' . $level->id_level) . '" class="btn btn-primary" >Detail</a> ';
+            ->addColumn('aksi', function ($keuangan) {
+                $btn = '<a   href="' . url('/keuangan/' . $keuangan->id_keuangan) . '" class="btn btn-primary" >Detail</a> ';
                 return $btn;
             })
 
@@ -65,7 +65,19 @@ class keuangan extends Controller
      */
     public function show(string $id)
     {
-        // 
+        $keuangan = keuanganModel::findOrFail($id);
+
+        $breadcrumb = (object)[
+            'title' => 'Detail keuangan',
+            'list' => ['Home', 'keuangan', 'Detail']
+        ];
+
+        $page = (object)[
+            'title' => 'Detail keuangan'
+        ];
+
+        $activeMenu = 'keuangan';
+        return view('keuangan.show', ['breadcrumb' => $breadcrumb, 'page' => $page, 'keuangan' => $keuangan, 'activeMenu' => $activeMenu]);
     }
 
     /**

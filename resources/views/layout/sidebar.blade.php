@@ -79,7 +79,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
+            <a href="{{url('/sosialisasi')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Sosialiasi</p>
             </a>
