@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,7 +15,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_penduduk')->index();
             $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduk');
             $table->date('tgl_surat');
-            $table->string('tujuan',100);
+            $table->string('tujuan', 100);
+            $table->enum('status', ['Diterima', 'Menunggu', 'Ditolak'])->default('Menunggu');
 
         });
     }

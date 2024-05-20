@@ -39,12 +39,11 @@ Route::group(['prefix' => 'kegiatan'], function () {
     Route::get('/{id}', [kegiatan::class, 'show']);
     Route::get('/{id}/edit', [kegiatan::class, 'edit']);
     Route::put('/{id}', [kegiatan::class, 'update']);
-    Route::delete('/{id}', [kegiatan::class, 'destroy']);  
+    Route::delete('/{id}', [kegiatan::class, 'destroy']);
 });
 // route sosialisasi
 Route::group(['prefix' => 'sosialisasi'], function () {
     Route::get('/', [kegiatan::class, 'sosialisasi']);
-
 });
 
 // Group route for keuangan
@@ -71,6 +70,7 @@ Route::group(['prefix' => 'surat'], function () {
     Route::post('/list', [surat::class, 'list']);
     Route::get('/create', [surat::class, 'create']);
     Route::post('/', [surat::class, 'store']);
+    Route::get('/download/{id}', [surat::class, 'printPDF']);
 });
 
 // route login
