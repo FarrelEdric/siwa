@@ -85,7 +85,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
+            <a href="{{url('/organisasi')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Struktur Organisasi</p>
             </a>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_penduduk');
             $table->unsignedBigInteger('no_kk')->index();
             $table->foreign('no_kk')->references('no_kk')->on('kk_penduduk');
-            $table->integer('nik_penduduk');
+            $table->string('nik_penduduk',100);
             $table->string('nama_penduduk',100);
             $table->integer('kk_penduduk');
             $table->string('pekerjaan_penduduk',100);

@@ -24,7 +24,7 @@
 }
 </style>
 @endpush
-
+ 
 <h1 class="text-center">Selamat Datang Warga RW 06</h1>
 
 <h2>Berita Terbaru</h2>
