@@ -39,7 +39,12 @@ Route::group(['prefix' => 'kegiatan'], function () {
     Route::get('/{id}', [kegiatan::class, 'show']);
     Route::get('/{id}/edit', [kegiatan::class, 'edit']);
     Route::put('/{id}', [kegiatan::class, 'update']);
-    Route::delete('/{id}', [kegiatan::class, 'destroy']);
+    Route::delete('/{id}', [kegiatan::class, 'destroy']);  
+});
+// route sosialisasi
+Route::group(['prefix' => 'sosialisasi'], function () {
+    Route::get('/', [kegiatan::class, 'sosialisasi']);
+
 });
 
 // Group route for keuangan
@@ -98,7 +103,7 @@ Route::group(['middleware' => 'auth'], function () {
     // route keuangan
     Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
     Route::post('keuangan/list', [keuangan::class, 'list']);
-    Route::get('keuangan/{id}', [keuangan::class, 'list']);
+    Route::get('keuangan/{id}', [keuangan::class, 'show']);
 
     // route penduduk
     Route::get('penduduk', [penduduk::class, 'index'])->name('penduduk');

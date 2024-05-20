@@ -16,30 +16,20 @@
                     </div>
                 @else
                     <table class="table table-bordered table-striped table-hover table-sm">
+
                         <tr>
-                            <th>Nama </th>
-                            <td>{{ $keuangan->nama }}</td>
+                            <th>pemasukan</th>
+                            <td>{{ $keuangan->pemasukan_iuran }}</td>
                         </tr>
                         <tr>
-                            <th>Jabatan</th>
-                            <td>{{ $keuangan->keuangan }}</td>
+                            <th>pengeluaran</th>
+                            <td>{{ $keuangan->pengeluaran_iuran }}</td>
                         </tr>
                         <tr>
-                            <th>Masa Jabatan</th>
-                            <td>{{ $keuangan->masaJabatan }}</td>
+                            <th>total</th>
+                            <td>{{ $keuangan->total }}</td>
                         </tr>
                         <tr>
-                            <th>no telepon</th>
-                            <td>{{ $keuangan->no_tlp }}</td>
-                        </tr>
-                        <tr>
-                            <th>alamat</th>
-                            <td>{{ $keuangan->alamat }}</td>
-                        </tr>
-                        <tr>
-                            <th>email</th>
-                            <td>{{ $keuangan->email }}</td>
-                        </tr>
                         <tr>
                     </table>
                 @endempty

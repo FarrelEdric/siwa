@@ -19,13 +19,30 @@ class kegiatan extends Controller
         ];
 
         $page = (object)[
-            'title' => 'Daftar kegiatan yang ada'
+            'title' => 'Daftar sosialisasi yang ada'
         ];
 
         $activeMenu = 'kegiatan';
 
-        $model  = kegiatanModel::all();
+        $model  = kegiatanModel::where('jenis_berita', '=', 'berita')->get();
         return view('kegiatan.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'data' => $model]);
+    }
+
+    public function sosialisasi()
+    {
+        $breadcrumb = (object)[
+            'title' => 'Berita Kegiatan Warga',
+            'list' => ['Home', 'Sosialisasi']
+        ];
+
+        $page = (object)[
+            'title' => 'Daftar sosialisasi yang ada'
+        ];
+
+        $activeMenu = 'kegiatan';
+
+        $model  = kegiatanModel::where('jenis_berita', '=', 'sosialisasi')->get();
+        return view('kegiatan.sosialisasi', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'data' => $model]);
     }
 
 

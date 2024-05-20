@@ -15,28 +15,12 @@
                         Data yang Anda cari tidak ditemukan.
                     </div>
                 @else
-                    <table class="table table-bordered table-striped table-hover table-sm">
-                        <tr>
-                            <th>ID Kegiatan</th>
-                            <td>{{ $kegiatan->id_kegiatan }}</td>
-                        </tr>
-                        <tr>
-                            <th>ID User</th>
-                            <td>{{ $kegiatan->id_user }}</td>
-                        </tr>
-                        <tr>
-                            <th>Jenis Kegiatan</th>
-                            <td>{{ $kegiatan->jenis_kegiatan }}</td>
-                        </tr>
-                        <tr>
-                            <th>Tanggal Kegiatan</th>
-                            <td>{{ $kegiatan->tgl_kegiatan }}</td>
-                        </tr>
-                        <tr>
-                            <th>Lokasi</th>
-                            <td>{{ $kegiatan->lokasi }}</td>
-                        </tr>
-                    </table>
+              <div class="">
+                <img src="{{$kegiatan->image}}" alt="">
+                <h1>{{$kegiatan->jenis_kegiatan}}</h1>
+                <h2>{{$kegiatan->tgl_kegiatan}}</h2>
+   <p>{{$kegiatan->deskripsi}}</p>
+              </div>
                 @endempty
                 <a href="{{ url('kegiatan') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
             </div>

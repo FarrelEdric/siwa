@@ -24,14 +24,14 @@ class keuangan_seed extends Seeder
 
             [
                 'id_keuangan' => '2',
-                'date' => date('Y-m-d', strtotime('2024-01-01')),
+                'date' => date('Y-m-d', strtotime('2024-02-01')),
                 'pemasukan_iuran' => '3600000',
                 'pengeluaran_iuran' => '880000',
                 'total' => '2800000'
             ],
             [
                 'id_keuangan' => '3',
-                'date' => date('Y-m-d', strtotime('2024-01-01')),
+                'date' => date('Y-m-d', strtotime('2024-03-01')),
                 'pemasukan_iuran' => '3680000',
                 'pengeluaran_iuran' => '880000',
                 'total' => '2180000'
