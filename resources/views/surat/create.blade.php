@@ -10,23 +10,25 @@
             <form method="POST" action="{{ url('surat') }}" class="form-horizontal">
                 @csrf
                 <div class="form-group row">
-                    <label class="col-1 control-label col-form-label">ID Penduduk</label>
+                    
                     <div class="col-11">
-                        <input type="text" class="form-control" id="id_penduduk" name="id_penduduk" value="{{ old('id_penduduk') }}" required>
+                        <input type="hidden" class="form-control" id="id_penduduk" name="id_penduduk" value="{{ Auth::user()->id_penduduk }}" required>
                         @error('id_penduduk')
                             <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                 </div>
+
                 <div class="form-group row">
-                    <label class="col-1 control-label col-form-label">Tanggal Surat</label>
+                    
                     <div class="col-11">
-                        <input type="text" class="form-control" id="tgl_surat" name="tgl_surat" value="{{ old('tgl_surat') }}" required>
-                        @error('tgl_surat')
+                        <input type="hidden" class="form-control" id="tgl_surat" name="tgl_surat" value="{{ now()}}" required>
+                        @error('id_penduduk')
                             <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                 </div>
+              
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Tujuan</label>
                     <div class="col-11">

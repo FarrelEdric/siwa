@@ -17,13 +17,14 @@
                 @if (session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
-                <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
+                <table style="overflow-x: scroll" class="table table-bordered text-center table-hover table-sm" id="table_level">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>ID Penduduk</th>
                             <th>Tanggal Surat</th>
                             <th>Tujuan</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -70,6 +71,12 @@
                     className: "",
                     orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
                     searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                    },
+                    {
+                    data: "status_pengajuan", 
+                    className: "",
+                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
                     },                   
                     {
                     data: "aksi", 
@@ -85,4 +92,4 @@
             })
         });
     </script>
-@endpush 
+@endpush
