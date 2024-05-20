@@ -29,7 +29,8 @@ class DatabaseSeeder extends Seeder
             surat_seed::class,
             bantuan_sosial_seed::class,
             user_seed::class,
-            kegiatan_seed::class
+            kegiatan_seed::class,
+            organisasiSeeder::class
         ]);
     }
 }

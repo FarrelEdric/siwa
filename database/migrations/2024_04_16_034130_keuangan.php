@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('keuangan', function (Blueprint $table) {
             $table->id('id_keuangan');
-            $table->string('jenis_iuran',100);
-            $table->string('jumlah_iuran',100);
+            $table->date('date');
+            $table->string('pemasukan_iuran', 100);
+            $table->string('pengeluaran_iuran', 100);
+            $table->string('total', 100);
             $table->timestamps();
         });
     }

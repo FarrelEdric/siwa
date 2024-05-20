@@ -73,7 +73,7 @@ button:hover {
                @csrf
                 <div class="input-group">
                     <label for="id_produk">ID Penduduk:</label>
-                    <input type="text" id="id_penduduk" name="id_penduduk" placeholder="Masukkan ID Produk">
+                    <input type="text" id="id_penduduk" name="id_penduduk" placeholder="Masukkan ID Penduduk">
                 </div>
                 <div class="input-group">
                     <label for="level_id">Level ID:</label>

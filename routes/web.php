@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\organisasi;
 use App\Http\Controllers\surat;
 use App\Http\Controllers\bantuan_sosial;
 use App\Http\Controllers\penduduk_keluar;
@@ -10,6 +11,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\penduduk;
 use App\Http\Controllers\kegiatan;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\organisasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,6 +98,7 @@ Route::group(['middleware' => 'auth'], function () {
     // route keuangan
     Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
     Route::post('keuangan/list', [keuangan::class, 'list']);
+    Route::get('keuangan/{id}', [keuangan::class, 'list']);
 
     // route penduduk
     Route::get('penduduk', [penduduk::class, 'index'])->name('penduduk');
@@ -107,5 +110,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     //PENDUDUK
     Route::get('dashboard', [dashboardController::class, 'index'])->name('dashboard');
-    
+
+
+    //struktur organisasi
+    Route::get('organisasi', [organisasiController::class, 'index'])->name('organisasi');
+    Route::post('organisasi/list', [organisasiController::class, 'list']);
+    Route::get('organisasi/{id}', [organisasiController::class, 'show']);
 });
