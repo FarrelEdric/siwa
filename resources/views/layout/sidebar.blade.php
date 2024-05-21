@@ -1,16 +1,23 @@
-<div class="sidebar">
+<div class="sidebar ">
+  <div class="d-flex align-items-center mt-3">
+    <a href="{{ url('/dashboard') }}" class="brand-link p-0" style="display: flex; align-items: center;">
+      {{-- <img src="{{ asset('adminlte/dist/img/SiwaLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-rectangle" > --}}
+      <span class="brand-text" style="color: #3498db; font-family: 'Righteous', sans-serif; font-size: 25px; margin-left: 5px;">SiWA</span>
+    </a>
+  </div>
+
   <!-- Sidebar Menu -->
-  <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      <li class="nav-item">
+  <nav class="mt-2 h-100">
+    <ul class="nav nav-pills nav-sidebar  h-100 flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <li class="nav-item mt-2">
         <a href="{{ url('/dashboard') }}" class="nav-link {{ ($activeMenu == 'dashboard') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-home"></i>
           <p>Dashboard</p>
         </a>
       </li>
 
-      <li class="nav-item ">
-        <a href="#" class="nav-link" style="color: white;">
+      <li class="nav-item mt-2">
+        <a href="#"  class="nav-link {{ ($activeMenu == 'surat') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon far fa-envelope"></i>
           <p>
             Persuratan
@@ -19,22 +26,17 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{url('/surat')}}" class="nav-link" style="color: white;">
+            <a href="{{Auth::user()->level_id == '1'? url('admin/surat'):url('/surat')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Kelola Persuratan</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>History Persuratan</p>
-            </a>
-          </li>
+          
         </ul>
       </li>
 
-      <li class="nav-item">
-        <a href="{{url('/keuangan')}}" class="nav-link " style="color: white;">
+      <li class="nav-item mt-2">
+        <a href="{{url('/keuangan')}}" class="nav-link {{ ($activeMenu == 'keuangan') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-coins"></i>
           <p>
             Keuangan
@@ -45,26 +47,24 @@
           <li class="nav-item">
             <a href="{{url('/keuangan')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
-              <p>Data Keuangan</p>
+              <p>Pembayaran</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a href="./index2.html" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
-              <p>Rekap Keuangan</p>
+              <p>Keuangan RT</p>
             </a>
           </li>
+         
           <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Form Iuran</p>
-            </a>
+            <a href="{{route('register')}}">Register</a>
           </li>
         </ul>
       </li>
 
-      <li class="nav-item">
-        <a href="#" class="nav-link " style="color: white;">
+      <li class="nav-item mt-2">
+        <a href="#" class="nav-link {{ ($activeMenu == 'kegiatan') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-info-circle"></i>
           <p>
             Informasi
@@ -78,22 +78,22 @@
               <p>Kegiatan Warga</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{url('/sosialisasi')}}" class="nav-link" style="color: white;">
+          <li class="nav-item mt-2">
+            <a href="{{url('/sosialisasi')}}" class="nav-link" style="color: black;">
               <i class="nav-icon fas"></i>
               <p>Sosialiasi</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('/organisasi')}}" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
+            <a href="{{url('/organisasi')}}" class="nav-link" style="color: black;">
+              <i style="color: black;" class="nav-icon fas"></i>
               <p>Struktur Organisasi</p>
             </a>
           </li>
         </ul>
       </li>
 
-      <li class="nav-item  {{Auth::user()->isAdmin() ? '':'d-none'}}" >
+      <li class="nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
         <a href="#" class="nav-link " style="color: white;">
           <i class="nav-icon fas fa-list-ul"></i>
           <p>
@@ -117,7 +117,7 @@
         </ul>
       </li>
 
-      <li class="nav-item {{Auth::user()->isAdmin() ? '':'d-none'}}" >
+      <li class="nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
         <a href="#" class="nav-link " style="color: white;">
           <i class="nav-icon fas fa-hands-helping"></i>
           <p>
@@ -153,9 +153,10 @@
           <p>Data User</p>
         </a>
       </li>
+      <hr class="bg-primary">
       <!-- Tombol Logout -->
       <li class="nav-item">
-        <a href="{{ url('/logout') }}" class="nav-link" style="color: white;">
+        <a href="{{ url('/logout') }}" class="nav-link align-self-end" style="color: white;">
           <i class="nav-icon fas fa-sign-out-alt"></i>
           <p>Logout</p>
         </a>

@@ -22,6 +22,20 @@
   @stack('css')
 </head>
 
+<style>
+  .sidebar a{
+    color: black!important;
+  }
+  .sidebar a:hover{
+    color: white!important;
+    background-color: #3498db!important;
+  }
+  .sidebar .active{
+    color: white!important;
+  background-color: #3498db!important;
+ }
+</style>
+
 
 @php($i= array ( 1 =>    'Senin',
 'Selasa',
@@ -40,14 +54,10 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-yellow elevation-4" style="background-color: #1D3752;">
+  <aside class="main-sidebar  " style="background-color: white;">
     <!-- Brand Logo -->
 
-    <a href="{{ url('/dashboard') }}" class="brand-link" style="display: flex; align-items: center;">
-      <img src="{{ asset('adminlte/dist/img/SiwaLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-rectangle" style="color: white;">
-      <span class="brand-text" style="color: white; font-family: 'Righteous', sans-serif; font-size: 25px; margin-left: 5px;">SiWA</span>
-    </a>
-
+   
     <!-- Sidebar -->
     @include('layout.sidebar')
     <!-- /.sidebar -->
@@ -57,9 +67,9 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @include('layout.breadcrumb')
-
+   
     <!-- Main content -->
-    <section class="content">
+    <section class="content p-3">
         @yield('content') 
     </section>
     <!-- /.content -->

@@ -31,6 +31,9 @@ use Illuminate\Support\Facades\Route;
 // Route::post('/kegiatan', [kegiatan::class, 'store']);
 
 // Group route for kegiatan
+
+Route::get('/login', [loginController::class, 'login'])->middleware('guest');
+Route::get('/register', [register::class, 'register'])->name('register');
 Route::group(['prefix' => 'kegiatan'], function () {
     Route::get('/', [kegiatan::class, 'index']);
     Route::post('/list', [kegiatan::class, 'list']);
@@ -74,8 +77,10 @@ Route::group(['prefix' => 'surat'], function () {
 });
 
 // route login
-Route::get('/', [loginController::class, 'login']);
-Route::get('/register', [register::class, 'register'])->name('register');
+Route::get('/', function () {
+    return view('index');
+});
+
 
 // Route::post('/register', [register::class, 'register'])->name('register');
 Route::post('proses_login', [loginController::class, 'proses_login'])->name('proses_login');

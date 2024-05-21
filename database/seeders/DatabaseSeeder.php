@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             bantuan_sosial_seed::class,
             user_seed::class,
             kegiatan_seed::class,
-            organisasiSeeder::class
+            organisasiSeeder::class,
+            KasSeeder::class
         ]);
     }
 }

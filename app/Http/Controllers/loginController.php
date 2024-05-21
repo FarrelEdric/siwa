@@ -12,7 +12,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        return  view('login');
+        return view('login');
     }
     public function proses_login(Request $request)
     {
@@ -20,6 +20,8 @@ class LoginController extends Controller
             'username' => 'required',
             'password' => 'required'
         ]);
+
+
 
         $credential = $request->only('username', 'password');
         if (Auth::attempt($credential)) {
@@ -36,7 +38,7 @@ class LoginController extends Controller
         }
 
         // jika autentikasi berhasil
-        return redirect('/');
+        return redirect()->back()->withErrors('Akun Anda tidak ada ');
     }
 
     public function logout(Request $request)
