@@ -232,7 +232,7 @@
                 <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-phone"></i>
                   <h4>Call:</h4>
-                  <p>08997084448</p>
+                  <p>08997984448</p>
                 </div>
               </div>
             </div>
@@ -262,7 +262,7 @@
             Politeknik Negri Malang <br>
               Malang<br>
               Indonesia <br><br>
-              <strong>Telepon:</strong> 08997084448<br>
+              <strong>Telepon:</strong> 08997984448<br>
               <strong>Email:</strong> fransiscusfarrel08@gmail.com<br>
             </p>
           </div>
@@ -301,7 +301,7 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="../js/main.js"></script>
 
 </body>
 
