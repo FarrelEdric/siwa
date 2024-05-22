@@ -25,9 +25,36 @@
 </style>
 @endpush
 
-<div style="background-color: #3498db;color:white;" class="w-100 rounded-2 px-3 py-5">
-    <h1 class="text-left">Selamat Datang {{Auth::user()->username}}</h1>
-    <p>Jelajahi RW 06</p>
+ 
+<h1 class="text-center">Selamat Datang Warga RW 11</h1>
+
+<h2>Berita Terbaru</h2>
+<div class="d-flex justify-content-around flex-wrap">
+        <div style="width:450px;height:112px; font-size:1px;overflow-y: scroll;" class="card rounded overflow  d-flex flex-row">
+            <img src="{{asset('images/ramadhan.png')}}" class="rounded" alt="">
+            <div class="content bg-white p-3 rounded">
+                <h1 style="font-size:15px;" class="font-weight-bold">Selamat Hari Raya Idul Fitri</h1>
+                <h1 style="font-size:15px;" class="font-weight-bold">11 April 2024</h1>
+                <p style="font-size:12px;">
+                    Segenap Warga dan Pengurus
+Rukun Warga 11 Tanjung Rejo 
+mengucapkan Selamat Hari Raya Idul Fitri
+                </p>
+            </div>
+        </div>
+        <div style="width:450px;height:112px;font-size:1px;overflow-y: scroll;" class="card rounded overflow  d-flex flex-row">
+            <img src="{{asset('images/ramadhan.png')}}" class="rounded" alt="">
+            <div class="content bg-white p-3 rounded">
+                <h1 style="font-size:15px;" class="font-weight-bold">Selamat Hari Raya Idul Adha</h1>
+                <h1 style="font-size:15px;" class="font-weight-bold">28 Mei 2024</h1>
+                <p style="font-size:12px;">
+                    Segenap Warga dan Pengurus
+Rukun Warga 11 Tanjung Rejo 
+mengucapkan Selamat Hari Raya Idul Adha
+                </p>
+            </div>
+        </div>
+
 </div>
 
 <h2 style="font-size:32px;" class="mt-5 mb-3" >Berita Terbaru</h2>
