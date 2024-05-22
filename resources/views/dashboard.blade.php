@@ -25,7 +25,7 @@
 </style>
 @endpush
  
-<h1 class="text-center">Selamat Datang Warga RW 06</h1>
+<h1 class="text-center">Selamat Datang Warga RW 11</h1>
 
 <h2>Berita Terbaru</h2>
 <div class="d-flex justify-content-around flex-wrap">
@@ -36,20 +36,20 @@
                 <h1 style="font-size:15px;" class="font-weight-bold">11 April 2024</h1>
                 <p style="font-size:12px;">
                     Segenap Warga dan Pengurus
-Rukun Warga 01 Kesatrian 
-mengucapkan Selamar Raya Idul Fitri
+Rukun Warga 11 Tanjung Rejo 
+mengucapkan Selamat Hari Raya Idul Fitri
                 </p>
             </div>
         </div>
         <div style="width:450px;height:112px;font-size:1px;overflow-y: scroll;" class="card rounded overflow  d-flex flex-row">
             <img src="{{asset('images/ramadhan.png')}}" class="rounded" alt="">
             <div class="content bg-white p-3 rounded">
-                <h1 style="font-size:15px;" class="font-weight-bold">Selamat Hari Raya Idul Fitri</h1>
-                <h1 style="font-size:15px;" class="font-weight-bold">11 April 2024</h1>
+                <h1 style="font-size:15px;" class="font-weight-bold">Selamat Hari Raya Idul Adha</h1>
+                <h1 style="font-size:15px;" class="font-weight-bold">28 Mei 2024</h1>
                 <p style="font-size:12px;">
                     Segenap Warga dan Pengurus
-Rukun Warga 01 Kesatrian 
-mengucapkan Selamar Raya Idul Fitri
+Rukun Warga 11 Tanjung Rejo 
+mengucapkan Selamat Hari Raya Idul Adha
                 </p>
             </div>
         </div>
