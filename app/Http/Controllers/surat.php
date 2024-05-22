@@ -33,7 +33,7 @@ class surat extends Controller
 
     public function list(Request $request)
     {
-        $levels = suratModel::all();
+        $levels = suratModel::with('penduduk')->get();
 
         // 
 
@@ -61,14 +61,16 @@ class surat extends Controller
                 $status = '';
                 switch ($level->status) {
                     case 'Menunggu':
-                        $status = ' <p style="color:white!important;width: 100px!important;" class="bg-warning text-center w-50 m-auto  p-2 rounded">Menunggu </p>';
+                        $status = ' <p style="color:white!important;width:150px;" class="bg-warning text-center  m-auto  p-2 rounded-3">Menunggu </p>';
                         break;
                     case 'Diterima':
-                        $status = '<p style="color:white!important;width: 100px!important;" class="bg-success text-center w-50 m-auto  p-2 rounded">Diterima </p>';
+                        $status = '<p style="color:white!important;width:150px;" class="bg-success text-center  m-auto   p-2 rounded-3">Diterima </p>';
                         break;
                     case 'Ditolak':
-                        $status = '<p style="color:white!important;width: 100px!important;" class="bg-danger text-center w-50 m-auto  p-2 rounded">Ditolak </p>';
+                        $status = '<p style="color:white!important;width:150px;" class="bg-danger text-center  m-auto  p-2 rounded-3">Ditolak </p>';
                         break;
+
+
                 }
 
                 return $status;
@@ -81,7 +83,7 @@ class surat extends Controller
     public function printPDF($id)
     {
         $surat = suratModel::findOrFail($id);
-        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('components.surat', ['surat' => $surat]);
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('component.surat', ['surat' => $surat]);
         return $pdf->download();
     }
 

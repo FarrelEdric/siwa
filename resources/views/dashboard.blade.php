@@ -24,6 +24,7 @@
 }
 </style>
 @endpush
+
  
 <h1 class="text-center">Selamat Datang Warga RW 11</h1>
 
@@ -53,23 +54,41 @@ mengucapkan Selamat Hari Raya Idul Adha
                 </p>
             </div>
         </div>
-</div>
-
-<div class="bg-white rounded w-100 p-3 mb-3">
-    <h2>Agenda Terbaru</h2>
-    <ul>
-        <li><p>Senin, 20 Maret 2023 - <span>Rapat Pengelola Keuangan</span></p></li>
-        <li><p>Senin, 20 Maret 2023 - <span>Rapat Sosialisasi Bank Sampah</span></p></li>
-    </ul>
 
 </div>
 
+<h2 style="font-size:32px;" class="mt-5 mb-3" >Berita Terbaru</h2>
+<div  class="d-flex sm-flex-wrap w-100">
+@foreach ($berita as $item)
+    <div style="width:800px; height:300px; font-size:1px;overflow-y: scroll;" class="card ml-5 rounded overflow p-3 d-flex flex-column">
+        
+            <img  width="100%"  src="{{asset('images/'.$item->image)}}" class="rounded" alt="">
+     
+        <div class="content bg-white p-3 rounded">
+            <h1 style="font-size:15px;" class="font-weight-bold">{{$item->jenis_kegiatan}}</h1>
+            <h1 style="font-size:15px;" class="font-weight-bold">{{$item->tgl_kegiatan  }}</h1>
+            <p style="font-size:12px;">
+                {{$item->deskripsi}}
+            </p>
+        </div>
+    </div>
+
+    
+    @endforeach
+</div>
+
+
+<h2 style="font-size:32px;" class="my-3" >Pengajuan Surat</h2>
 <div class="bg-white rounded w-100 p-3 ">
-    <h2>Pengajuan Surat</h2>
-    <div class="border rounded border-dark p-3">
-        <div style="width:50px;" class="p-1 rounded bg-orange d-flex justify-content-center align-items-center"><h3 style="font-size:14px;color:white;">New</h3></div>
-        <h2 style="font-size:20px" class="font-weight-bold">Hallo User Ada Informasi Permintaan Surat</h2>
-        <p style="font-size:16px;" >Surat kamu telah disetujui RT selanjutnya kamu bisa melakukan pengajuan kepada rw</p>
+    <div class=" rounded-2  p-3">
+    @foreach ($surat as $item)
+       <div class="d-flex flex-row align-items-center  gap-2 mb-2">
+        <div style="width:50px;background-color:#3498db;" class="p-1 rounded  d-flex justify-content-center align-items-center"><h3 style="font-size:14px;color:white;">New</h3></div>
+    
+        <p style="font-size:16px;" class="m-0" >Surat {{$item->tujuan}}, status {{$item->status}}</p>
+       </div>
+       <hr>
+        @endforeach
     </div>
    
 </div>
@@ -81,4 +100,4 @@ mengucapkan Selamat Hari Raya Idul Adha
 
 @push('js')
    
-@endpush 
+@endpush
