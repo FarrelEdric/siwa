@@ -5,92 +5,153 @@
 @push('css')
 <style>
   .overflow::-webkit-scrollbar {
-  width: 5px;
-}
+    width: 5px;
+  }
 
-/* Track */
-.overflow::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-.overflow::-webkit-scrollbar-thumb {
-  background: #888; 
-}
+  .overflow::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
 
-/* Handle on hover */
-.overflow::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
+  .overflow::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  .overflow::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .card-custom {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .card-custom:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-header-custom {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .card-body-custom {
+    font-size: 13px;
+    color: #555;
+  }
+
+  .news-section {
+    margin-top: 40px;
+  }
+
+  .news-item {
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #3498db;
+  }
+
+  .badge-custom {
+    background-color: #3498db;
+    color: white;
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 5px;
+  }
+
+  .surat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .surat-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .surat-container {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .container-custom {
+    max-width: 1200px;
+  }
 </style>
 @endpush
 
- 
-<h1 class="text-center">Selamat Datang Warga RW 11</h1>
+<div class="container container-custom mt-4">
+  <h1 class="text-center mb-4">Selamat Datang Warga RW 11 <br> Tanjung Rejo</h1>
 
-<h2>Berita Terbaru</h2>
-<div class="d-flex justify-content-around flex-wrap">
-        <div style="width:450px;height:112px; font-size:1px;overflow-y: scroll;" class="card rounded overflow  d-flex flex-row">
-            <img src="{{asset('images/ramadhan.png')}}" class="rounded" alt="">
-            <div class="content bg-white p-3 rounded">
-                <h1 style="font-size:15px;" class="font-weight-bold">Selamat Hari Raya Idul Fitri</h1>
-                <h1 style="font-size:15px;" class="font-weight-bold">11 April 2024</h1>
-                <p style="font-size:12px;">
-                    Segenap Warga dan Pengurus
-Rukun Warga 11 Tanjung Rejo 
-mengucapkan Selamat Hari Raya Idul Fitri
-                </p>
-            </div>
+  <h2 class="section-title">Berita Terbaru</h2>
+  <div class="row news-section">
+    <div class="col-md-6 news-item">
+      <div class="card card-custom overflow">
+        <div class="d-flex">
+          <img src="{{ asset('images/ramadhan.png') }}" class="img-fluid rounded-start" alt="Idul Fitri">
+          <div class="card-body bg-white p-3 rounded-end">
+            <h5 class="card-header-custom">Selamat Hari Raya Idul Fitri</h5>
+            <h6 class="font-weight-bold">11 April 2024</h6>
+            <p class="card-body-custom">Segenap Warga dan Pengurus Rukun Warga 11 Tanjung Rejo mengucapkan Selamat Hari Raya Idul Fitri</p>
+          </div>
         </div>
-        <div style="width:450px;height:112px;font-size:1px;overflow-y: scroll;" class="card rounded overflow  d-flex flex-row">
-            <img src="{{asset('images/ramadhan.png')}}" class="rounded" alt="">
-            <div class="content bg-white p-3 rounded">
-                <h1 style="font-size:15px;" class="font-weight-bold">Selamat Hari Raya Idul Adha</h1>
-                <h1 style="font-size:15px;" class="font-weight-bold">28 Mei 2024</h1>
-                <p style="font-size:12px;">
-                    Segenap Warga dan Pengurus
-Rukun Warga 11 Tanjung Rejo 
-mengucapkan Selamat Hari Raya Idul Adha
-                </p>
-            </div>
-        </div>
-
-</div>
-
-<h2 style="font-size:32px;" class="mt-5 mb-3" >Berita Terbaru</h2>
-<div  class="d-flex sm-flex-wrap w-100">
-@foreach ($berita as $item)
-    <div style="width:800px; height:300px; font-size:1px;overflow-y: scroll;" class="card ml-5 rounded overflow p-3 d-flex flex-column">
-        
-            <img  width="100%"  src="{{asset('images/'.$item->image)}}" class="rounded" alt="">
-     
-        <div class="content bg-white p-3 rounded">
-            <h1 style="font-size:15px;" class="font-weight-bold">{{$item->jenis_kegiatan}}</h1>
-            <h1 style="font-size:15px;" class="font-weight-bold">{{$item->tgl_kegiatan  }}</h1>
-            <p style="font-size:12px;">
-                {{$item->deskripsi}}
-            </p>
-        </div>
+      </div>
     </div>
+    <div class="col-md-6 news-item">
+      <div class="card card-custom overflow">
+        <div class="d-flex">
+          <img src="{{ asset('images/ramadhan.png') }}" class="img-fluid rounded-start" alt="Idul Adha">
+          <div class="card-body bg-white p-3 rounded-end">
+            <h5 class="card-header-custom">Selamat Hari Raya Idul Adha</h5>
+            <h6 class="font-weight-bold">28 Mei 2024</h6>
+            <p class="card-body-custom">Segenap Warga dan Pengurus Rukun Warga 11 Tanjung Rejo mengucapkan Selamat Hari Raya Idul Adha</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    
+  <h2 class="section-title">Berita Terbaru</h2>
+  <div class="row">
+    @foreach ($berita as $item)
+      <div class="col-md-6 news-item">
+        <div class="card card-custom overflow">
+          {{-- <img src="{{ asset('images/'.$item->image) }}" class="img-fluid rounded mb-2" alt="{{ $item->jenis_kegiatan }}"> --}}
+          <div class="card-body bg-white p-3 rounded">
+            <h5 class="card-header-custom">{{ $item->jenis_kegiatan }}</h5>
+            <h6 class="font-weight-bold">{{ $item->tgl_kegiatan }}</h6>
+            <p class="card-body-custom">{{ $item->deskripsi }}</p>
+          </div>
+        </div>
+      </div>
     @endforeach
-</div>
+  </div>
 
-
-<h2 style="font-size:32px;" class="my-3" >Pengajuan Surat</h2>
-<div class="bg-white rounded w-100 p-3 ">
-    <div class=" rounded-2  p-3">
+  <h2 class="section-title">Pengajuan Surat</h2>
+  <div class="surat-container">
     @foreach ($surat as $item)
-       <div class="d-flex flex-row align-items-center  gap-2 mb-2">
-        <div style="width:50px;background-color:#3498db;" class="p-1 rounded  d-flex justify-content-center align-items-center"><h3 style="font-size:14px;color:white;">New</h3></div>
-    
-        <p style="font-size:16px;" class="m-0" >Surat {{$item->tujuan}}, status {{$item->status}}</p>
-       </div>
-       <hr>
-        @endforeach
-    </div>
-   
+      <div class="surat-item">
+        <div class="badge-custom">New</div>
+        <p>Surat {{ $item->tujuan }}, status {{ $item->status }}</p>
+      </div>
+      <hr>
+    @endforeach
+  </div>
 </div>
 
 @endsection
@@ -99,5 +160,4 @@ mengucapkan Selamat Hari Raya Idul Adha
 @endpush
 
 @push('js')
-   
 @endpush

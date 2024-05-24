@@ -29,15 +29,15 @@
                             <td>{{ $organisasi->masaJabatan }}</td>
                         </tr>
                         <tr>
-                            <th>no telepon</th>
+                            <th>No. Telepon</th>
                             <td>{{ $organisasi->no_tlp }}</td>
                         </tr>
                         <tr>
-                            <th>alamat</th>
+                            <th>Alamat</th>
                             <td>{{ $organisasi->alamat }}</td>
                         </tr>
                         <tr>
-                            <th>email</th>
+                            <th>Email</th>
                             <td>{{ $organisasi->email }}</td>
                         </tr>
                         <tr>
