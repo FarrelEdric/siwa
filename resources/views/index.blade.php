@@ -145,7 +145,7 @@
             <div class="member">
               <img src={{asset("img/team/a3.jpeg")}} alt="">
               <h4>Fransiscus Farrel Edric Wijanarko</h4>
-              <span>BackEnd</span>
+              <span>Fullstack Developer</span>
               <p>
                 @reldriccc
               </p>
