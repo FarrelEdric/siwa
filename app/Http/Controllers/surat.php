@@ -69,8 +69,6 @@ class surat extends Controller
                     case 'Ditolak':
                         $status = '<p style="color:white!important;width:150px;" class="bg-danger text-center  m-auto  p-2 rounded-3">Ditolak </p>';
                         break;
-
-
                 }
 
                 return $status;
@@ -83,7 +81,7 @@ class surat extends Controller
     public function printPDF($id)
     {
         $surat = suratModel::findOrFail($id);
-        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('component.surat', ['surat' => $surat]);
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('components.surat', ['surat' => $surat]);
         return $pdf->download();
     }
 
