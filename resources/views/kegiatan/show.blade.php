@@ -15,14 +15,20 @@
                         Data yang Anda cari tidak ditemukan.
                     </div>
                 @else
-              <div class="">
-                <img src="{{$kegiatan->image}}" alt="">
-                <h1>{{$kegiatan->jenis_kegiatan}}</h1>
-                <h2>{{$kegiatan->tgl_kegiatan}}</h2>
-   <p>{{$kegiatan->deskripsi}}</p>
-              </div>
+                <div class="d-flex flex-column align-items-center">
+                    <div class="mb-4">
+                        <img src="{{$kegiatan->image}}" alt="Gambar Kegiatan" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="text-center">
+                        <h1 class="mb-3">{{$kegiatan->jenis_kegiatan}}</h1>
+                        <h2 class="text-muted mb-4">{{$kegiatan->tgl_kegiatan}}</h2>
+                        <p>{{$kegiatan->deskripsi}}</p>
+                    </div>
+                </div>
                 @endempty
-                <a href="{{ url('kegiatan') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
+                <div class="text-center mt-4">
+                    <a href="{{ url('kegiatan') }}" class="btn btn-sm btn-default">Kembali</a>
+                </div>
             </div>
         </div>
     </div>

@@ -1,33 +1,29 @@
 @extends('layout.template')
 
 @section('content')
-<section class="content">
-    <div class="container-fluid">
-        <div class="card card-outline card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Edit Data Penduduk</h3>
-            </div>
-            <div class="card-body">
-                <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>No KK</th>
-                            <th>NIK Penduduk</th>
-                            <th>Nama Penduduk</th>
-                            <th>KK Penduduk</th>   
-                            <th>Pekerjaan Penduduk</th>               
-                            <th>Status Penduduk</th>
-                            <th>Tanggal Lahir Penduduk</th>
-                            <th>No Telepon Penduduk</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
+<div class="card card-outline card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Edit Data Penduduk</h3>
     </div>
-</section>
+    <div class="card-body">
+        <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>No KK</th>
+                    <th>NIK Penduduk</th>
+                    <th>Nama Penduduk</th>
+                    <th>KK Penduduk</th>   
+                    <th>Pekerjaan Penduduk</th>               
+                    <th>Status Penduduk</th>
+                    <th>Tanggal Lahir Penduduk</th>
+                    <th>No Telepon Penduduk</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 @endsection
 
 @push('css')
