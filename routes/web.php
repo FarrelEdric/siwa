@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [loginController::class, 'login'])->middleware('guest');
 Route::get('/register', [register::class, 'register'])->name('register');
+
 Route::group(['prefix' => 'kegiatan'], function () {
     Route::get('/', [kegiatan::class, 'index']);
     Route::post('/list', [kegiatan::class, 'list']);
@@ -59,6 +60,12 @@ Route::group(['prefix' => 'keuangan'], function () {
 Route::group(['prefix' => 'penduduk'], function () {
     Route::get('/', [penduduk::class, 'index']);
     Route::post('/list', [penduduk::class, 'list']);
+    Route::get('/create', [penduduk::class, 'create']);
+    Route::post('/', [penduduk::class, 'store']);
+    Route::get('/{id}', [penduduk::class, 'show']);
+    Route::get('/{id}/edit', [penduduk::class, 'edit']);
+    Route::put('/{id}', [penduduk::class, 'update']);
+    Route::delete('/{id}', [penduduk::class, 'destroy']);
 });
 
 // Group route for bansos
