@@ -1,13 +1,14 @@
 <div class="sidebar ">
   <div class="d-flex align-items-center mt-3">
     <a href="{{ url('/dashboard') }}" class="brand-link p-0" style="display: flex; align-items: center;">
-      {{-- <img src="{{ asset('adminlte/dist/img/SiwaLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-rectangle" > --}}
-      <span class="brand-text" style="color: #3498db; font-family: 'Righteous', sans-serif; font-size: 25px; margin-left: 5px;">SiWA</span>
+      <img src="{{ asset('adminlte/dist/img/SiwaLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-rectangle" >
+      <span class="brand-text" style="color: #ffffff; font-family: 'Righteous', sans-serif; font-size: 25px; margin-left: 5px;">SiWA</span>
     </a>
   </div>
 
   <!-- Sidebar Menu -->
   <nav class="mt-2 h-100">
+    <hr class="bg-white">
     <ul class="nav nav-pills nav-sidebar  h-100 flex-column" data-widget="treeview" role="menu" data-accordion="false">
       <li class="nav-item mt-2">
         <a href="{{ url('/dashboard') }}" class="nav-link {{ ($activeMenu == 'dashboard') ? 'active' : '' }}" style="color: white;">
@@ -94,7 +95,7 @@
       </li>
 
       <li class="nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
-        <a href="#" class="nav-link " style="color: white;">
+        <a href="{{url('/penduduk')}}" class="nav-link {{ ($activeMenu == 'penduduk') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-list-ul"></i>
           <p>
             Data Warga
@@ -153,7 +154,7 @@
           <p>Data User</p>
         </a>
       </li>
-      <hr class="bg-primary">
+      <hr class="bg-white">
       <!-- Tombol Logout -->
       <li class="nav-item">
         <a href="{{ url('/logout') }}" class="nav-link align-self-end" style="color: white;">

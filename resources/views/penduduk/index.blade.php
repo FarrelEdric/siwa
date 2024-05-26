@@ -1,23 +1,31 @@
 @extends('layout.template')
 
 @section('content')
-<div class="card card-outline card-primary">
+<div class="card card-outline">
     <div class="card-header">
-        <h3 class="card-title">Edit Data Penduduk</h3>
+        <h3 class="card-title">Data Seluruh Warga</h3>
+        <div class="card-tools">
+            <a class="btn btn-sm mt-1" href="{{ url('penduduk/create') }}" style="background-color: #1D3752; color: white;">Tambah</a>
+        </div>
     </div>
     <div class="card-body">
+        @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
         <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>No KK</th>
-                    <th>NIK Penduduk</th>
-                    <th>Nama Penduduk</th>
-                    <th>KK Penduduk</th>   
-                    <th>Pekerjaan Penduduk</th>               
-                    <th>Status Penduduk</th>
-                    <th>Tanggal Lahir Penduduk</th>
-                    <th>No Telepon Penduduk</th>
+                    <th>NIK</th>
+                    <th>Nama</th>
+                    <th>Pekerjaan</th>
+                    <th>Status</th>
+                    <th>Tanggal Lahir</th>
+                    <th>No Telepon</th>
+                    <th>Alamat</th> <!-- Tambahkan kolom alamat -->
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -33,73 +41,66 @@
     <script>
         $(document).ready(function() {
             var dataLevel = $('#table_level').DataTable({
-            serverSide: true, // serverSide: true, jika ingin menggunakan server side processing
-            ajax: {
-                "url": "{{ url('penduduk/list') }}",
-                "dataType": "json",
-                "type": "POST"
-            },
-            columns: [
-                {
-                    data: "DT_RowIndex", // nomor urut dari laravel datatable addIndexColumn()
-                    className: "text-center",
-                    orderable: false,
-                    searchable: false
-                    },{
-                    data: "no_kk", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                    },                    
+                serverSide: true,
+                ajax: {
+                    "url": "{{ url('penduduk/list') }}",
+                    "dataType": "json",
+                    "type": "POST"
+                },
+                columns: [
                     {
-                    data: "nik_penduduk", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                        data: "no_kk",
+                        className: "",
+                        orderable: true,
+                        searchable: true
                     },
                     {
-                    data: "nama_penduduk", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                        data: "nik_penduduk",
+                        className: "",
+                        orderable: true,
+                        searchable: true
                     },
                     {
-                    data: "kk_penduduk", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                    },  
-                    {
-                    data: "pekerjaan_penduduk", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                        data: "nama_penduduk",
+                        className: "",
+                        orderable: true,
+                        searchable: true
                     },
                     {
-                    data: "status_penduduk", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                    },{
-                    data: "tgl_lahir_penduduk", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                    },                       
-                    {
-                    data: "no_tlp_penduduk", 
-                    className: "",
-                    orderable: false, // orderable: true, jika ingin kolom ini bisa  diurutkan
-                    searchable: false // searchable: true, jika ingin kolom ini bisa dicari
-
+                        data: "pekerjaan_penduduk",
+                        className: "",
+                        orderable: true,
+                        searchable: true
                     },
-                             
                     {
-                    data: "aksi", 
-                    className: "",
-                    orderable: false, // orderable: true, jika ingin kolom ini bisa  diurutkan
-                    searchable: false // searchable: true, jika ingin kolom ini bisa dicari
-
+                        data: "status_penduduk",
+                        className: "",
+                        orderable: true,
+                        searchable: true
+                    },
+                    {
+                        data: "tgl_lahir_penduduk",
+                        className: "",
+                        orderable: true,
+                        searchable: true
+                    },
+                    {
+                        data: "no_tlp_penduduk",
+                        className: "",
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: "alamat", // Tambahkan kolom alamat
+                        className: "",
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: "aksi",
+                        className: "",
+                        orderable: false,
+                        searchable: false
                     }
                 ]
             });
@@ -108,4 +109,4 @@
             })
         });
     </script>
-@endpush 
+@endpush

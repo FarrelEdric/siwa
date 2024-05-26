@@ -3,7 +3,7 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <div class="card card-outline card-primary">
+        <div class="card card-outline">
             <div class="card-header">
                 <h3 class="card-title">Edit Data Keuangan</h3>
             </div>
