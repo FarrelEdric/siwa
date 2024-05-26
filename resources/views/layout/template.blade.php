@@ -24,15 +24,15 @@
 
 <style>
   .sidebar a{
-    color: black!important;
+    color: white!important;
   }
   .sidebar a:hover{
-    color: white!important;
-    background-color: #3498db!important;
+    color: ffffff!important;
+    background-color: #F7C232!important;
   }
   .sidebar .active{
-    color: white!important;
-  background-color: #3498db!important;
+    color: #ffffff!important;
+  background-color: #F7C232!important;
  }
 </style>
 
@@ -54,9 +54,9 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar  " style="background-color: white;">
+  <aside class="main-sidebar  " style="background-color: #1D3752;">
     <!-- Brand Logo -->
-
+    
    
     <!-- Sidebar -->
     @include('layout.sidebar')
