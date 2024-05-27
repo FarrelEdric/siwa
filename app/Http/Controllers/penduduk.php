@@ -69,7 +69,7 @@ class penduduk extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'no_kk' => 'required|string|max:16',
+            'id_penduduk' => 'required|string|max:16',
             'nik_penduduk' => 'required|string|max:16',
             'nama_penduduk' => 'required|string|max:100',
             'pekerjaan_penduduk' => 'required|string|max:100',
@@ -79,16 +79,23 @@ class penduduk extends Controller
             'alamat' => 'required|string|max:255', // Tambahkan validasi alamat
         ]);
 
-        pendudukModel::create([
-            'no_kk' => $request->no_kk,
-            'nik_penduduk' => $request->nik_penduduk,
-            'nama_penduduk' => $request->nama_penduduk,
-            'pekerjaan_penduduk' => $request->pekerjaan_penduduk,
-            'status_penduduk' => $request->status_penduduk,
-            'tgl_lahir_penduduk' => $request->tgl_lahir_penduduk,
-            'no_tlp_penduduk' => $request->no_tlp_penduduk,
-            'alamat' => $request->alamat, // Tambahkan alamat
-        ]);
+        try {
+            //code...
+
+            pendudukModel::create([
+                'no_kk' => $request->id_penduduk,
+                'nik_penduduk' => $request->nik_penduduk,
+                'nama_penduduk' => $request->nama_penduduk,
+                'pekerjaan_penduduk' => $request->pekerjaan_penduduk,
+                'status_penduduk' => $request->status_penduduk,
+                'tgl_lahir_penduduk' => $request->tgl_lahir_penduduk,
+                'no_tlp_penduduk' => $request->no_tlp_penduduk,
+                'alamat' => $request->alamat, // Tambahkan alamat
+            ]);
+        } catch (\Throwable $th) {
+            //throw $th;
+            dd($th);
+        }
 
         return redirect('/penduduk')->with('success', 'Data Warga berhasil disimpan');
     }

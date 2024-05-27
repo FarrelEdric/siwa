@@ -30,10 +30,9 @@ class surat extends Controller
 
 
 
-
     public function list(Request $request)
     {
-        $levels = suratModel::with('penduduk')->get();
+        $levels = suratModel::all();
 
         // 
 
@@ -61,13 +60,13 @@ class surat extends Controller
                 $status = '';
                 switch ($level->status) {
                     case 'Menunggu':
-                        $status = ' <p style="color:white!important;width:150px;" class="bg-warning text-center  m-auto  p-2 rounded-3">Menunggu </p>';
+                        $status = ' <p style="color:white!important;width: 100px!important;" class="bg-warning text-center w-50 m-auto  p-2 rounded">Menunggu </p>';
                         break;
                     case 'Diterima':
-                        $status = '<p style="color:white!important;width:150px;" class="bg-success text-center  m-auto   p-2 rounded-3">Diterima </p>';
+                        $status = '<p style="color:white!important;width: 100px!important;" class="bg-success text-center w-50 m-auto  p-2 rounded">Diterima </p>';
                         break;
                     case 'Ditolak':
-                        $status = '<p style="color:white!important;width:150px;" class="bg-danger text-center  m-auto  p-2 rounded-3">Ditolak </p>';
+                        $status = '<p style="color:white!important;width: 100px!important;" class="bg-danger text-center w-50 m-auto  p-2 rounded">Ditolak </p>';
                         break;
                 }
 
@@ -163,7 +162,11 @@ class surat extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $surat = suratModel::findOrFail($id);
+        $surat->status = $request->status;
+        $surat->save();
+
+        return redirect('admin/surat');
     }
 
     /**
@@ -174,5 +177,22 @@ class surat extends Controller
         //
         $surat = suratModel::findOrFail($id)->delete();
         return redirect('/surat');
+    }
+
+    public function adminSurat()
+    {
+        $breadcrumb = (object) [
+            'title' => 'Daftar Surat',
+            'list' => ['Home', 'surat']
+        ];
+
+        $page = (object) [
+            'title' => 'Daftar surat yang ada'
+        ];
+
+        $activeMenu = 'surat';
+
+        $surat = suratModel::with('penduduk')->where('status', 'menunggu')->get();
+        return view('admin.surat', compact('breadcrumb', 'page', 'activeMenu', 'surat'));
     }
 }
