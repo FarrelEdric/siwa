@@ -81,6 +81,7 @@ Route::group(['prefix' => 'surat'], function () {
     Route::get('/create', [surat::class, 'create']);
     Route::post('/', [surat::class, 'store']);
     Route::get('/download/{id}', [surat::class, 'printPDF']);
+    Route::put('konfirmasi/{id}', [surat::class, 'update']);
 });
 
 // route login
@@ -109,8 +110,11 @@ Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
 
 
 
-
+//admin
 Route::group(['middleware' => 'auth'], function () {
+    //surat admin
+    Route::get('admin/surat', [surat::class, 'adminSurat'])->name('surat');
+
 
     // route keuangan
     Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');

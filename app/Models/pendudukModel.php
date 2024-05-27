@@ -11,7 +11,7 @@ class pendudukModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'pendudukk';
+    protected $table = 'penduduk';
 
     protected $primaryKey = "id_penduduk";
 

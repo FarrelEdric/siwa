@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pendudukk', function (Blueprint $table) {
+        Schema::create('penduduk', function (Blueprint $table) {
             $table->bigIncrements('id_penduduk');
             $table->bigInteger('no_kk');
             $table->string('nik_penduduk', 100);

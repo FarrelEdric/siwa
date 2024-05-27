@@ -61,12 +61,38 @@
     <!-- ======= What We Do Section ======= -->
     <section id="what-we-do" class="what-we-do">
       <div class="container">
+
         <div class="section-title">
           <h2>Apa Yang Kami Sediakan</h2>
         </div>
+
         <div class="row">
-          <!-- Your What We Do Content -->
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="">Bansos</a></h4>
+              <p>Kini warga dapat mengajukan bansos dengan mudah</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Surat</a></h4>
+              <p>Pada menu surat warga dapat menggunakan agar memudahkan dalam persuratan</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Kerja Bakti</a></h4>
+              <p>Warga dapat mengetahui info terkini jadwal kerja bakti</p>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section><!-- End What We Do Section -->
 
@@ -75,42 +101,175 @@
       <div class="container">
         <h3 class="text-center">Tentang Kami</h3>
         <div class="row">
-          <!-- Your About Content -->
+          <div class="col-lg-6">
+            <img src="assets/img/keluarga1.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+           
+            <p>
+              SIWA adalah sebuah website inovatif yang dirancang untuk mengakomodasi berbagai kegiatan warga dengan menyediakan beragam fitur yang bermanfaat. Melalui SIWA, warga dapat dengan mudah mengakses informasi mengenai kegiatan sosial seperti kerja bakti, mendapatkan bantuan sosial (bansos), serta mengurus berbagai keperluan persuratan. Tidak hanya itu, SIWA juga berfungsi sebagai platform untuk memfasilitasi komunikasi dan koordinasi antarwarga, memastikan setiap individu dapat berpartisipasi aktif dalam membangun lingkungan yang harmonis dan produktif. Dengan tampilan yang user-friendly dan fitur-fitur yang komprehensif, SIWA menjadi solusi terpadu untuk meningkatkan keterlibatan dan kesejahteraan komunitas.
+            </p>
+          </div>
         </div>
+
       </div>
     </section><!-- End About Section -->
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">
       <div class="container">
+
         <div class="section-title">
           <h2>Team</h2>
           <p>6</p>
         </div>
+
+        
         <div class="row">
-          <!-- Your Team Content -->
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src={{asset("assets/img/team/a3.jpeg")}} alt="">
+              <h4>Fransiscus Farrel Edric Wijanarko</h4>
+              <span>BackEnd</span>
+              <p>
+                @reldriccc
+              </p>
+              <div class="social">
+                <a href="https://www.instagram.com/reldriccc/"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src={{asset("assets/img/team/a4.jpg")}} alt="">
+              <h4>Satria Abrar</h4>
+              <span>FrontEnd</span>
+              <p>
+                @satriaabraarr
+              </p>
+              <div class="social">
+                <a href="https://www.instagram.com/satriaabraarr/"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src={{{asset("assets/img/team/a1.jpg")}}} alt="">
+              <h4>Muhammad Irsyad Dany</h4>
+              <span>Desain UI&UX</span>
+              <p>
+                @irsydanyy
+              </p>
+              <div class="social">
+                <a href="https://www.instagram.com/irsydanyy/"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src={{asset("assets/img/team/Ratnasari.jpg")}} alt="">
+              <h4>RatnaSari</h4>
+              <span>Project Manager</span>
+              <p>
+                @ratna.saar
+              </p>
+              <div class="social">
+                <a href="https://www.instagram.com/ratna.saar/"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section><!-- End Team Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact section-bg">
       <div class="container">
+
         <div class="section-title">
           <h2>Kontak</h2>
+          <p></p>
         </div>
+
         <div class="row mt-5 justify-content-center">
-          <!-- Your Contact Content -->
+
+          <div class="col-lg-10">
+
+            <div class="info-wrap">
+              <div class="row">
+                <div class="col-lg-4 info">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>Politeknik Negri Malang</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>fransiscus08@gmail.com</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>08997084448</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
+
+
+        </div>
+
       </div>
     </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
+  </main>
 
-  <!-- ======= Footer ======= -->
   <footer id="footer">
-    <!-- Your Footer Content -->
-  </footer><!-- End Footer -->
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>siwa</h3>
+            <p>
+            Politeknik Negri Malang <br>
+              Malang<br>
+              Indonesia <br><br>
+              <strong>Telepon:</strong> 08997084448<br>
+              <strong>Email:</strong> fransiscusfarrel08@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#team">Team</a></li>
+            </ul>
+          </div>
+
+         
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>siwa</span></strong>. All Rights Reserved (Saonoke)
+        </div>
+        <div class="credits">
+
+        </footer>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

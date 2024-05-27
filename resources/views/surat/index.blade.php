@@ -10,7 +10,7 @@
                     <a class="btn btn-sm btn-primary mt-1" href="{{ url('surat/create') }}">Tambah</a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="overflow-x: scroll;">
                 @if (session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
