@@ -58,9 +58,6 @@
             </a>
           </li>
          
-          <li class="nav-item">
-            <a href="{{route('register')}}">Register</a>
-          </li>
         </ul>
       </li>
 
@@ -161,6 +158,9 @@
           <i class="nav-icon fas fa-sign-out-alt"></i>
           <p>Logout</p>
         </a>
+      </li>
+      <li class="{{Auth::user()->isAdmin() ? '':'d-none'}} nav-item">
+        <a class="nav-link align-self-end" href="{{route('register')}}"><i class="nav-icon fas fa-sign-out-alt"></i> Register</a>
       </li>
     </ul>
   </nav>
