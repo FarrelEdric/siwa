@@ -1,136 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-
+    <meta charset="UTF-8">
+    <title>Surat Pengantar SKCK</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        .header, .footer {
+            text-align: center;
+        }
+        .header b {
+            font-size: large;
+        }
+        hr {
+            border: 1px solid black;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .content table {
+            width: 100%;
+        }
+        .content td {
+            font-size: small;
+            vertical-align: top;
+        }
+        .content .details {
+            margin-top: 20px;
+        }
+        .content .details table {
+            width: 100%;
+        }
+        .content .details td {
+            padding: 2px 5px;
+        }
+        .signatures {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .signature {
+            text-align: center;
+        }
+        .signature span {
+            display: block;
+            margin-bottom: 60px;
+        }
+        .signature .name {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<style>
-  .height {
-    height: 120vh;
-  }
-
-  .height-100 {
-    height: 100%;
-  }
-</style>
-
-<script>
-  $(document).ready(function () {
-    $(".container").printThis();
-  });
-</script>
-
 <body>
-
-
-  <div class="container height">
-    <header>
-      <div class="d-flex p-3 align-items-center">
-        <div class="logo-polinema">
-
-        </div>
-        <div class="text text-center">
-          <h1 class="fw-normal fs-4">
-            KEMENTERIAN PENDIDIKAN,KEBUDAYAAN, <br />RISET,DAN TEKNOLOGI
-          </h1>
-          <h1 class="fw-normal fs-4">WARGA ........</h1>
-          <h1 class="fs-4">LT/HMJ/UKM</h1>
-          <p>
-            Jl. Soekarno Hatta No.9 Jatimulyo, Lowokwaru, Malang, 65141 Telp.
-            (0341) 404424 – 404425, Fax (0341) 404420,
-           
-          </p>
-        </div>
-        <div class="logo-JTI">
-
-        </div>
-      </div>
-      <hr />
-    </header>
-    <div class="d-flex height-100 flex-column justify-content-between">
-      <div class="top">
-        <div class="d-flex justify-content-between">
-          <table>
-            <tr>
-              <td>Nomor</td>
-              <td>:</td>
-            </tr>
-
-            <tr>
-              <td>Lampiran</td>
-              <td>:</td>
-              <td>1 (satu) Lembar</td>
-            </tr>
-
-            <tr>
-              <td>Hal</td>
-              <td>:</td>
-              <td>Peminjaman Ruang JTI</td>
-            </tr>
-          </table>
-          <p>
-            <?= date("Y-m-d") ?>
-          </p>
-        </div>
-        <p class="mt-5">
-          Dengan ini, kami ingin memberikan bukti bahwa Jurusan Teknologi
-          Informasi telah resmi meminjam Ruang
-         
-          acara
-  
-        </p>
-        <p class="m-0">Kegiatan tersebut akan diselenggarakan pada :</p>
-        <table class="ms-5 m-0">
-          <tr>
-            <td>hari,tanggal</td>
-            <td>:</td>
-            <td>
-             
-            </td>
-          </tr>
-          <tr>
-            <td>pukul</td>
-            <td>:</td>
-          </tr>
-        </table>
-        <p style="text-align: justify" class="mt-5 align-">
-          Permintaan ini telah disetujui dan dikonfirmasi oleh pihak
-          berwenang, dan semua persyaratan terkait peminjaman ruang telah
-          dipenuhi sesuai dengan prosedur yang berlaku. Semua pihak yang
-          terlibat dalam acara ini telah diberikan informasi mengenai aturan
-          dan tata tertib penggunaan ruang. Demikian surat bukti peminjaman
-          ini kami buat, atas izin dan bantuan yang diberikan kami sampaikan
-          terima kasih.
-        </p>
-      </div>
-      <div class="bottom">
-        <div class="d-flex justify-content-between">
-          <div class="admin-jurusan">
-            <br />
-            <p>Admin Jurusan,</p>
-            <p class="mt-5 m-0">(Admin)</p>
-            <p>NIP.(NIP Admin)</p>
-          </div>
-          <div class="penangggung-jawab">
-            <p class="m-0">Hormat kami,</p>
-            <p class="m-0">Penanggungjawab Peminjaman</p>
-            <p class="mt-5 m-0">
-             
-            </p>
-            <p>NIM/NIK.()</p>
-          </div>
-        </div>
-      </div>
+    <div class="container">
+    <div class="header" style="text-align: center; font-family: 'Arial', sans-serif; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+        <h1 style="margin-bottom: 5px; font-size: 24px; color: #333;">RUKUN WARGA (RW) 11</h1>
+        <h2 style="margin-top: 0; margin-bottom: 5px; font-size: 20px; color: #555;">DESA TANJUNGREJA</h2>
+        <h3 style="margin-top: 0; font-size: 18px; color: #777;">KECAMATAN SUKUN</h3>
+        <hr style="border: 1px solid #ccc; margin-top: 20px;">
     </div>
-  </div>
-</body>
+    <div class="content">
 
+            <div class="grid grid-cols-6 text-xs">
+              <p class="col-span-1">No</p>
+              <p class="col-span-1">: ......../RW/........</p>
+            </div>
+            
+            <div class="grid grid-cols-6 text-xs">
+              <p class="col-span-1">Lampiran</p>
+              <p class="col-span-1">: 1 Berkas</p>
+            </div>
+            
+            <div class="grid grid-cols-6 text-xs">
+              <p class="col-span-1">Perihal</p>
+              <p class="col-span-2">: Pengajuan SKCK</p>
+            </div>
+            
+            <div align="right" style="margin-top: 20px;">
+                <span>Malang, 28 Mei 2024</span>
+            </div>
+            <br>
+            <table>
+                <tr>
+                    <td>Kepada Yth,</td>
+                </tr>
+                <tr>
+                    <td>Ketua Kepolisian Sektor Sukun</td>
+                </tr>
+                <tr>
+                    <td>di</td>
+                </tr>
+                <tr>
+                    <td>Tempat</td>
+                </tr>
+            </table>
+            <div class="details" style="margin-top: 20px;">
+                <p>Dengan hormat,<br>
+                Sehubungan dengan permohonan Surat Keterangan Catatan Kepolisian (SKCK) dari:</p>
+                <br></br>
+                <table>
+                    <tr>
+                        <td>Nama</td>
+                        <td>:</td>
+                        <td>..............................................................................................................</td>
+                    </tr>
+                    <tr>
+                        <td>Tempat/Tgl Lahir</td>
+                        <td>:</td>
+                        <td>..............................................................................................................</td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>:</td>
+                        <td>..............................................................................................................</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td>..............................................................................................................</td>
+                    </tr>
+                    <tr>
+                        <td>Pekerjaan</td>
+                        <td>:</td>
+                        <td>..............................................................................................................</td>
+                    </tr>
+                </table>
+                <br></br>
+                <p class="text-justify">Yang bersangkutan adalah warga RT [RT] RW [RW] Desa Tanjungreja Kecamatan Sukun, dengan ini kami mengajukan permohonan penerbitan SKCK atas nama tersebut di atas untuk keperluan [keperluan pembuatan SKCK].</p>
+                <p class="text-justify">Demikian surat pengantar ini kami sampaikan, atas perhatian dan kerjasamanya kami ucapkan terima kasih.</p>
+            </div>
+            <br></br>
+            <span>Mengetahui,</span>
+            <div class="signatures">
+                <div class="signature">
+                    <span>Ketua RT [RT]</span>
+                    <span class="name">....................</span>
+                </div>
+                <div class="signature">
+                    <span>Ketua RW 11,</span>
+                    <span class="name">....................</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
