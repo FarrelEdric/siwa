@@ -25,6 +25,7 @@
 </style>
 @endpush
 
+
 <div style="background-color: #1D3752; color: white;" class="w-100 rounded-2 px-3 py-5">
   <h1 class="text-left">Selamat Datang {{ Auth::user()->username }}</h1>
   <p>Jelajahi RW 06</p>
@@ -56,6 +57,7 @@
       <p style="font-size: 16px; margin: 0 0 0 10px;">Surat {{ $item->tujuan }}, status {{ $item->status }}</p>
     </div>
   @endforeach
+  
 </div>
 
 @endsection
@@ -64,4 +66,6 @@
 @endpush
 
 @push('js')
+
+
 @endpush

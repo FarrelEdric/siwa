@@ -45,6 +45,26 @@
                     @enderror
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="jenis_kelamin" class="control-label">Jenis kelamin</label>
+                <div class="mt-2">
+                    <div class="input-group">
+                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                            <option value=""></option>
+                            <option value="laki-laki" {{ old('jenis_kelamin') == 'aktif' ? 'selected' : '' }}>Laki-Laki</option>
+                            <option value="perempuan" {{ old('jenis_kelamin') == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                        </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                    </div>
+                    @error('jenis_kelamin')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+
             <div class="form-group">
                 <label for="status_penduduk" class="control-label">Status</label>
                 <div class="mt-2">

@@ -1,6 +1,7 @@
 @extends('layout.template')
 
 @section('content')
+<div style="width: 300px;"><canvas id="acquisitions"></canvas></div>
 <div class="card card-outline">
     <div class="card-header">
         <h3 class="card-title">Data Seluruh Warga</h3>
@@ -22,6 +23,7 @@
                     <th>NIK</th>
                     <th>Nama</th>
                     <th>Pekerjaan</th>
+                    <th>Jenis kelamin</th>
                     <th>Status</th>
                     <th>Tanggal Lahir</th>
                     <th>No Telepon</th>
@@ -73,6 +75,12 @@
                         searchable: true
                     },
                     {
+                        data: "jenis_kelamin",
+                        className: "",
+                        orderable: true,
+                        searchable: true
+                    },
+                    {
                         data: "status_penduduk",
                         className: "",
                         orderable: true,
@@ -109,4 +117,35 @@
             })
         });
     </script>
+    
+    <script>
+        // console.log(JSON.parse('{{json_encode($penduduk)}}'))
+        (async function() {
+          const data = {
+        labels: [
+          'Laki-laki',
+          'Perempuan'
+        ],
+        datasets: [{
+          label: 'Jenis Kelamin',
+          data: JSON.parse('{{json_encode($penduduk)}}'),
+          backgroundColor: [
+            '#023e8a',
+            '#cdb4db'
+
+          ],
+          hoverOffset: 4
+        }]
+      };
+      const config = {
+        type: 'pie',
+        data: data,
+      };
+      const myChart = new Chart(
+         document.getElementById('acquisitions'),
+          config
+      );
+        })()
+      
+      </script>
 @endpush

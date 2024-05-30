@@ -20,6 +20,7 @@ class pendudukModel extends Model
         'nik_penduduk',
         'nama_penduduk',
         'pekerjaan_penduduk',
+        'jenis_kelamin',
         'status_penduduk',
         'tgl_lahir_penduduk',
         'no_tlp_penduduk',
