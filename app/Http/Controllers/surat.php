@@ -15,6 +15,7 @@ class surat extends Controller
      */
     public function index()
     {
+
         $breadcrumb = (object) [
             'title' => 'Daftar Surat',
             'list' => ['Home', 'surat']
@@ -32,7 +33,8 @@ class surat extends Controller
 
     public function list(Request $request)
     {
-        $levels = suratModel::all();
+        $levels = suratModel::where('id_penduduk', Auth::user()->id_penduduk)->get();
+
 
         // 
 

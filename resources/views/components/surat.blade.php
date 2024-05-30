@@ -1,136 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-
+<title>Undanagan orang tua</title>
 </head>
-<style>
-  .height {
-    height: 120vh;
-  }
-
-  .height-100 {
-    height: 100%;
-  }
-</style>
-
-<script>
-  $(document).ready(function () {
-    $(".container").printThis();
-  });
-</script>
 
 <body>
+<table align="center" border="0" cellpadding="1" style="width: 700px;"><tbody>
+<tr>     <td colspan="3"><div align="center">
+<span style="font-family: Verdana; font-size: x-small;"><b>SMK INFORMATIKA SUMEDANG
 
+jln. Anggrek situ no.19 telp.(0261) 202767</b></span>
+<hr />
+</div>
+</td>   </tr>
+<tr>     <td colspan="2"><table border="0" cellpadding="1" style="width: 400px;"><tbody>
+<tr>         <td width="93"><span style="font-size: x-small;">No</span></td>         <td width="8"><span style="font-size: x-small;">:</span></td>         <td width="200"><span style="font-size: x-small;">005/ smk-if/ yps/ IV/ 2011</span></td>       </tr>
+<tr>         <td><span style="font-size: x-small;">Lampiran</span></td>         <td><span style="font-size: x-small;">:</span></td>         <td><span style="font-size: x-small;">-</span></td>       </tr>
+<tr>         <td><span style="font-size: x-small;">Perihal</span></td>         <td><span style="font-size: x-small;">:</span></td>         <td><span style="font-size: x-small;">Rapat orangtua siswa</span></td>       </tr>
+</tbody></table>
+</td>     <td valign="top"><div align="right">
+<span style="font-size: x-small;">Sumedang, 03 mei 2011</span></div>
+</td>   </tr>
+<tr>     <td width="302"></td>     <td width="343"></td>     <td width="339"></td>   </tr>
+<tr>     <td><table border="0" style="width: 239px;"><tbody>
+<tr>         <td width="74"><span style="font-size: x-small;">kepada yth</span></td>         <td width="11">
+</td>         <td width="140"></td>       </tr>
+<tr>         <td><span style="font-size: x-small;">orangtua/wali siswa</span></td>         <td></td>         <td>
+</td>       </tr>
+<tr>         <td><span style="font-size: x-small;">di</span></td>         <td></td>         <td>
+</td>       </tr>
+<tr>         <td><span style="font-size: x-small;">tempat</span></td>         <td></td>         <td>
+</td>       </tr>
+</tbody></table>
+</td>     <td></td>     <td></td>   </tr>
+<tr>     <td></td>     <td></td>     <td></td>   </tr>
+<tr>     <td colspan="3" height="270" valign="top"><div align="justify">
+<pre><span style="font-size: x-small;">Dengan hormat,
+Sehubungan akan diadakannya Praktek kerja industri (Prakerin) siswa kelas XI maka kami selaku pihak sekolah akan membicarakan mengenai
+pelaksanaan prakerin yang akan dilaksanakan pada :</span></pre>
+<table border="0" style="width: 352px;"><tbody>
+<tr>           <td width="80"><span style="font-size: x-small;">hari/tanggal</span></td>           <td width="10"><span style="font-size: x-small;">:</span></td>           <td width="248"><span style="font-size: x-small;">Rabu, 11 mei 2011</span></td>         </tr>
+<tr>           <td><span style="font-size: x-small;">waktu</span></td>           <td><span style="font-size: x-small;">:</span></td>           <td><span style="font-size: x-small;">08.00 - selesai</span></td>         </tr>
+<tr>           <td><span style="font-size: x-small;">tempat</span></td>           <td><span style="font-size: x-small;">:</span></td>           <td><span style="font-size: x-small;">Aula SMK Informatika Sumedang </span></td>         </tr>
+</tbody></table>
+<div align="justify">
+<span style="font-size: x-small;">
 
-  <div class="container height">
-    <header>
-      <div class="d-flex p-3 align-items-center">
-        <div class="logo-polinema">
+Demikian surat ini kami sampaikan, kami harap ibu/bapa dapat menghadiri rapat ini. sekian dan terima kasih.</span> </div>
+</div>
+<div align="center">
+<span style="font-size: x-small;">Mengetahui</span></div>
+</td>   </tr>
+<tr>     <td><div align="center">
+<span style="font-size: x-small;">Sekertaris,</span></div>
+<div align="center">
 
-        </div>
-        <div class="text text-center">
-          <h1 class="fw-normal fs-4">
-            KEMENTERIAN PENDIDIKAN,KEBUDAYAAN, <br />RISET,DAN TEKNOLOGI
-          </h1>
-          <h1 class="fw-normal fs-4">WARGA ........</h1>
-          <h1 class="fs-4">LT/HMJ/UKM</h1>
-          <p>
-            Jl. Soekarno Hatta No.9 Jatimulyo, Lowokwaru, Malang, 65141 Telp.
-            (0341) 404424 – 404425, Fax (0341) 404420,
-           
-          </p>
-        </div>
-        <div class="logo-JTI">
+</div>
+<div align="center">
+<span style="font-size: x-small;">Ai komala sari </span></div>
+</td>     <td></td>     <td valign="top"><div align="center">
+<span style="font-size: x-small;">Kepala Sekolah, </span></div>
+<div align="center">
 
-        </div>
-      </div>
-      <hr />
-    </header>
-    <div class="d-flex height-100 flex-column justify-content-between">
-      <div class="top">
-        <div class="d-flex justify-content-between">
-          <table>
-            <tr>
-              <td>Nomor</td>
-              <td>:</td>
-            </tr>
-
-            <tr>
-              <td>Lampiran</td>
-              <td>:</td>
-              <td>1 (satu) Lembar</td>
-            </tr>
-
-            <tr>
-              <td>Hal</td>
-              <td>:</td>
-              <td>Peminjaman Ruang JTI</td>
-            </tr>
-          </table>
-          <p>
-            <?= date("Y-m-d") ?>
-          </p>
-        </div>
-        <p class="mt-5">
-          Dengan ini, kami ingin memberikan bukti bahwa Jurusan Teknologi
-          Informasi telah resmi meminjam Ruang
-         
-          acara
-  
-        </p>
-        <p class="m-0">Kegiatan tersebut akan diselenggarakan pada :</p>
-        <table class="ms-5 m-0">
-          <tr>
-            <td>hari,tanggal</td>
-            <td>:</td>
-            <td>
-             
-            </td>
-          </tr>
-          <tr>
-            <td>pukul</td>
-            <td>:</td>
-          </tr>
-        </table>
-        <p style="text-align: justify" class="mt-5 align-">
-          Permintaan ini telah disetujui dan dikonfirmasi oleh pihak
-          berwenang, dan semua persyaratan terkait peminjaman ruang telah
-          dipenuhi sesuai dengan prosedur yang berlaku. Semua pihak yang
-          terlibat dalam acara ini telah diberikan informasi mengenai aturan
-          dan tata tertib penggunaan ruang. Demikian surat bukti peminjaman
-          ini kami buat, atas izin dan bantuan yang diberikan kami sampaikan
-          terima kasih.
-        </p>
-      </div>
-      <div class="bottom">
-        <div class="d-flex justify-content-between">
-          <div class="admin-jurusan">
-            <br />
-            <p>Admin Jurusan,</p>
-            <p class="mt-5 m-0">(Admin)</p>
-            <p>NIP.(NIP Admin)</p>
-          </div>
-          <div class="penangggung-jawab">
-            <p class="m-0">Hormat kami,</p>
-            <p class="m-0">Penanggungjawab Peminjaman</p>
-            <p class="mt-5 m-0">
-             
-            </p>
-            <p>NIM/NIK.()</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-
+</div>
+<div align="center">
+<span style="font-size: x-small;">E.Sulyati Dra,M.pd.</span></div>
+</td>   </tr>
+</tbody></table></body>
 </html>
