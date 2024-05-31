@@ -8,6 +8,7 @@ use App\Http\Controllers\penduduk_masuk;
 use App\Http\Controllers\keuangan;
 use App\Http\Controllers\register;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\organisasi;
 use App\Http\Controllers\penduduk;
 use App\Http\Controllers\kegiatan;
 use App\Http\Controllers\dashboardController;
@@ -34,6 +35,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [loginController::class, 'login'])->middleware('guest');
 Route::get('/register', [register::class, 'register'])->name('register');
+Route::post('/register', [register::class, 'register'])->name('register');
 
 Route::group(['prefix' => 'kegiatan'], function () {
     Route::get('/', [kegiatan::class, 'index']);
@@ -106,9 +108,7 @@ Route::post('penduduk/list', [penduduk::class, 'list']);
 // route bansos
 Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
 Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
-
-
-
+Route::get('/strukturOrganisasi', [organisasi::class, 'index']);
 
 //admin
 Route::group(['middleware' => 'auth'], function () {
