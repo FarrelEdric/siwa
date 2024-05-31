@@ -1,23 +1,32 @@
 @extends('layout.template')
 
 @section('content')
-<div class="container">
-    <h1>Edit Data keuangan</h1>
-    <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
-        <thead>
-            <tr>
-                <th>id_keuagan</th>
-                <th>jenis_iuran</th>
-                <th>jumlah_iurans</th>
-    
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
-</div>
-
-
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-outline">
+            <div class="card-header">
+                <h3 class="card-title">Edit Data Keuangan</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
+                    <thead class="bg-primary-subtle">
+                        <tr>
+                            <th>ID Keuangan</th>
+                            <th>Bulan/Tahun</th>
+                            <th>pemasukan</th>
+                            <th>pengeluaran</th>
+                            <th>total</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
+
+
 @push('css')
 @endpush
 
@@ -38,16 +47,28 @@
                     orderable: false,
                     searchable: false
                     },{
-                    data: "jenis_iuran", 
+                    data: "date", 
                     className: "",
                     orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
                     searchable: true // searchable: true, jika ingin kolom ini bisa dicari
                     },{
-                    data: "jumlah_iuran", 
+                    data: "pemasukan_iuran", 
                     className: "",
                     orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
                     searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                    },                    
+                    },          
+                    {
+                    data: "pengeluaran_iuran", 
+                    className: "",
+                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                    },   
+                    {
+                    data: "total", 
+                    className: "",
+                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                    },                              
                              
                     {
                     data: "aksi", 

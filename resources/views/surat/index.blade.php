@@ -1,23 +1,41 @@
 @extends('layout.template')
 
 @section('content')
-<div class="container">
-    <h1>Edit Data surat</h1>
-    <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>ID PENDUDUK</th>
-                <th>Tanggal SURAT</th>
-                <th>tujuan</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
-</div>
-
-
+<section class="content">
+    <div class="container-fluid">
+        <div class="card card-outline card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Edit Data Surat</h3>
+                <div class="card-tools">
+                    <a class="btn btn-sm btn-primary mt-1" href="{{ url('surat/create') }}">Tambah</a>
+                </div>
+            </div>
+            <div class="card-body" style="overflow-x: scroll;">
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
+                <table style="overflow-x: scroll" class="table table-bordered text-center table-hover table-sm" id="table_level">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID Penduduk</th>
+                            <th>Tanggal Surat</th>
+                            <th>Tujuan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
 @endsection
+
 @push('css')
 @endpush
 
@@ -27,7 +45,7 @@
             var dataLevel = $('#table_level').DataTable({
             serverSide: true, // serverSide: true, jika ingin menggunakan server side processing
             ajax: {
-                "url": "{{ url('/list') }}",
+                "url": "{{ url('/surat/list') }}",
                 "dataType": "json",
                 "type": "POST"
             },
@@ -53,6 +71,12 @@
                     className: "",
                     orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
                     searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                    },
+                    {
+                    data: "status_pengajuan", 
+                    className: "",
+                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
                     },                   
                     {
                     data: "aksi", 
@@ -68,4 +92,4 @@
             })
         });
     </script>
-@endpush 
+@endpush

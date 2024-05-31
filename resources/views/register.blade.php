@@ -72,8 +72,8 @@ button:hover {
             <form action="{{route( 'proses_register' )}}" method="post">
                @csrf
                 <div class="input-group">
-                    <label for="id_produk">ID Penduduk:</label>
-                    <input type="text" id="id_penduduk" name="id_penduduk" placeholder="Masukkan ID Produk">
+                    <label for="id_produk">Nik Penduduk:</label>
+                    <input type="text" id="nik" name="nik" placeholder="Masukkan Nik Penduduk">
                 </div>
                 <div class="input-group">
                     <label for="level_id">Level ID:</label>

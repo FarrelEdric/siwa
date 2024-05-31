@@ -15,18 +15,21 @@ class pendudukModel extends Model
 
     protected $primaryKey = "id_penduduk";
 
-    protected $fillalble = [
+    protected $fillable = [
         'no_kk',
         'nik_penduduk',
         'nama_penduduk',
-        'kk_penduduk',
         'pekerjaan_penduduk',
+        'jenis_kelamin',
         'status_penduduk',
         'tgl_lahir_penduduk',
-        'no_tlp_penduduk'
-
+        'no_tlp_penduduk',
+        'alamat'
     ];
-    public function penduduk(): BelongsTo
+
+    public $timestamps = false;
+
+    public function kkPenduduk(): BelongsTo
     {
         return $this->belongsTo(kk_pendudukModel::class, 'no_kk');
     }

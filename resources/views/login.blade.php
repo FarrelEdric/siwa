@@ -1,92 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #e5e5e5;
+        }
+
+        .form-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 3rem 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        @media (max-width: 728px) {
+            .form-container {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 530px) {
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+
+        .form-container h1 {
+            margin-bottom: 1rem;
+        }
+
+        .form-container .form-label {
+            font-weight: 500;
+        }
+
+        .form-container .btn-primary {
+            width: 100%;
+        }
+
+        .alert {
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
-<style>
-    body {
-    font-family: sans-serif;
-}
 
-.container {
- 
-    width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-h1 {
-    font-size: 24px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.login-form {
-    border: 1px solid #1d3752;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #1d3752;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #1d3752;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-</style>
 <body>
     <div class="container">
-        <h1>SELAMAT DATANG DI</h1>
-        <h1>SISTEM INFORMASI</h1>
-        <h1>WARGA DESA</h1>
-        <div class="login-form">
-            <h2>SILAHKAN LOGIN</h2>
+        <div class="form-container">
+            <h1 class="text-center fw-bold">Selamat Datang</h1>
+            <h2 class="text-center fw-semibold"><span style="color: #3498db" class="fw-bold">SiWa</span></h2>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{route('proses_login')}}" method="POST">
                 @csrf
-                @method('POST')
-                <div class="input-group">
-                    <label for="username">Masukkan Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Username">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
+                        id="username" aria-describedby="usernameHelp">
+                    @error('username')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div class="input-group">
-                    <label for="password">Masukkan Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Password">
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                        id="password">
+                    @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <button type="submit">Login</button>
-                <a href="{{route('register')}}">Register</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
 </body>
+
 </html>
