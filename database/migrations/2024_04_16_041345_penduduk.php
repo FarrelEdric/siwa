@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nik_penduduk', 100);
             $table->string('nama_penduduk', 100);
             $table->string('pekerjaan_penduduk', 100);
+            $table->enum('jenis_kelamin', ['laki-laki','perempuan']);
             $table->string('status_penduduk', 100);
             $table->date('tgl_lahir_penduduk');
             $table->string('no_tlp_penduduk', 50);
