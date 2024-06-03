@@ -19,11 +19,12 @@ class penduduk_seed extends Seeder
                 'no_kk' => '1',
                 'nik_penduduk' => '313131',
                 'nama_penduduk' => 'irwan',
-                'kk_penduduk' => '1',
                 'pekerjaan_penduduk' => 'pegawai negri',
+                'jenis_kelamin' => 'laki-laki',
                 'status_penduduk' => 'aktif',
                 'tgl_lahir_penduduk' => '1984-10-1',
-                'no_tlp_penduduk' => '081232522123'
+                'no_tlp_penduduk' => '081232522123',
+
 
             ],
 
@@ -32,11 +33,13 @@ class penduduk_seed extends Seeder
                 'no_kk' => '2',
                 'nik_penduduk' => '323232',
                 'nama_penduduk' => 'asep',
-                'kk_penduduk' => '2',
                 'pekerjaan_penduduk' => 'pegawai negri',
+                'jenis_kelamin' => 'laki-laki',
                 'status_penduduk' => 'aktif',
                 'tgl_lahir_penduduk' => '1985-09-2',
-                'no_tlp_penduduk' => '081232522124'
+                'no_tlp_penduduk' => '081232522124',
+
+
 
             ],
             [
@@ -44,11 +47,12 @@ class penduduk_seed extends Seeder
                 'no_kk' => '3',
                 'nik_penduduk' => '333333',
                 'nama_penduduk' => 'tenza',
-                'kk_penduduk' => '3',
                 'pekerjaan_penduduk' => 'pegawai negri',
+                'jenis_kelamin' => 'perempuan',
                 'status_penduduk' => 'aktif',
                 'tgl_lahir_penduduk' => '1986-11-14',
-                'no_tlp_penduduk' => '081232522125'
+                'no_tlp_penduduk' => '081232522125',
+
 
             ]
         ];

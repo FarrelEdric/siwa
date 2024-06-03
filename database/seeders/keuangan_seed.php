@@ -14,21 +14,26 @@ class keuangan_seed extends Seeder
     public function run(): void
     {
         $data = [
-            ['id_keuangan'=>'1',
-            'jenis_iuran' => 'A',
-            'jumlah_iuran' => '15000'
-        ],
-        
-            ['id_keuangan'=>'2',
-            'jenis_iuran' => 'B',
-            'jumlah_iuran' => '25000'
-        ],
             [
-            'id_keuangan'=>'3',
-            'jenis_iuran' => 'B',
-            'jumlah_iuran' => '35000'
-            ]
+                'id_keuangan' => '1',
+                'no_kk' => 1,
+                'date' => date('Y-m-d', strtotime(' 2024-01-01')),
 
+
+            ],
+
+            [
+                'id_keuangan' => '2',
+                'no_kk' => 2,
+                'date' => date('Y-m-d', strtotime('2024-02-01')),
+
+            ],
+            [
+                'id_keuangan' => '3',
+                'no_kk' => 3,
+                'date' => date('Y-m-d', strtotime('2024-03-01')),
+
+            ],
         ];
         DB::table('keuangan')->insert($data);
     }

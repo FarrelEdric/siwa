@@ -15,14 +15,14 @@ class suratModel extends Model
 
     protected $primaryKey = "id_surat";
 
-    protected $fillalble = [
+    protected $fillable = [
         'id_penduduk',
         'tgl_surat',
         'tujuan'
 
-     
-
     ];
+
+    public $timestamps = false;
     public function penduduk(): BelongsTo
     {
         return $this->belongsTo(pendudukModel::class, 'id_penduduk');

@@ -33,4 +33,9 @@ class userModel extends Authenticatable
     {
         return $this->belongsTo(levelModel::class, 'level_id');
     }
+
+    public function isAdmin()
+    {
+        return $this->level->level_id != '2';
+    }
 }

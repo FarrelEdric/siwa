@@ -1,16 +1,24 @@
-<div class="sidebar">
+<div class="sidebar ">
+  <div class="d-flex align-items-center mt-3">
+    <a href="{{ url('/dashboard') }}" class="brand-link p-0" style="display: flex; align-items: center;">
+      <img src="{{ asset('adminlte/dist/img/SiwaLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-rectangle" >
+      <span class="brand-text" style="color: #ffffff; font-family: 'Righteous', sans-serif; font-size: 25px; margin-left: 5px;">SiWA</span>
+    </a>
+  </div>
+
   <!-- Sidebar Menu -->
-  <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-      <li class="nav-item">
-        <a href="{{ url('/') }}" class="nav-link {{ ($activeMenu == 'dashboard') ? 'active' : '' }}" style="color: white;">
+  <nav class="mt-2 h-100">
+    <hr class="bg-white">
+    <ul class="nav nav-pills nav-sidebar  h-100 flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <li class="nav-item mt-2">
+        <a href="{{ url('/dashboard') }}" class="nav-link {{ ($activeMenu == 'dashboard') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-home"></i>
           <p>Dashboard</p>
         </a>
       </li>
 
-      <li class="nav-item ">
-        <a href="#" class="nav-link" style="color: white;">
+      <li class="{{Auth::user()->level_id == '3' ? 'd-none':''}} nav-item mt-2">
+        <a href="#"  class="nav-link {{ ($activeMenu == 'surat') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon far fa-envelope"></i>
           <p>
             Persuratan
@@ -19,52 +27,44 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{url('/surat')}}" class="nav-link" style="color: white;">
+            <a href="{{Auth::user()->level_id == '2'? url('/surat'):url('admin/surat')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Kelola Persuratan</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>History Persuratan</p>
-            </a>
-          </li>
+          
         </ul>
       </li>
 
-      <li class="nav-item">
-        <a href="{{url('/keuangan')}}" class="nav-link " style="color: white;">
+      <li class="nav-item mt-2">
+        <a href="{{url('/keuangan-penduduk')}}" class="nav-link {{ ($activeMenu == 'keuangan') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-coins"></i>
           <p>
             Keuangan
-            <i class="right fas fa-angle-left"></i>
+            <i class="{{Auth::user()->level_id == '2'? 'd-none':''}} right fas fa-angle-left"></i>
           </p>
         </a>
-        <ul class="nav nav-treeview">
+        @if(Auth::user()->level_id != '2')
+        <ul class=" nav nav-treeview">
           <li class="nav-item">
             <a href="{{url('/keuangan')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
-              <p>Data Keuangan</p>
+              <p>Pembayaran</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
+          <li class="nav-item ">
+            <a href="{{url('pengeluaran')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
-              <p>Rekap Keuangan</p>
+              <p>Keuangan RT</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Form Iuran</p>
-            </a>
-          </li>
+         
         </ul>
+        @endif
       </li>
 
-      <li class="nav-item">
-        <a href="#" class="nav-link " style="color: white;">
+      <li class="nav-item mt-2">
+        <a href="#" class="nav-link {{ ($activeMenu == 'kegiatan') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-info-circle"></i>
           <p>
             Informasi
@@ -73,28 +73,28 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="./index.html" class="nav-link" style="color: white;">
+            <a href="./kegiatan" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Kegiatan Warga</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
+          <li class="nav-item mt-2">
+            <a href="{{url('/sosialisasi')}}" class="nav-link" style="color: black;">
               <i class="nav-icon fas"></i>
               <p>Sosialiasi</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
+            <a href="{{url('/organisasi')}}" class="nav-link" style="color: black;">
+              <i style="color: black;" class="nav-icon fas"></i>
               <p>Struktur Organisasi</p>
             </a>
           </li>
         </ul>
       </li>
 
-      <li class="nav-item">
-        <a href="#" class="nav-link " style="color: white;">
+      <li class="nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
+        <a href="{{url('/penduduk')}}" class="nav-link {{ ($activeMenu == 'penduduk') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-list-ul"></i>
           <p>
             Data Warga
@@ -117,7 +117,7 @@
         </ul>
       </li>
 
-      <li class="nav-item">
+      <li class="{{Auth::user()->level_id == '3' ? 'd-none':''}} nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
         <a href="#" class="nav-link " style="color: white;">
           <i class="nav-icon fas fa-hands-helping"></i>
           <p>
@@ -147,13 +147,21 @@
         </ul>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item {{Auth::user()->isAdmin() ? '':'d-none'}}">
         <a href="{{ url('/user') }}" class="nav-link {{ ($activeMenu == 'user') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon far fa-user"></i>
           <p>Data User</p>
         </a>
       </li>
-
+      <hr class="bg-white">
+      <!-- Tombol Logout -->
+      <li class="nav-item">
+        <a href="{{ url('/logout') }}" class="nav-link align-self-end" style="color: white;">
+          <i class="nav-icon fas fa-sign-out-alt"></i>
+          <p>Logout</p>
+        </a>
+      </li>
+     
     </ul>
   </nav>
 </div>

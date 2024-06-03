@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('jenis_kegiatan', 100);
             $table->date('tgl_kegiatan');
             $table->string('lokasi', 100);
+            $table->text('deskripsi')->nullable();
+            $table->string('image', 100)->nullable();
+            $table->enum('jenis_berita', ['sosialisasi', 'berita'])->default('berita');
         });
     }
 

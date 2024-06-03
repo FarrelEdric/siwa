@@ -37,6 +37,12 @@ Route::get('/login', [loginController::class, 'login'])->middleware('guest');
 Route::get('/register', [register::class, 'register'])->name('register');
 Route::post('/register', [register::class, 'register'])->name('register');
 
+
+// Group route for kegiatan
+
+Route::get('/login', [loginController::class, 'login'])->middleware('guest');
+Route::get('/register', [register::class, 'register'])->name('register');
+
 Route::group(['prefix' => 'kegiatan'], function () {
     Route::get('/', [kegiatan::class, 'index']);
     Route::post('/list', [kegiatan::class, 'list']);
@@ -78,6 +84,8 @@ Route::group(['prefix' => 'bantuanSosial'], function () {
 
 // Group route for surat
 Route::group(['prefix' => 'surat'], function () {
+Route::group(['prefix' => 'surat', 'middleware' => 'noRT'], function () {
+
     Route::resource('/', surat::class);
     Route::post('/list', [surat::class, 'list']);
     Route::get('/create', [surat::class, 'create']);
@@ -90,6 +98,7 @@ Route::group(['prefix' => 'surat'], function () {
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/', [kegiatan::class, 'landing']);
 
 
 // Route::post('/register', [register::class, 'register'])->name('register');
@@ -109,16 +118,26 @@ Route::post('penduduk/list', [penduduk::class, 'list']);
 Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
 Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
 Route::get('/strukturOrganisasi', [organisasi::class, 'index']);
+Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk')->middleware('noRT');
+Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
+
 
 //admin
 Route::group(['middleware' => 'auth'], function () {
     //surat admin
     Route::get('admin/surat', [surat::class, 'adminSurat'])->name('surat');
+    Route::get('admin/surat', [surat::class, 'adminSurat'])->name('surat')->middleware('noRT');
+    Route::get('/surat/delete/{id}', [surat::class, 'batalkanSurat'])->name('surat');
 
 
     // route keuangan
     Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
     Route::post('keuangan/list', [keuangan::class, 'list']);
+    Route::get('keuangan-penduduk', [keuangan::class, 'indexPenduduk']);
+    Route::get('pengeluaran', [keuangan::class, 'pengeluaran']);
+    Route::post('keuangan/list', [keuangan::class, 'list']);
+    Route::post('keuangan', [keuangan::class, 'store']);
+    Route::post('pengeluaran', [keuangan::class, 'storePengeluaran']);
     Route::get('keuangan/{id}', [keuangan::class, 'show']);
 
     // route penduduk
@@ -127,6 +146,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // route bansos
     Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
+    Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk')->middleware('noRT');
     Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
 
     //PENDUDUK

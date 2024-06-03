@@ -14,7 +14,13 @@ class kk_pendudukModel extends Model
 
     protected $primaryKey = "no_kk";
 
-    protected $fillalble = [
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        'no_kk',
+        'nkk',
         'id_keuangan',
         'kepala_keluarga',
         'alamat',
@@ -27,6 +33,9 @@ class kk_pendudukModel extends Model
         'provinsi'
 
     ];
+
+    public $timestamps = false;
+
     public function  keuangan(): BelongsTo
     {
         return $this->belongsTo(keuanganModel::class, 'keuangan');

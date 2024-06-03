@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\userModel;
 use App\Http\Controllers\Controller;
+use App\Models\pendudukModel;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,16 +33,22 @@ class register extends Controller
         // }
 
         // Buat pengguna
-        $user = userModel::create(
-            [
-                'id_penduduk' => $request->id_penduduk,
-                'level_id' => $request->level_id,
-                'nama_user' => $request->nama_user,
-                'username' => $request->username,
-                'password' => Hash::make($request->password),
+        try {
 
-            ]
-        );
+            $penduduk = pendudukModel::where('nik_penduduk', $request->nik)->firstOrFail();
+
+            $user = userModel::create(
+                [
+                    'id_penduduk' => $penduduk->id_penduduk,
+                    'level_id' => $request->level_id,
+                    'nama_user' => $request->nama_user,
+                    'username' => $request->username,
+                    'password' => Hash::make($request->password),
+
+                ]
+            );
+        } catch (Exception $e) {
+        }
 
         // // Kembalikan respons JSON pengguna berhasil dibuat
         // if ($user) {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ config('app.name', 'PWL Laravel Starter Code') }}</title>
@@ -19,8 +20,25 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
   @stack('css')
 </head>
+
+<style>
+  .sidebar a{
+    color: white!important;
+  }
+  .sidebar a:hover{
+    color: ffffff!important;
+    background-color: #F7C232!important;
+  }
+  .sidebar .active{
+    color: #ffffff!important;
+  background-color: #F7C232!important;
+ }
+</style>
 
 
 @php($i= array ( 1 =>    'Senin',
@@ -40,14 +58,10 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-yellow elevation-4" style="background-color: #1D3752;">
+  <aside class="main-sidebar  " style="background-color: #1D3752;">
     <!-- Brand Logo -->
-
-    <a href="{{ url('/') }}" class="brand-link" style="display: flex; align-items: center;">
-      <img src="{{ asset('adminlte/dist/img/SiwaLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-rectangle" style="color: white;">
-      <span class="brand-text" style="color: white; font-family: 'Righteous', sans-serif; font-size: 25px; margin-left: 5px;">SiWA</span>
-    </a>
-
+    
+   
     <!-- Sidebar -->
     @include('layout.sidebar')
     <!-- /.sidebar -->
@@ -57,9 +71,9 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     @include('layout.breadcrumb')
-
+   
     <!-- Main content -->
-    <section class="content">
+    <section class="content p-3">
         @yield('content') 
     </section>
     <!-- /.content -->
