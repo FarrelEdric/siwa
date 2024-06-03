@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kk_pendudukModel;
 use App\Models\pendudukModel;
 
+use App\Models\userModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 
 class penduduk extends Controller
@@ -14,6 +18,10 @@ class penduduk extends Controller
      */
     public function index()
     {
+        $penduduk = pendudukModel::with('kkPenduduk')->find(Auth::user()->id_penduduk);
+        $rt_penduduk = pendudukModel::join('kk_penduduk', 'kk_penduduk.no_kk', 'penduduk.no_kk')->where('kk_penduduk.rt', $penduduk->kkPenduduk->rt)->get();
+
+
         $breadcrumb = (object)[
             'title' => 'Data Seluruh Warga',
             'list' => ['Home', 'Data Seluruh Warga']
@@ -31,9 +39,14 @@ class penduduk extends Controller
 
     public function list(Request $request)
     {
-        $penduduk = pendudukModel::all();
 
-        return DataTables::of($penduduk)
+        if (Auth::user()->id_user == '1') {
+            $rt_penduduk = pendudukModel::with('kkPenduduk')->get();
+        } else {
+            $penduduk = pendudukModel::with('kkPenduduk')->find(Auth::user()->id_penduduk);
+            $rt_penduduk = pendudukModel::join('kk_penduduk', 'kk_penduduk.no_kk', 'penduduk.no_kk')->where('kk_penduduk.rt', $penduduk->kkPenduduk->rt)->get();
+        }
+        return DataTables::of($rt_penduduk)
             ->addIndexColumn()
             ->addColumn('aksi', function ($penduduk) {
                 $btn = '<a href="' . url('/penduduk/' . $penduduk->id_penduduk) . '" class="btn btn-sm mb-1" style="margin-right: 5px; width: 80px; background-color: #1D3752; color: white;"><i class="fas fa-eye"></i> Detail</a>';
@@ -70,36 +83,69 @@ class penduduk extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
+
         $request->validate([
-            'id_penduduk' => 'required|string|max:16',
-            'nik_penduduk' => 'required|string|max:16',
-            'nama_penduduk' => 'required|string|max:100',
-            'pekerjaan_penduduk' => 'required|string|max:100',
-            'status_penduduk' => 'required|string|max:100',
-            'tgl_lahir_penduduk' => 'required|date',
-            'no_tlp_penduduk' => 'required|string|max:15',
-            'alamat' => 'required|string|max:255', // Tambahkan validasi alamat
+            "nkk" => 'required',
+            "nik_penduduk" => 'required',
+            "nama_penduduk" => 'required',
+            "pekerjaan_penduduk" => 'required',
+            "jenis_kelamin" => 'required',
+            "status_penduduk" => 'required',
+            "tgl_lahir_penduduk" => 'required',
+            "no_tlp_penduduk" => 'required',
+            "alamat" => 'required',
+            "rt" => 'required'
         ]);
 
-        try {
-            //code...
+        // $request->validate([
+        //     'id_penduduk' => 'required|string|max:16',
+        //     'nik_penduduk' => 'required|string|max:16',
+        //     'nama_penduduk' => 'required|string|max:100',
+        //     'pekerjaan_penduduk' => 'required|string|max:100',
+        //     'status_penduduk' => 'required|string|max:100',
+        //     'tgl_lahir_penduduk' => 'required|date',
+        //     'no_tlp_penduduk' => 'required|string|max:15',
+        //     'alamat' => 'required|string|max:255', // Tambahkan validasi alamat
+        // ]);
 
-            pendudukModel::create([
-                'no_kk' => $request->id_penduduk,
+        try {
+            $kartuKeluarga = kk_pendudukModel::where('nkk', $request->nkk)->first();
+
+            if ($kartuKeluarga == null) {
+                $kartuKeluarga = kk_pendudukModel::create([
+                    'nkk' => $request->nkk,
+                    'kepala_keluarga' => $request->nama_penduduk,
+                    'alamat' => $request->alamat,
+                    'rt' => $request->rt,
+                ]);
+                $kartuKeluarga = kk_pendudukModel::where('nkk', $kartuKeluarga->nkk)->first();
+            }
+
+
+            $penduduk = pendudukModel::create([
+                'no_kk' => $kartuKeluarga->no_kk,
                 'nik_penduduk' => $request->nik_penduduk,
                 'nama_penduduk' => $request->nama_penduduk,
                 'pekerjaan_penduduk' => $request->pekerjaan_penduduk,
+                'jenis_kelamin' => $request->jenis_kelamin,
                 'status_penduduk' => $request->status_penduduk,
                 'tgl_lahir_penduduk' => $request->tgl_lahir_penduduk,
-                'no_tlp_penduduk' => $request->no_tlp_penduduk,
-                'alamat' => $request->alamat, // Tambahkan alamat
+                'no_tlp_penduduk' => $request->no_tlp_penduduk
             ]);
-        } catch (\Throwable $th) {
-            //throw $th;
-            dd($th);
-        }
+            // dd($penduduk);
 
-        return redirect('/penduduk')->with('success', 'Data Warga berhasil disimpan');
+            $user = userModel::create([
+                'id_penduduk' => $penduduk->id_penduduk,
+                'status_aktif' => $request->status_penduduk,
+                'username' => $penduduk->nama_penduduk,
+                'password' => Hash::make($request->password),
+            ]);
+
+            return redirect('penduduk')->with('success', 'data berhasil ditambah');
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
 
     /**

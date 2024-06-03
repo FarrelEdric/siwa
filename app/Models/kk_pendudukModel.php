@@ -20,6 +20,7 @@ class kk_pendudukModel extends Model
 
     protected $fillable = [
         'no_kk',
+        'nkk',
         'id_keuangan',
         'kepala_keluarga',
         'alamat',

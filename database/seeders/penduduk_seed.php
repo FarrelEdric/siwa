@@ -24,7 +24,7 @@ class penduduk_seed extends Seeder
                 'status_penduduk' => 'aktif',
                 'tgl_lahir_penduduk' => '1984-10-1',
                 'no_tlp_penduduk' => '081232522123',
-                'alamat' => 'jl teluk banyubiru'
+
 
             ],
 
@@ -38,7 +38,7 @@ class penduduk_seed extends Seeder
                 'status_penduduk' => 'aktif',
                 'tgl_lahir_penduduk' => '1985-09-2',
                 'no_tlp_penduduk' => '081232522124',
-                'alamat' => 'jl teluk cendrawasih'
+
 
 
             ],
@@ -52,7 +52,7 @@ class penduduk_seed extends Seeder
                 'status_penduduk' => 'aktif',
                 'tgl_lahir_penduduk' => '1986-11-14',
                 'no_tlp_penduduk' => '081232522125',
-                'alamat' => 'jl teluk grajakan'
+
 
             ]
         ];

@@ -27,7 +27,6 @@
                     <th>Status</th>
                     <th>Tanggal Lahir</th>
                     <th>No Telepon</th>
-                    <th>Alamat</th> <!-- Tambahkan kolom alamat -->
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -98,12 +97,7 @@
                         orderable: false,
                         searchable: false
                     },
-                    {
-                        data: "alamat", // Tambahkan kolom alamat
-                        className: "",
-                        orderable: false,
-                        searchable: false
-                    },
+                    
                     {
                         data: "aksi",
                         className: "",

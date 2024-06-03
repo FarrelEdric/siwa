@@ -33,7 +33,7 @@ class surat extends Controller
 
     public function list(Request $request)
     {
-        $levels = suratModel::where('id_penduduk', Auth::user()->id_penduduk)->get();
+        $levels = suratModel::with('penduduk')->where('id_penduduk', Auth::user()->id_penduduk)->get();
 
 
         // 
@@ -52,9 +52,10 @@ class surat extends Controller
                     if ($level->status == 'Menunggu' || $level->status == 'Ditolak') {
                         $btn = '<a  style="cursor:not-allowed" class="btn btn-secondary" >Cetak</a> ';
                     } else {
-                        $btn = '<a href="' . url('/surat/download/' . $level->id_surat) . '" class="btn btn-danger" >Cetak</a> ';
+                        $btn = '<a href="' . url('/surat/download/' . $level->id_surat) . '" class="btn btn-danger" >Cetak</a>';
                     }
                 }
+                $btn .= '<a class="btn btn-danger ms-2" href ="' . url('surat/delete/' . $level->id_surat) . '">Batalkan </a>';
                 return $btn;
             })
 
@@ -178,6 +179,17 @@ class surat extends Controller
     {
         //
         $surat = suratModel::findOrFail($id)->delete();
+        return redirect('/surat');
+    }
+
+    public function batalkanSurat($id)
+    {
+        try {
+            $surat = suratModel::findOrFail($id)->delete();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'gagal membatalkan surat');
+        }
+
         return redirect('/surat');
     }
 

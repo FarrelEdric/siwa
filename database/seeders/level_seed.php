@@ -16,11 +16,14 @@ class level_seed extends Seeder
         $data = [
             [
                 'level_id' => '1',
-                'level_nama' => 'admin'
+                'level_nama' => 'admin RW'
             ],
             [
                 'level_id' => '2',
                 'level_nama' => 'user'
+            ], [
+                'level_id' => '3',
+                'level_nama' => 'admin RT'
             ]
 
         ];

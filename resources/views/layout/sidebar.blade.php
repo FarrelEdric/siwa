@@ -17,7 +17,7 @@
         </a>
       </li>
 
-      <li class="nav-item mt-2">
+      <li class="{{Auth::user()->level_id == '3' ? 'd-none':''}} nav-item mt-2">
         <a href="#"  class="nav-link {{ ($activeMenu == 'surat') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon far fa-envelope"></i>
           <p>
@@ -27,7 +27,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{Auth::user()->level_id == '1'? url('admin/surat'):url('/surat')}}" class="nav-link" style="color: white;">
+            <a href="{{Auth::user()->level_id == '2'? url('/surat'):url('admin/surat')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Kelola Persuratan</p>
             </a>
@@ -37,14 +37,15 @@
       </li>
 
       <li class="nav-item mt-2">
-        <a href="{{url('/keuangan')}}" class="nav-link {{ ($activeMenu == 'keuangan') ? 'active' : '' }}" style="color: white;">
+        <a href="{{url('/keuangan-penduduk')}}" class="nav-link {{ ($activeMenu == 'keuangan') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-coins"></i>
           <p>
             Keuangan
-            <i class="right fas fa-angle-left"></i>
+            <i class="{{Auth::user()->level_id == '2'? 'd-none':''}} right fas fa-angle-left"></i>
           </p>
         </a>
-        <ul class="nav nav-treeview">
+        @if(Auth::user()->level_id != '2')
+        <ul class=" nav nav-treeview">
           <li class="nav-item">
             <a href="{{url('/keuangan')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
@@ -52,13 +53,14 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a href="./index2.html" class="nav-link" style="color: white;">
+            <a href="{{url('pengeluaran')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Keuangan RT</p>
             </a>
           </li>
          
         </ul>
+        @endif
       </li>
 
       <li class="nav-item mt-2">
@@ -115,7 +117,7 @@
         </ul>
       </li>
 
-      <li class="nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
+      <li class="{{Auth::user()->level_id == '3' ? 'd-none':''}} nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
         <a href="#" class="nav-link " style="color: white;">
           <i class="nav-icon fas fa-hands-helping"></i>
           <p>
@@ -159,9 +161,7 @@
           <p>Logout</p>
         </a>
       </li>
-      <li class="{{Auth::user()->isAdmin() ? '':'d-none'}} nav-item">
-        <a class="nav-link align-self-end" href="{{route('register')}}"><i class="nav-icon fas fa-sign-out-alt"></i> Register</a>
-      </li>
+     
     </ul>
   </nav>
 </div>

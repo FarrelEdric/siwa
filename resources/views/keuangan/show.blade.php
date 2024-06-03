@@ -29,13 +29,7 @@
                                     <td>{{ $keuangan->pemasukan_iuran }}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Pengeluaran</th>
-                                    <td>{{ $keuangan->pengeluaran_iuran }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Total</th>
-                                    <td>{{ $keuangan->total }}</td>
-                                </tr>
+                               
                             </tbody>
                         </table>
                     </div>
