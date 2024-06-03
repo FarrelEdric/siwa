@@ -63,31 +63,27 @@
 </head>
 <body>
     <div class="container">
-    <div class="header" style="text-align: center; font-family: 'Arial', sans-serif; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
-        <h1 style="margin-bottom: 5px; font-size: 24px; color: #333;">RUKUN WARGA (RW) 11</h1>
-        <h2 style="margin-top: 0; margin-bottom: 5px; font-size: 20px; color: #555;">DESA TANJUNGREJA</h2>
-        <h3 style="margin-top: 0; font-size: 18px; color: #777;">KECAMATAN SUKUN</h3>
-        <hr style="border: 1px solid #ccc; margin-top: 20px;">
-    </div>
-    <div class="content">
-
+        <div class="header" style="text-align: center; font-family: 'Arial', sans-serif; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+            <h1 style="margin-bottom: 5px; font-size: 24px; color: #333;">RUKUN WARGA (RW) 11</h1>
+            <h2 style="margin-top: 0; margin-bottom: 5px; font-size: 20px; color: #555;">DESA TANJUNGREJA</h2>
+            <h3 style="margin-top: 0; font-size: 18px; color: #777;">KECAMATAN SUKUN</h3>
+            <hr style="border: 1px solid #ccc; margin-top: 20px;">
+        </div>
+        <div class="content">
             <div class="grid grid-cols-6 text-xs">
-              <p class="col-span-1">No</p>
-              <p class="col-span-1">: ......../RW/........</p>
+                <p class="col-span-1">No</p>
+                <p class="col-span-1">: ......../RW/........</p>
             </div>
-            
             <div class="grid grid-cols-6 text-xs">
-              <p class="col-span-1">Lampiran</p>
-              <p class="col-span-1">: 1 Berkas</p>
+                <p class="col-span-1">Lampiran</p>
+                <p class="col-span-1">: 1 Berkas</p>
             </div>
-            
             <div class="grid grid-cols-6 text-xs">
-              <p class="col-span-1">Perihal</p>
-              <p class="col-span-2">: Pengajuan SKCK</p>
+                <p class="col-span-1">Perihal</p>
+                <p class="col-span-2">: .....................</p>
             </div>
-            
             <div align="right" style="margin-top: 20px;">
-                <span>Malang, 28 Mei 2024</span>
+                <span>Malang, ... ............... .....</span>
             </div>
             <br>
             <table>
@@ -107,7 +103,7 @@
             <div class="details" style="margin-top: 20px;">
                 <p>Dengan hormat,<br>
                 Sehubungan dengan permohonan Surat Keterangan Catatan Kepolisian (SKCK) dari:</p>
-                <br></br>
+                <br>
                 <table>
                     <tr>
                         <td>Nama</td>
@@ -135,11 +131,11 @@
                         <td>..............................................................................................................</td>
                     </tr>
                 </table>
-                <br></br>
+                <br>
                 <p class="text-justify">Yang bersangkutan adalah warga RT [RT] RW [RW] Desa Tanjungreja Kecamatan Sukun, dengan ini kami mengajukan permohonan penerbitan SKCK atas nama tersebut di atas untuk keperluan [keperluan pembuatan SKCK].</p>
                 <p class="text-justify">Demikian surat pengantar ini kami sampaikan, atas perhatian dan kerjasamanya kami ucapkan terima kasih.</p>
             </div>
-            <br></br>
+            <br>
             <span>Mengetahui,</span>
             <div class="signatures">
                 <div class="signature">
