@@ -24,7 +24,7 @@ class pendudukModel extends Model
         'status_penduduk',
         'tgl_lahir_penduduk',
         'no_tlp_penduduk',
-        'alamat'
+
     ];
 
     public $timestamps = false;

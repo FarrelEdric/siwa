@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id('id_user');
             $table->unsignedBigInteger('id_penduduk')->index();
             $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduk');
-            $table->unsignedBigInteger('level_id')->index();
+            $table->unsignedBigInteger('level_id')->index()->default('2');
             $table->foreign('level_id')->references('level_id')->on('level');
-            $table->string('nama_user', 100);
+            $table->boolean('status_aktif')->default(1);
             $table->string('username', 100);
             $table->string('password', 100);
             $table->timestamps();

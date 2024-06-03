@@ -10,9 +10,9 @@
         <form method="POST" action="{{ url('penduduk') }}" class="form-horizontal">
             @csrf
             <div class="form-group">
-                <label for="no_kk" class="control-label">No KK</label>
+                <label for="no_kk" class="control-label">NKK</label>
                 <div class="mt-2">
-                    <input type="text" class="form-control" id="no_kk" name="no_kk" value="{{ old('no_kk') }}" required>
+                    <input type="text" class="form-control" id="no_kk" name="nkk" value="{{ old('no_kk') }}" required>
                     @error('no_kk')
                         <small class="form-text text-danger">{{ $message }}</small>
                     @enderror
@@ -27,6 +27,17 @@
                     @enderror
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="nik_penduduk" class="control-label">Password</label>
+                <div class="mt-2">
+                    <input type="password" class="form-control" id="password" name="password"  required>
+                    @error('password')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+
             <div class="form-group">
                 <label for="nama_penduduk" class="control-label">Nama</label>
                 <div class="mt-2">
@@ -83,6 +94,28 @@
                     @enderror
                 </div>
             </div>
+         
+            <div class="form-group">
+                <label for="status_penduduk" class="control-label">RT</label>
+                <div class="mt-2">
+                    <div class="input-group">
+                        <select class="form-control" id="rt" name="rt" required>
+                            <option value="">- Pilih RT -</option>
+                            <option value="01" >01</option>
+                            <option value="02" >02</option>
+                            <option value="03" >03</option>
+                            
+                        </select>
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                    </div>
+                    @error('status_penduduk')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+         
             <div class="form-group">
                 <label for="tgl_lahir_penduduk" class="control-label">Tanggal Lahir</label>
                 <div class="mt-2">

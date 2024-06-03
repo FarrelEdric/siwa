@@ -36,6 +36,6 @@ class userModel extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->level->level_nama == 'admin';
+        return $this->level->level_id != '2';
     }
 }

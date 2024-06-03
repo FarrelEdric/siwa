@@ -22,7 +22,8 @@ class kegiatan_seed extends Seeder
                 'lokasi' => 'malang',
                 'deskripsi' => '
                 Kerja bakti di RW 06 Malang merupakan wujud kolaborasi dan gotong royong yang kuat antara warga untuk memperbaiki lingkungan dan memajukan kehidupan bersama. Dalam setiap kegiatan kerja bakti, terlihat semangat kebersamaan dan rasa tanggung jawab yang tinggi dari setiap anggota masyarakat. ',
-                'jenis_berita' => 'berita'
+                'jenis_berita' => 'berita',
+                'image' => 'images/informasi/kerjabakti.png'
             ],
             [
                 'id_kegiatan' => '2',
@@ -31,7 +32,8 @@ class kegiatan_seed extends Seeder
                 'tgl_kegiatan' => now(),
                 'lokasi' => 'malang',
                 'deskripsi' => 'Program Posyandu di RW 06 Malang adalah sebuah inisiatif pemerintah setempat untuk meningkatkan kesehatan masyarakat, khususnya ibu dan anak. Posyandu merupakan singkatan dari Pos Pelayanan Terpadu, yang bertujuan untuk memberikan pelayanan kesehatan primer secara terpadu dan terintegrasi kepada masyarakat. Di RW 06 Malang, program Posyandu dijalankan secara sistematis dan berkelanjutan dengan melibatkan partisipasi aktif dari seluruh warga.',
-                'jenis_berita' => 'berita'
+                'jenis_berita' => 'berita',
+                'image' => 'images/informasi/kesehatan.png'
             ],
             [
                 'id_kegiatan' => '3',
@@ -46,6 +48,7 @@ class kegiatan_seed extends Seeder
                 Lakukan proses pengambilan foto dan rekam sidik jari 
                 Ambil KTP dalam waktu secepat-cepatnya 14 hari setelah pendaftaran.',
                 'jenis_berita' => 'sosialisasi',
+                'image' => ''
             ]
         ];
         DB::table('kegiatan')->insert($data);

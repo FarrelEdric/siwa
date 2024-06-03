@@ -38,8 +38,8 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+          <li><a class="nav-link scrollto" href="#berita">Berita</a></li>
           <li><a class="nav-link scrollto" href="{{ url('/login') }}">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -48,13 +48,42 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <section id="hero" style="height: 100vh" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container text-center text-md-left" data-aos="fade-up">
       <h1>Selamat Datang Di <span>Siwa</span></h1>
       <h2>Sistem Warga</h2>
-      <a href="#about" class="btn-get-started scrollto">Mari Kita Mulai</a>
+      <a href="{{ url('/login') }}" class="btn-get-started scrollto">Mari Kita Mulai</a>
     </div>
   </section><!-- End Hero -->
+
+  <div id="berita" class="section-title mt-5">
+    <h2>Berita Dan Informasi</h2>
+  </div>
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  
+    <div class="carousel-inner">
+      @foreach ($model as $item)
+      <div style="height: 400px" class="position-relative carousel-item active">
+        <img src="{{asset($item->image)}}" class="d-block w-100" alt="...">
+        <div style="top:0; left:0;background:black;opacity:30%;" class="h-100 w-100 position-absolute "></div>
+        <div  class="carousel-caption d-none d-md-block">
+          <h5 style=" opacity:100%;">{{$item->jenis_kegiatan}}</h5>
+          <p>{{$item->deskripsi}}</p>
+        </div>
+      </div>
+      @endforeach
+     
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
   <main id="main">
 
@@ -86,8 +115,8 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Kerja Bakti</a></h4>
-              <p>Warga dapat mengetahui info terkini jadwal kerja bakti</p>
+              <h4><a href="">Informasi</a></h4>
+              <p>Warga dapat mengetahui informasi dan kegiatan</p>
             </div>
           </div>
 
@@ -95,7 +124,7 @@
 
       </div>
     </section><!-- End What We Do Section -->
-
+ 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
@@ -113,9 +142,12 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section>
+    
+    
+    <!-- End About Section -->
 
-    <!-- ======= Team Section ======= -->
+    {{-- <!-- ======= Team Section ======= -->
     <section id="team" class="team">
       <div class="container">
 
@@ -185,14 +217,14 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section><!-- End Team Section --> --}}
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Kontak</h2>
+          <h2></h2>
           <p></p>
         </div>
 
@@ -209,15 +241,11 @@
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
+                </div>
+                <div class="col-lg-4 info mt-4 mt-lg-0">
                   <i class="bi bi-envelope"></i>
                   <h4>Email:</h4>
-                  <p>fransiscus08@gmail.com</p>
-                </div>
-
-                <div class="col-lg-4 info mt-4 mt-lg-0">
-                  <i class="bi bi-phone"></i>
-                  <h4>Call:</h4>
-                  <p>08997084448</p>
+                  <p>siwa08@gmail.com</p>
                 </div>
               </div>
             </div>

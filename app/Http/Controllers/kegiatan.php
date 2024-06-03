@@ -82,6 +82,12 @@ class kegiatan extends Controller
         return view('kegiatan.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
     }
 
+    public function landing()
+    {
+        $model  = kegiatanModel::where('jenis_berita', '=', 'berita')->get();
+        return view('index', compact('model'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */

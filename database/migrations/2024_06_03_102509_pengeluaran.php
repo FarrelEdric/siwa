@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keuangan', function (Blueprint $table) {
-            $table->id('id_keuangan');
+        //
+        Schema::create('pengeluaran', function (Blueprint $table) {
+            $table->id('id_pengeluaran');
+            $table->unsignedBigInteger('user_id')->index();
+            $table->foreign('user_id')->references('id_user')->on('user');
             $table->date('date');
-            $table->string('pemasukan_iuran', 100);
-            $table->string('pengeluaran_iuran', 100);
-            $table->string('total', 100);
+            $table->string('keterangan_pengeluaran');
+            $table->integer('pengeluaran_iuran');
+
             $table->timestamps();
         });
     }
