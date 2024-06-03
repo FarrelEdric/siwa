@@ -137,14 +137,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('organisasi', [organisasiController::class, 'index'])->name('organisasi');
     Route::post('organisasi/list', [organisasiController::class, 'list']);
     Route::get('organisasi/{id}', [organisasiController::class, 'show']);
+});
 
+Route::group(['prefix' => 'sosialisasi'], function () {
     //Route Sosialisasi
-    Route::get('sosialisasi', [sosialisasiController::class, 'index']);
-    Route::post('sosialisasi/list', [sosialisasiController::class, 'list']);
-    Route::get('sosialisasi/create', [sosialisasiController::class, 'create']);
-    Route::post('sosialisasi', [sosialisasiController::class, 'store']);
-    Route::get('sosialisasi/{id}', [sosialisasiController::class, 'show']);
-    Route::get('sosialisasi/{id}/edit', [sosialisasiController::class, 'edit']);
-    Route::put('sosialisasi/{id}', [sosialisasiController::class, 'update']);
-    Route::delete('sosialisasi/{id}', [sosialisasiController::class, 'destroy']);
+    Route::get('', [sosialisasiController::class, 'index']);
+    Route::post('/list', [sosialisasiController::class, 'list']);
+    Route::get('/create', [sosialisasiController::class, 'create']);
+    Route::post('', [sosialisasiController::class, 'store']);
+    Route::get('/{id}', [sosialisasiController::class, 'show']);
+    Route::get('/{id}/edit', [sosialisasiController::class, 'edit']);
+    Route::put('/{id}', [sosialisasiController::class, 'update']);
+    Route::delete('/{id}', [sosialisasiController::class, 'destroy']);
 });
