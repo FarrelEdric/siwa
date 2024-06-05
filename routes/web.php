@@ -101,7 +101,10 @@ Route::group(['prefix' => 'surat', 'middleware' => 'noRT'], function () {
 });
 
 // route login
-Route::get('/', [kegiatan::class, 'landing']);
+    Route::get('/', function () {
+    return view('index');
+});
+
 
 
 // Route::post('/register', [register::class, 'register'])->name('register');
