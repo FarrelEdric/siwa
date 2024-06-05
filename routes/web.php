@@ -101,9 +101,6 @@ Route::group(['prefix' => 'surat', 'middleware' => 'noRT'], function () {
 });
 
 // route login
-Route::get('/', function () {
-    return view('index');
-});
 Route::get('/', [kegiatan::class, 'landing']);
 
 
