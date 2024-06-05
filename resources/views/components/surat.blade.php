@@ -29,18 +29,11 @@
         }
         .content table {
             width: 100%;
+            border-collapse: collapse;
         }
         .content td {
             font-size: small;
             vertical-align: top;
-        }
-        .content .details {
-            margin-top: 20px;
-        }
-        .content .details table {
-            width: 100%;
-        }
-        .content .details td {
             padding: 2px 5px;
         }
         .signatures {
@@ -57,6 +50,9 @@
         }
         .signature .name {
             text-decoration: underline;
+        }
+        .details p, .content p {
+            margin: 10px 0;
         }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
