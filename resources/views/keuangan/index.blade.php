@@ -1,120 +1,103 @@
 @extends('layout.template')
 
 @section('content')
-<div>
-    <h1>total kas</h1>
-    <h1>{{$total->total}}</h1>
+<div class="mb-3">
+    <h4>Saldo: Rp. {{ number_format($saldo, 2) }}</h4>
 </div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Tambah Kas
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-       <form action="{{url('keuangan')}}" method="POST">
-        @csrf
-        @method('POST')
-        <div class="form-group">
-            <label >Nomor Kartu Keluarga</label>
-            <input type="text" name="nkk"  class="form-control" id="exampleInputEmail1" >
-          </div>
-      
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit"  class="btn btn-primary">Save changes</button>
-        </div>
-    </form>
-      </div>
-    </div>
-  </div>
-  @if (session('success'))
-  <div class="alert alert-success">{{ session('success') }}</div>
-@endif
-@if (session('error'))
-  <div class="alert alert-danger">{{ session('error') }}</div>
-@endif
-<section class="content">
-    <div class="container-fluid">
-        <div class="card card-outline">
-            <div class="card-header">
-                <h3 class="card-title">Edit Data Keuangan</h3>
-            </div>
-            <div class="card-body">
-                <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
-                    <thead class="bg-primary-subtle">
-                        <tr>
-                            <th>ID Keuangan</th>
-                            <th>Nama Penduduk</th>
-                            <th>Tanggal</th>
-                            <th>pemasukan</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+<div style="overflow-x:auto !important" class="card card-outline">
+    <div class="card-header">
+        <h3 class="card-title">Rekap Keuangan</h3>
+        <div class="card-tools">
+            <a class="{{Auth::user()->level_id != '1' ? 'd-none':''}} btn btn-sm mt-1" href="{{ url('keuangan/create') }}" style="background-color: #1D3752; color: white;">Tambah</a>
         </div>
     </div>
-</section>
+    <div class="card-body">
+        @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
+        <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
+            <thead>
+                <tr>
+                    <th rowspan="2">ID Keuangan</th>
+                    <th rowspan="2">Tanggal</th>
+                    <th rowspan="2">Keterangan</th>
+                    <th colspan="2" class="text-center">Jenis</th>
+                    <th rowspan="2">Aksi</th>
+                </tr>
+                <tr>
+                    <th class="text-center">Pemasukan</th>
+                    <th class="text-center">Pengeluaran</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 @endsection
 
-
 @push('css')
+<style>
+    .table th, .table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+</style>
 @endpush
 
 @push('js')
     <script>
         $(document).ready(function() {
             var dataLevel = $('#table_level').DataTable({
-            serverSide: true, // serverSide: true, jika ingin menggunakan server side processing
-            ajax: {
-                "url": "{{ url('keuangan/list') }}",
-                "dataType": "json",
-                "type": "POST"
-            },
-            columns: [
-                {
-                    data: "DT_RowIndex", // nomor urut dari laravel datatable addIndexColumn()
-                    className: "text-center",
-                    orderable: false,
-                    searchable: false
-                    }, {
-                    data: "kepala_keluarga", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                serverSide: true, // serverSide: true, jika ingin menggunakan server side processing
+                ajax: {
+                    "url": "{{ url('keuangan/list') }}",
+                    "dataType": "json",
+                    "type": "POST"
+                },
+                columns: [
+                    {
+                        data: "DT_RowIndex", // nomor urut dari laravel datatable addIndexColumn()
+                        className: "",
+                        orderable: false,
+                        searchable: false
                     },
-                    
                     {
-                    data: "date", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                    },{
-                    data: "pemasukan_iuran", 
-                    className: "",
-                    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-                    },          
-                                               
-                             
+                        data: "date", 
+                        className: "",
+                        orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                        searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                    },
                     {
-                    data: "aksi", 
-                    className: "",
-                    orderable: false, // orderable: true, jika ingin kolom ini bisa  diurutkan
-                    searchable: false // searchable: true, jika ingin kolom ini bisa dicari
-
+                        data: "keterangan",
+                        className: "",
+                        orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                        searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+                    },
+                    {
+                        data: "pemasukan_iuran", 
+                        className: "",
+                        orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                        searchable: true, // searchable: true, jika ingin kolom ini bisa dicari
+                        render: function(data, type, row) {
+                            return data ? 'Rp. ' + parseInt(data).toLocaleString() + ',-' : '-';
+                        }
+                    },
+                    {
+                        data: "pengeluaran_iuran", 
+                        className: "",
+                        orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+                        searchable: true, // searchable: true, jika ingin kolom ini bisa dicari
+                        render: function(data, type, row) {
+                            return data ? 'Rp. ' + parseInt(data).toLocaleString() + ',-' : '-';
+                        }
+                    },                               
+                    {
+                        data: "aksi", 
+                        className: "",
+                        orderable: false, // orderable: true, jika ingin kolom ini bisa  diurutkan
+                        searchable: false // searchable: true, jika ingin kolom ini bisa dicari
                     }
                 ]
             });
@@ -123,4 +106,4 @@
             })
         });
     </script>
-@endpush 
+@endpush

@@ -3,13 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\keuanganModel;
-use App\Models\kk_pendudukModel;
-use App\Models\pendudukModel;
-use App\Models\pengeluaranModel;
-use App\Models\userModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
 class keuangan extends Controller
@@ -19,81 +13,34 @@ class keuangan extends Controller
      */
     public function index()
     {
-
-
         $breadcrumb = (object)[
-            'title' => 'Daftar Keuangan',
-            'list' => ['Home', 'Keuangan']
+            'title' => 'Rekap Keuangan',
+            'list' => ['Home', 'Rekap Keuangan']
         ];
-
+    
         $page = (object)[
             'title' => 'Daftar Keuangan yang ada'
         ];
-
+    
         $activeMenu = 'keuangan';
-
-        $penduduk = pendudukModel::with('kkPenduduk')->find(Auth::user()->id_penduduk);
-        $keuangans = keuanganModel::selectRaw('sum(pemasukan_iuran) as total')->join('kk_penduduk', 'kk_penduduk.no_kk', 'keuangan.no_kk')
-            ->where('kk_penduduk.rt', $penduduk->kkPenduduk->rt)
-            ->first();
-
-
-
-        return view('keuangan.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'total' => $keuangans]);
-    }
-
-    public function indexPenduduk()
-    {
-        $breadcrumb = (object)[
-            'title' => 'Daftar Keuangan',
-            'list' => ['Home', 'Keuangan']
-        ];
-
-        $page = (object)[
-            'title' => 'Daftar Keuangan yang ada'
-        ];
-
-        $activeMenu = 'keuangan';
-        $penduduk = pendudukModel::with('kkPenduduk')->find(Auth::user()->id_penduduk);
-        $keuangans = keuanganModel::join('kk_penduduk', 'kk_penduduk.no_kk', 'keuangan.no_kk')
-            ->where('kk_penduduk.no_kk', $penduduk->kkPenduduk->no_kk)
-            ->get();
-        return view('keuangan.penduduk.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'data' => $keuangans]);
-    }
-
-    public function pengeluaran()
-    {
-        $breadcrumb = (object)[
-            'title' => 'Daftar Keuangan',
-            'list' => ['Home', 'Keuangan']
-        ];
-
-        $page = (object)[
-            'title' => 'Daftar Keuangan yang ada'
-        ];
-
-        $activeMenu = 'keuangan';
-
-        $pengeluaran = pengeluaranModel::with('user')->where('user_id', Auth::user()->id_user)->get();
-        $total = pengeluaranModel::selectRaw('sum(pengeluaran_iuran) as total')->where('user_id', Auth::user()->id_user)->first();
-
-
-        return view('keuangan.pengeluaran', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'data' => $pengeluaran, 'total' => $total]);
+    
+        // Menghitung saldo dari semua transaksi
+        $saldo = keuanganModel::sum('pemasukan_iuran') - keuanganModel::sum('pengeluaran_iuran');
+    
+        return view('keuangan.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'saldo' => $saldo]);
     }
 
 
     public function list(Request $request)
     {
-        $penduduk = pendudukModel::with('kkPenduduk')->find(Auth::user()->id_penduduk);
-        $keuangans = keuanganModel::join('kk_penduduk', 'kk_penduduk.no_kk', 'keuangan.no_kk')
-            ->where('kk_penduduk.rt', $penduduk->kkPenduduk->rt)
-            ->get();
+        $keuangans = keuanganModel::all();
 
         // 
         return DataTables::of($keuangans)
             ->addIndexColumn() // Menambahkan kolom index / no urut (default nmaa kolom: DT_RowINdex)
             ->addColumn('aksi', function ($keuangan) {
-                $btn = '<a   href="' . url('/keuangan/' . $keuangan->id_keuangan) . '" class="btn btn-primary" >Detail</a> ';
+                // $btn = '<a   href="' . url('/keuangan/' . $keuangan->id_keuangan) . '" class="btn btn-primary" >Detail</a> ';
+                $btn = '<a href="' . url('/keuangan/' . $keuangan->id_keuangan) . '" class="btn btn-sm mb-1" style="margin-right: 5px; width: 80px; background-color: #1D3752; color: white;"><i class="fas fa-eye"></i> Detail</a>';
                 return $btn;
             })
 
@@ -107,7 +54,17 @@ class keuangan extends Controller
      */
     public function create()
     {
-        //
+        $breadcrumb = (object)[
+            'title' => 'Tambah Rekap Keuangan',
+            'list' => ['Home', 'Rekap Keuangan', 'Tambah Rekap Keuangan']
+        ];
+
+        $page = (object)[
+            'title' => 'Tambah Data Keuangan'
+        ];
+
+        $activeMenu = 'keuangan';
+        return view('keuangan.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
     }
 
     /**
@@ -115,47 +72,29 @@ class keuangan extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $validate = Validator::make($request->all(), [
-            'nkk' => 'required'
+        $request->validate([
+            'date' => 'required|date',
+            'keterangan' => 'required|string',
+            'jenis_transaksi' => 'required|in:pemasukan,pengeluaran',
+            'nominal' => 'required|numeric',
         ]);
 
-        try {
-            $kartu_keluarga = kk_pendudukModel::where('nkk', $request->nkk)->firstOrFail();
-            keuanganModel::create([
-                'no_kk' => $kartu_keluarga->no_kk,
-                'date' => now(),
-            ]);
-        } catch (\Exception $e) {
-            return redirect('keuangan')->with('error', 'Data gagal ditambah');
+        $keuangan = new keuanganModel();
+        $keuangan->date = $request->date;
+        $keuangan->keterangan = $request->keterangan;
+        
+        // Sesuaikan logika untuk menyimpan data sesuai jenis transaksi
+        if ($request->jenis_transaksi == 'pemasukan') {
+            $keuangan->pemasukan_iuran = $request->nominal;
+            $keuangan->pengeluaran_iuran = 0;
+        } else {
+            $keuangan->pemasukan_iuran = 0;
+            $keuangan->pengeluaran_iuran = $request->nominal;
         }
+        
+        $keuangan->save();
 
-        return redirect('keuangan')->with('success', 'Keuangan berhasil ditambah');
-    }
-
-
-    public function storePengeluaran(Request $request)
-    {
-        //
-        $validate = Validator::make($request->all(), [
-
-            'keterangan_pengeluaran' => 'required',
-            'pengeluaran_iuran' => 'required',
-        ]);
-
-        try {
-
-            pengeluaranModel::create([
-                'user_id' => Auth::user()->id_user,
-                'date' => now(),
-                'keterangan_pengeluaran' => $request->keterangan_pengeluaran,
-                'pengeluaran_iuran' => $request->pengeluaran_iuran
-            ]);
-        } catch (\Exception $e) {
-            return redirect('pengeluaran')->with('error', 'Data gagal ditambah');
-        }
-
-        return redirect('pengeluaran')->with('success', 'Keuangan berhasil ditambah');
+        return redirect('keuangan')->with('success', 'Data keuangan berhasil ditambahkan.');
     }
 
     /**
@@ -183,7 +122,19 @@ class keuangan extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $keuangan = keuanganModel::findOrFail($id);
+
+        $breadcrumb = (object)[
+            'title' => 'Edit keuangan',
+            'list' => ['Home', 'keuangan', 'Edit']
+        ];
+
+        $page = (object)[
+            'title' => 'Edit Data Keuangan'
+        ];
+
+        $activeMenu = 'keuangan';
+        return view('keuangan.edit', ['breadcrumb' => $breadcrumb, 'page' => $page, 'keuangan' => $keuangan, 'activeMenu' => $activeMenu]);
     }
 
     /**
@@ -191,7 +142,21 @@ class keuangan extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'date' => 'required|date',
+            'keterangan' => 'required|string',
+            'pemasukan_iuran' => 'required|numeric',
+            'pengeluaran_iuran' => 'required|numeric',
+        ]);
+
+        $keuangan = keuanganModel::findOrFail($id);
+        $keuangan->date = $request->date;
+        $keuangan->keterangan = $request->keterangan;
+        $keuangan->pemasukan_iuran = $request->pemasukan_iuran;
+        $keuangan->pengeluaran_iuran = $request->pengeluaran_iuran;
+        $keuangan->save();
+
+        return redirect('keuangan')->with('success', 'Data keuangan berhasil diperbarui.');
     }
 
     /**
@@ -199,6 +164,9 @@ class keuangan extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $keuangan = keuanganModel::findOrFail($id);
+        $keuangan->delete();
+
+        return redirect('keuangan')->with('success', 'Data keuangan berhasil dihapus.');
     }
 }

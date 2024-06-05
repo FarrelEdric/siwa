@@ -13,17 +13,10 @@ class keuanganModel extends Model
 
     protected $primaryKey = "id_keuangan";
 
-    protected $fillable = [
-        'jenis_iuran',
-        'jumlah_iuran',
-        'no_kk',
-        'date'
-
-
+    protected $fillalble = [
+        'date',
+        'keterangan',
+        'pemasukan_iuran',
+        'pengeluaran_iuran',
     ];
-
-    public function kkPenduduk(): BelongsTo
-    {
-        return $this->belongsTo(kk_pendudukModel::class, 'no_kk');
-    }
 }

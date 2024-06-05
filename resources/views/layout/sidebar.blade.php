@@ -37,30 +37,15 @@
       </li>
 
       <li class="nav-item mt-2">
-        <a href="{{url('/keuangan-penduduk')}}" class="nav-link {{ ($activeMenu == 'keuangan') ? 'active' : '' }}" style="color: white;">
+        <a href="{{url('/keuangan')}}" class="nav-link {{ ($activeMenu == 'keuangan') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon fas fa-coins"></i>
           <p>
             Keuangan
-            <i class="{{Auth::user()->level_id == '2'? 'd-none':''}} right fas fa-angle-left"></i>
+            
           </p>
         </a>
-        @if(Auth::user()->level_id != '2')
-        <ul class=" nav nav-treeview">
-          <li class="nav-item">
-            <a href="{{url('/keuangan')}}" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Pembayaran</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="{{url('pengeluaran')}}" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Keuangan RT</p>
-            </a>
-          </li>
-         
-        </ul>
-        @endif
+        
+        
       </li>
 
       <li class="nav-item mt-2">
@@ -149,8 +134,7 @@
 
       <li class="nav-item {{Auth::user()->isAdmin() ? '':'d-none'}}">
         <a href="{{ url('/user') }}" class="nav-link {{ ($activeMenu == 'user') ? 'active' : '' }}" style="color: white;">
-          <i class="nav-icon far fa-user"></i>
-          <p>Data User</p>
+     
         </a>
       </li>
       <hr class="bg-white">

@@ -54,6 +54,12 @@ Route::group(['prefix' => 'sosialisasi'], function () {
 Route::group(['prefix' => 'keuangan'], function () {
     Route::get('/', [keuangan::class, 'index']);
     Route::post('/list', [keuangan::class, 'list']);
+    Route::get('/create', [keuangan::class, 'create']);
+    Route::post('/', [keuangan::class, 'store']);
+    Route::get('/{id}', [keuangan::class, 'show']);
+    Route::get('/{id}/edit', [keuangan::class, 'edit']);
+    Route::put('/{id}', [keuangan::class, 'update']);
+    Route::delete('/{id}', [keuangan::class, 'destroy']);
 });
 
 // Group route for penduduk
@@ -116,13 +122,16 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     // route keuangan
-    Route::get('keuangan', [keuangan::class, 'index'])->name('keuangan');
-    Route::get('keuangan-penduduk', [keuangan::class, 'indexPenduduk']);
-    Route::get('pengeluaran', [keuangan::class, 'pengeluaran']);
-    Route::post('keuangan/list', [keuangan::class, 'list']);
-    Route::post('keuangan', [keuangan::class, 'store']);
-    Route::post('pengeluaran', [keuangan::class, 'storePengeluaran']);
-    Route::get('keuangan/{id}', [keuangan::class, 'show']);
+    Route::group(['prefix' => 'keuangan'], function () {
+        Route::get('/', [keuangan::class, 'index'])->name('keuangan');
+        Route::post('/list', [keuangan::class, 'list']);
+        Route::get('/create', [keuangan::class, 'create']);
+        Route::post('/', [keuangan::class, 'store']);
+        Route::get('/{id}', [keuangan::class, 'show']);
+        Route::get('/{id}/edit', [keuangan::class, 'edit']);
+        Route::put('/{id}', [keuangan::class, 'update']);
+        Route::delete('/{id}', [keuangan::class, 'destroy']);
+    });
 
     // route penduduk
     Route::get('penduduk', [penduduk::class, 'index'])->name('penduduk');
