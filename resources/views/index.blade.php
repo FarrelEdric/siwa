@@ -128,16 +128,17 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
-        <h3 class="text-center">Tentang Kami</h3>
+        <h3 class="text-end mr-10px">Tentang Kami</h3>
         <div class="row">
           <div class="col-lg-6">
             <img src="assets/img/keluarga1.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-           
-            <p>
+            <br>
+            <p style="text-align: justify;">
               SIWA adalah sebuah website inovatif yang dirancang untuk mengakomodasi berbagai kegiatan warga dengan menyediakan beragam fitur yang bermanfaat. Melalui SIWA, warga dapat dengan mudah mengakses informasi mengenai kegiatan sosial seperti kerja bakti, mendapatkan bantuan sosial (bansos), serta mengurus berbagai keperluan persuratan. Tidak hanya itu, SIWA juga berfungsi sebagai platform untuk memfasilitasi komunikasi dan koordinasi antarwarga, memastikan setiap individu dapat berpartisipasi aktif dalam membangun lingkungan yang harmonis dan produktif. Dengan tampilan yang user-friendly dan fitur-fitur yang komprehensif, SIWA menjadi solusi terpadu untuk meningkatkan keterlibatan dan kesejahteraan komunitas.
             </p>
+            
           </div>
         </div>
 
@@ -194,7 +195,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>siwa</h3>
+            <h3>SIWA</h3>
             <p>
             Politeknik Negri Malang <br>
               Malang<br>
