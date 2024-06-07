@@ -10,6 +10,7 @@ use App\Http\Controllers\penduduk_masuk;
 use App\Http\Controllers\keuangan;
 use App\Http\Controllers\register;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\sosialisasiController;
 use App\Http\Controllers\penduduk;
 use App\Http\Controllers\kegiatan;
 use App\Http\Controllers\dashboardController;
@@ -32,6 +33,13 @@ use Illuminate\Support\Facades\Route;
 // Route::post('/kegiatan/list', [kegiatan::class, 'list']);
 // Route::get('/kegiatan/create', [kegiatan::class, 'create']);
 // Route::post('/kegiatan', [kegiatan::class, 'store']);
+
+// Group route for kegiatan
+
+Route::get('/login', [loginController::class, 'login'])->middleware('guest');
+Route::get('/register', [register::class, 'register'])->name('register');
+Route::post('/register', [register::class, 'register'])->name('register');
+
 
 // Group route for kegiatan
 
@@ -84,7 +92,9 @@ Route::group(['prefix' => 'bantuanSosial'], function () {
 });
 
 // Group route for surat
+Route::group(['prefix' => 'surat'], function () {
 Route::group(['prefix' => 'surat', 'middleware' => 'noRT'], function () {
+
     Route::resource('/', surat::class);
     Route::post('/list', [surat::class, 'list']);
     Route::get('/create', [surat::class, 'create']);
@@ -94,6 +104,9 @@ Route::group(['prefix' => 'surat', 'middleware' => 'noRT'], function () {
 });
 
 // route login
+Route::get('/', function () {
+    return view('index');
+});
 Route::get('/', [kegiatan::class, 'landing']);
 
 
@@ -111,20 +124,23 @@ Route::get('penduduk', [penduduk::class, 'index'])->name('penduduk');
 Route::post('penduduk/list', [penduduk::class, 'list']);
 
 // route bansos
+Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
+Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
+Route::get('/strukturOrganisasi', [organisasi::class, 'index']);
 Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk')->middleware('noRT');
 Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
-
-
 
 
 //admin
 Route::group(['middleware' => 'auth'], function () {
     //surat admin
+    Route::get('admin/surat', [surat::class, 'adminSurat'])->name('surat');
     Route::get('admin/surat', [surat::class, 'adminSurat'])->name('surat')->middleware('noRT');
     Route::get('/surat/delete/{id}', [surat::class, 'batalkanSurat'])->name('surat');
 
 
     // route keuangan
+
     Route::group(['prefix' => 'keuangan'], function () {
         Route::get('/', [keuangan::class, 'index'])->name('keuangan');
         Route::post('/list', [keuangan::class, 'list']);
@@ -141,6 +157,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('penduduk/list', [penduduk::class, 'list']);
 
     // route bansos
+    Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
     Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk')->middleware('noRT');
     Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
 
