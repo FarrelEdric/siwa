@@ -93,33 +93,40 @@
           <li class="nav-item">
             <a href="#" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
-              <p>List Penerima</p>
+              <p>Data Faktor</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{url('/bantuanSosial')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
-              <p>Informasi</p>
+              <p>Kriteria</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="./index2.html" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
-              <p>Pengajuan</p>
+              <p>Alternatif</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="./index2.html" class="nav-link" style="color: white;">
+              <i class="nav-icon fas"></i>
+              <p>Alternatif</p>
             </a>
           </li>
         </ul>
       </li>
 
+
       <hr class="bg-white">
       <!-- Tombol Logout -->
       <li class="nav-item">
+
         <a href="{{ url('/logout') }}" class="nav-link align-self-end" style="color: white;">
-          <i class="nav-icon fas fa-sign-out-alt"></i>
-          <p>Logout</p>
+            <i class="nav-icon fas fa-sign-out-alt"></i>
+            <p>Logout</p>
         </a>
-      </li>
-     
+    </li>    
     </ul>
   </nav>
 </div>
