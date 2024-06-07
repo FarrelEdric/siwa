@@ -126,7 +126,7 @@ Route::group(['prefix' => 'surat'], function () {
     // route bansos
     Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
     Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
-    Route::get('/strukturOrganisasi', [organisasi::class, 'index']);
+    Route::get('/strukturOrganisasi', [organisasiController::class, 'index']);
     Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk')->middleware('noRT');
     Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
 
