@@ -25,7 +25,7 @@ class kegiatan extends Controller
         $activeMenu = 'kegiatan';
 
         $model  = kegiatanModel::where('jenis_berita', '=', 'berita')->get();
-        return view('kegiatan.berita', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'data' => $model]);
+        return view('index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'data' => $model]);
     }
 
     public function sosialisasi()
