@@ -128,96 +128,22 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
-        <h3 class="text-center">Tentang Kami</h3>
+        <h3 class="text-end mr-10px">Tentang Kami</h3>
         <div class="row">
           <div class="col-lg-6">
             <img src="assets/img/keluarga1.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-           
-            <p>
+            <br>
+            <p style="text-align: justify;">
               SIWA adalah sebuah website inovatif yang dirancang untuk mengakomodasi berbagai kegiatan warga dengan menyediakan beragam fitur yang bermanfaat. Melalui SIWA, warga dapat dengan mudah mengakses informasi mengenai kegiatan sosial seperti kerja bakti, mendapatkan bantuan sosial (bansos), serta mengurus berbagai keperluan persuratan. Tidak hanya itu, SIWA juga berfungsi sebagai platform untuk memfasilitasi komunikasi dan koordinasi antarwarga, memastikan setiap individu dapat berpartisipasi aktif dalam membangun lingkungan yang harmonis dan produktif. Dengan tampilan yang user-friendly dan fitur-fitur yang komprehensif, SIWA menjadi solusi terpadu untuk meningkatkan keterlibatan dan kesejahteraan komunitas.
             </p>
+            
           </div>
         </div>
 
       </div>
     </section>
-    
-    
-    <!-- End About Section -->
-
-    {{-- <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Team</h2>
-          <p>6</p>
-        </div>
-
-        
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src={{asset("assets/img/team/a3.jpeg")}} alt="">
-              <h4>Fransiscus Farrel Edric Wijanarko</h4>
-              <span>BackEnd</span>
-              <p>
-                @reldriccc
-              </p>
-              <div class="social">
-                <a href="https://www.instagram.com/reldriccc/"><i class="bi bi-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src={{asset("assets/img/team/a4.jpg")}} alt="">
-              <h4>Satria Abrar</h4>
-              <span>FrontEnd</span>
-              <p>
-                @satriaabraarr
-              </p>
-              <div class="social">
-                <a href="https://www.instagram.com/satriaabraarr/"><i class="bi bi-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src={{{asset("assets/img/team/a1.jpg")}}} alt="">
-              <h4>Muhammad Irsyad Dany</h4>
-              <span>Desain UI&UX</span>
-              <p>
-                @irsydanyy
-              </p>
-              <div class="social">
-                <a href="https://www.instagram.com/irsydanyy/"><i class="bi bi-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src={{asset("assets/img/team/Ratnasari.jpg")}} alt="">
-              <h4>RatnaSari</h4>
-              <span>Project Manager</span>
-              <p>
-                @ratna.saar
-              </p>
-              <div class="social">
-                <a href="https://www.instagram.com/ratna.saar/"><i class="bi bi-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Team Section --> --}}
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact section-bg">
@@ -269,7 +195,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>siwa</h3>
+            <h3>SIWA</h3>
             <p>
             Politeknik Negri Malang <br>
               Malang<br>
