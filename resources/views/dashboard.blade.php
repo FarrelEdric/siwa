@@ -31,20 +31,14 @@
   <p>Jelajahi RW 06</p>
 </div>
 
-<h2 style="font-size: 30px;" class="mt-5 mb-3">Berita Terbaru</h2>
-<div class="d-flex flex-wrap justify-content-between w-100">
-  @foreach ($berita as $item)
-    <div style="width: 48%; height: 280px; font-size: 1px; overflow-y: scroll;" class="card mb-4 rounded overflow p-3 d-flex flex-column">
-      <img width="100%" src="{{ asset('images/' . $item->image) }}" class="rounded" alt="">
-      <div class="content bg-white p-3 rounded">
-        <h1 style="font-size: 15px;" class="font-weight-bold">{{ $item->jenis_kegiatan }}</h1>
-        <h1 style="font-size: 15px;" class="font-weight-bold">{{ $item->tgl_kegiatan }}</h1>
-        <p style="font-size: 12px;">
-          {{ $item->deskripsi }}
-        </p>
-      </div>
-    </div>
-  @endforeach
+<div style="background: white;padding:1rem;" class="mt-5 w-100 px-3">
+  <h1>Statistik Penduduk</h1>
+  <div style="width: 300px;"><canvas id="acquisitions"></canvas></div>
+</div>
+
+<div style="background: white;padding:1rem;" class="mt-5 w-100 px-3">
+  <h1 class="mb-5">Statistik Pemasukan Iuran</h1>
+  <div style="width: 100%;"><canvas id="line-chart"></canvas></div>
 </div>
 
 <h2 style="font-size: 30px;" class="my-3">Pengajuan Surat</h2>
@@ -66,6 +60,73 @@
 @endpush
 
 @push('js')
+<script>
+  // console.log(JSON.parse('{{json_encode($penduduk)}}'))
+  (async function() {
+    const data = {
+  labels: [
+    'Laki-laki',
+    'Perempuan'
+  ],
+  datasets: [{
+    label: 'Jenis Kelamin',
+    data: JSON.parse('{{json_encode($penduduk)}}'),
+    backgroundColor: [
+      '#023e8a',
+      '#cdb4db'
 
+    ],
+    hoverOffset: 4
+  }]
+};
+const config = {
+  type: 'pie',
+  data: data,
+};
+const myChart = new Chart(
+   document.getElementById('acquisitions'),
+    config
+);
+
+// console.log("{{json_encode($keuangan)}}")
+console.log(JSON.parse('{{json_encode($pengeluaran)}}'))
+
+var tgl = "{{ json_encode($tanggal) }}"
+tgl=tgl.replace(/&quot;/g,'"');
+const data1 = {
+  labels: JSON.parse(tgl),
+  datasets: [{
+    type: 'line',
+    label: 'Pemasukan',
+    data: JSON.parse('{{json_encode($keuangan)}}'),
+    borderColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+  }, {
+    type: 'line',
+    label: 'pengeluaran',
+    data: JSON.parse('{{json_encode($pengeluaran)}}'),
+    fill: false,
+    borderColor: 'rgb(54, 162, 235)',
+   
+  }]
+};
+const config1 = {
+  type: 'scatter',
+  data: data1,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+};
+const myChart1 = new Chart(
+   document.getElementById('line-chart'),config1
+);
+  })()
+
+
+</script>
 
 @endpush

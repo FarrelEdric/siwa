@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\organisasiModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class organisasiController extends Controller
@@ -36,7 +37,12 @@ class organisasiController extends Controller
         return DataTables::of($organisasi)
             ->addIndexColumn()
             ->addColumn('aksi', function ($organisasi) {
-                $btn = '<a   href="' . url('/organisasi/' . $organisasi->id_organisasi) . '" class="btn btn-primary" >Detail</a> ';
+                if (Auth::user()->level_id == 1) {
+                    $btn = '<a   href="' . url('/organisasi/' . $organisasi->id_organisasi) . '" class="btn btn-primary" >Detail</a> ';
+                    $btn .= '<a   href="' . url('/organisasi/edit/' . $organisasi->id_organisasi) . '" class="btn btn-warning" >edit</a> ';
+                } else {
+                    $btn = '<a   href="' . url('/organisasi/' . $organisasi->id_organisasi) . '" class="btn btn-primary" >Detail</a> ';
+                }
                 return $btn;
             })
             ->rawColumns(['aksi'])
@@ -132,9 +138,12 @@ class organisasiController extends Controller
     {
         $request->validate([
             // 'id_user' => 'required|exists:users,id_user',
-            'jenis_organisasi' => 'required|string|max:100',
-            'tgl_organisasi' => 'required|date',
-            'lokasi' => 'required|string|max:100',
+            'nama' => 'required|string|max:100',
+            'jabatan' => 'required|string|max:100',
+            'masaJabatan' => 'required|string|max:100',
+            'no_tlp' => 'required|string|max:100',
+            'alamat' => 'required|string|max:100',
+            'email' => 'required|string|max:100',
         ]);
 
         $organisasi = organisasiModel::findOrFail($id);

@@ -12,13 +12,14 @@ class organisasiModel extends Model
 
     protected $primaryKey = "id_organisasi";
 
-    protected $fillalble =[
-        'id_organisasi',
+    public $timestamps = false;
+    protected $fillable = [
         'nama',
         'jabatan',
-        'informasi'
+        'masaJabatan',
+        'no_tlp',
+        'alamat',
+        'email',
 
     ];
-
 }
-

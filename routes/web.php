@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\organisasi;
+use App\Http\Controllers\sosial;
 use App\Http\Controllers\surat;
 use App\Http\Controllers\bantuan_sosial;
+use App\Http\Controllers\beritaController;
 use App\Http\Controllers\penduduk_keluar;
 use App\Http\Controllers\penduduk_masuk;
 use App\Http\Controllers\keuangan;
@@ -12,6 +14,7 @@ use App\Http\Controllers\penduduk;
 use App\Http\Controllers\kegiatan;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\organisasiController;
+use App\Http\Controllers\sosialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,14 +39,14 @@ Route::get('/login', [loginController::class, 'login'])->middleware('guest');
 Route::get('/register', [register::class, 'register'])->name('register');
 
 Route::group(['prefix' => 'kegiatan'], function () {
-    Route::get('/', [kegiatan::class, 'index']);
-    Route::post('/list', [kegiatan::class, 'list']);
-    Route::get('/create', [kegiatan::class, 'create']);
-    Route::post('/', [kegiatan::class, 'store']);
-    Route::get('/{id}', [kegiatan::class, 'show']);
-    Route::get('/{id}/edit', [kegiatan::class, 'edit']);
-    Route::put('/{id}', [kegiatan::class, 'update']);
-    Route::delete('/{id}', [kegiatan::class, 'destroy']);
+    Route::get('/', [beritaController::class, 'index']);
+    Route::post('/list', [beritaController::class, 'list']);
+    Route::get('/create', [beritaController::class, 'create']);
+    Route::post('/', [beritaController::class, 'store']);
+    Route::get('/{id}', [beritaController::class, 'show']);
+    Route::get('/{id}/edit', [beritaController::class, 'edit']);
+    Route::put('/{id}', [beritaController::class, 'update']);
+    Route::delete('/{id}', [beritaController::class, 'destroy']);
 });
 // route sosialisasi
 Route::group(['prefix' => 'sosialisasi'], function () {
@@ -148,5 +151,31 @@ Route::group(['middleware' => 'auth'], function () {
     //struktur organisasi
     Route::get('organisasi', [organisasiController::class, 'index'])->name('organisasi');
     Route::post('organisasi/list', [organisasiController::class, 'list']);
+    //route sosial
+    Route::get('organisasi/edit/{id}', [organisasiController::class, 'edit']);
+    Route::put('organisasi/{id}', [organisasiController::class, 'update']);
     Route::get('organisasi/{id}', [organisasiController::class, 'show']);
+
+    //route sosialisasi
+    Route::group(['prefix' => 'sosialisasi'], function () {
+        Route::get('', [sosialController::class, 'index']);
+        Route::post('/list', [sosialController::class, 'list']);
+        Route::get('/create', [sosialController::class, 'create']);
+        Route::post('', [sosialController::class, 'store']);
+        Route::get('/{id}', [sosialController::class, 'show']);
+        Route::get('/{id}/edit', [sosialController::class, 'edit']);
+        Route::put('/{id}', [sosialController::class, 'update']);
+        Route::delete('/{id}', [sosialController::class, 'destroy']);
+    });
+    //route berita
+    Route::group(['prefix' => 'berita'], function () {
+        Route::get('', [beritaController::class, 'index']);
+        Route::post('/list', [beritaController::class, 'list']);
+        Route::get('/create', [beritaController::class, 'create']);
+        Route::post('', [beritaController::class, 'store']);
+        Route::get('/{id}', [beritaController::class, 'show']);
+        Route::get('/{id}/edit', [beritaController::class, 'edit']);
+        Route::put('/{id}', [beritaController::class, 'update']);
+        Route::delete('/{id}', [beritaController::class, 'destroy']);
+    });
 });

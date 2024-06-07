@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keuangan', function (Blueprint $table) {
-            $table->id('id_keuangan');
-            $table->date('date');
-            $table->integer('pemasukan_iuran')->default(50000);
-            $table->integer('pengeluaran_iuran')->nullable();
-            $table->string('keterangan')->default("Saya Membayar Iuran");
+        Schema::create('berita_models', function (Blueprint $table) {
+            $table->id('id_berita');
+            $table->string('nama_berita', 100);
+            $table->date('waktu_pel_berita');
+            $table->string('lokasi',100);
+            $table->text('deskripsi');
+            $table->string('gambar', 255)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('berita_models');
     }
 };

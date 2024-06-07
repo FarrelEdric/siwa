@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ config('app.name', 'PWL Laravel Starter Code') }}</title>
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <script src="
+https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js
+"></script>
+
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;400i;700&display=swap" rel="stylesheet">

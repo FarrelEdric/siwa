@@ -17,7 +17,7 @@ class penduduk_seed extends Seeder
             [
                 'id_penduduk' => '1',
                 'no_kk' => '1',
-                'nik_penduduk' => '313131',
+                'nik_penduduk' => '6739263826452173',
                 'nama_penduduk' => 'irwan',
                 'pekerjaan_penduduk' => 'pegawai negri',
                 'jenis_kelamin' => 'laki-laki',
@@ -31,7 +31,7 @@ class penduduk_seed extends Seeder
             [
                 'id_penduduk' => '2',
                 'no_kk' => '2',
-                'nik_penduduk' => '323232',
+                'nik_penduduk' => '53628362940153618',
                 'nama_penduduk' => 'asep',
                 'pekerjaan_penduduk' => 'pegawai negri',
                 'jenis_kelamin' => 'laki-laki',
@@ -45,7 +45,7 @@ class penduduk_seed extends Seeder
             [
                 'id_penduduk' => '3',
                 'no_kk' => '3',
-                'nik_penduduk' => '333333',
+                'nik_penduduk' => '63725382546241673',
                 'nama_penduduk' => 'tenza',
                 'pekerjaan_penduduk' => 'pegawai negri',
                 'jenis_kelamin' => 'perempuan',
@@ -55,6 +55,7 @@ class penduduk_seed extends Seeder
 
 
             ]
+
         ];
         DB::table('penduduk')->insert($data);
     }
