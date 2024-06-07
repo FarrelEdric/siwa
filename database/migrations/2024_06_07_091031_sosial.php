@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('keuangan', function (Blueprint $table) {
-            $table->id('id_keuangan');
-            $table->date('date');
-            $table->integer('pemasukan_iuran')->default(50000);
-            $table->integer('pengeluaran_iuran')->nullable();
-            $table->string('keterangan')->default("Saya Membayar Iuran");
+        Schema::create('sosial', function (Blueprint $table) {
+            $table->id('id_sosial');
+            $table->string('nama_sosial',100);
+            $table->text('deskripsi');
+            $table->string('gambar',255);   
             $table->timestamps();
         });
     }

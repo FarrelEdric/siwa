@@ -56,13 +56,13 @@
                         searchable: false
                     },
                     {
-                        data: "jenis_kegiatan",
+                        data: "nama_berita",
                         className: "",
                         orderable: true,
                         searchable: true
                     },
                     {
-                        data: "tgl_kegiatan",
+                        data: "waktu_pel_berita",
                         className: "",
                         orderable: true,
                         searchable: true

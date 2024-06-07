@@ -17,8 +17,8 @@ class pengeluaran extends Seeder
 
             'user_id' => 1,
             'date' => date('Y-m-d', strtotime(' 2024-01-01')),
-            'pengeluaran_iuran' => '10000',
-            'keterangan_pengeluaran' => 'mbayar mboh',
+            'pengeluaran_iuran' => '100000',
+            'keterangan_pengeluaran' => 'sewa kursi',
 
         ]);
     }

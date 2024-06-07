@@ -32,8 +32,7 @@ class penduduk extends Controller
         ];
 
         $activeMenu = 'penduduk';
-        $penduduk = pendudukModel::selectRaw('count(id_penduduk)')->groupBy('jenis_kelamin')->pluck('count(id_penduduk)')->toArray();
-        $penduduk = array_map('intval', $penduduk);
+       
         return view('penduduk.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'penduduk' => $penduduk]);
     }
 

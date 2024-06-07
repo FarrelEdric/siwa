@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder
             bantuan_sosial_seed::class,
             kegiatan_seed::class,
             organisasiSeeder::class,
+            BeritaModelSeeder::class,
+            sosialSeed::class,
 
         ]);
     }

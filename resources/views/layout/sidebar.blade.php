@@ -18,22 +18,14 @@
       </li>
 
       <li class="{{Auth::user()->level_id == '3' ? 'd-none':''}} nav-item mt-2">
-        <a href="#"  class="nav-link {{ ($activeMenu == 'surat') ? 'active' : '' }}" style="color: white;">
+        <a href="{{Auth::user()->level_id == '2'? url('/surat'):url('admin/surat')}}"  class="nav-link {{ ($activeMenu == 'surat') ? 'active' : '' }}" style="color: white;">
           <i class="nav-icon far fa-envelope"></i>
           <p>
             Persuratan
-            <i class="right fas fa-angle-left"></i>
+       
           </p>
         </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{{Auth::user()->level_id == '2'? url('/surat'):url('admin/surat')}}" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Kelola Persuratan</p>
-            </a>
-          </li>
-          
-        </ul>
+      
       </li>
 
       <li class="nav-item mt-2">
@@ -58,7 +50,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="./kegiatan" class="nav-link" style="color: white;">
+            <a href="{{url('/kegiatan')}}" class="nav-link" style="color: white;">
               <i class="nav-icon fas"></i>
               <p>Kegiatan Warga</p>
             </a>
@@ -83,23 +75,10 @@
           <i class="nav-icon fas fa-list-ul"></i>
           <p>
             Data Warga
-            <i class="right fas fa-angle-left"></i>
+        
           </p>
         </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{{url('/penduduk')}} " class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Data Seluruh Warga</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>History Keluar Masuk</p>
-            </a>
-          </li>
-        </ul>
+       
       </li>
 
       <li class="{{Auth::user()->level_id == '3' ? 'd-none':''}} nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
@@ -138,14 +117,11 @@
         </ul>
       </li>
 
-      <li class="nav-item {{ Auth::user()->isAdmin() ? '' : 'd-none' }}">
-        <a href="{{ url('/user') }}" class="nav-link {{ $activeMenu == 'user' ? 'active' : '' }}" style="color: white;">
-            <!-- Isi dari tautan bisa ditempatkan di sini -->
-        </a>
-    </li>
-    <hr class="bg-white">
-    <!-- Tombol Logout -->
-    <li class="nav-item">
+
+      <hr class="bg-white">
+      <!-- Tombol Logout -->
+      <li class="nav-item">
+
         <a href="{{ url('/logout') }}" class="nav-link align-self-end" style="color: white;">
             <i class="nav-icon fas fa-sign-out-alt"></i>
             <p>Logout</p>
