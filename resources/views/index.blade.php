@@ -163,7 +163,7 @@
                 <div class="col-lg-4 info">
                   <i class="bi bi-geo-alt"></i>
                   <h4>Location:</h4>
-                  <p>Politeknik Negri Malang</p>
+                  <p>Desa Tanjungrejo </p>
                 </div>
 
                 <div class="col-lg-4 info mt-4 mt-lg-0">
@@ -197,11 +197,11 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>SIWA</h3>
             <p>
-            Politeknik Negri Malang <br>
-              Malang<br>
+           Desa Tanjungrejo<br>
+              Sukun Malang<br>
               Indonesia <br><br>
-              <strong>Telepon:</strong> 08997084448<br>
-              <strong>Email:</strong> fransiscusfarrel08@gmail.com<br>
+              {{-- <strong>Telepon:</strong> 08997084448<br> --}}
+              <strong>Email:</strong> siwa08@gmail.com<br>
             </p>
           </div>
 
