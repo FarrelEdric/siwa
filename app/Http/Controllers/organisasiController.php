@@ -15,7 +15,7 @@ class organisasiController extends Controller
     public function index()
     {
         $breadcrumb = (object)[
-            'title' => 'Berita organisasi Warga',
+            'title' => 'Struktur Organisasi',
             'list' => ['Home', 'organisasi']
         ];
 
