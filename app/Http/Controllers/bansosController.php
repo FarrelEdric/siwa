@@ -40,7 +40,7 @@ class bansosController extends Controller
      */
     public function index()
     {
-        $bansos = BansosModel::all();
+        $bansos = bansosModel::all();
         $target = [
             'c1' => 4,
             'c2' => 4,
@@ -51,7 +51,7 @@ class bansosController extends Controller
             'c7' => 4,
             'c8' => 3,
         ];
-    
+
         $pemetaanGAP = $bansos->map(function ($item) use ($target) {
             $gaps = [
                 'nama_penerima' => $item->nama_penerima,
@@ -66,7 +66,7 @@ class bansosController extends Controller
             ];
             return $gaps;
         });
-    
+
         $bobotNilaiGAP = $pemetaanGAP->map(function ($result) {
             return [
                 'nama_penerima' => $result['nama_penerima'],
@@ -80,7 +80,7 @@ class bansosController extends Controller
                 'c8' => $this->convertToScore($result['c8']),
             ];
         });
-    
+
         $cfAndSf = $bobotNilaiGAP->map(function ($result) {
             return [
                 'nama_penerima' => $result['nama_penerima'],
@@ -102,7 +102,7 @@ class bansosController extends Controller
         $ncfAndNsf = $cfAndSf->map(function ($item) {
             $ncf = array_sum($item['core_factors']) / count($item['core_factors']);
             $nsf = array_sum($item['secondary_factors']) / count($item['secondary_factors']);
-    
+
             return [
                 'nama_penerima' => $item['nama_penerima'],
                 'ncf' => $ncf,
@@ -124,18 +124,18 @@ class bansosController extends Controller
                 'ranking' => $index + 1
             ];
         });
-    
+
         $breadcrumb = (object)[
             'title' => 'Daftar Penerima Bansos',
             'list' => ['Home', 'Daftar Penerima Bansos']
         ];
-    
+
         $page = (object)[
             'title' => 'Daftar Penerima Bansos'
         ];
-    
+
         $activeMenu = 'bansos';
-    
+
         return view('bansos.index', [
             'breadcrumb' => $breadcrumb,
             'page' => $page,
@@ -343,5 +343,4 @@ class bansosController extends Controller
         BansosModel::findOrFail($id)->delete();
         return redirect()->route('bansos.index')->with('success', 'Data berhasil dihapus');
     }
-
 }
