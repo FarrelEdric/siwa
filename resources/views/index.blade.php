@@ -200,7 +200,7 @@
            Desa Tanjungrejo<br>
               Sukun Malang<br>
               Indonesia <br><br>
-              <strong>Telepon:</strong> 08997084448<br>
+              {{-- <strong>Telepon:</strong> 08997084448<br> --}}
               <strong>Email:</strong> siwa08@gmail.com<br>
             </p>
           </div>
