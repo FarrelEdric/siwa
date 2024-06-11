@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             organisasiSeeder::class,
             BeritaModelSeeder::class,
             sosialSeed::class,
+            t_bansosSeeder::class,
 
         ]);
     }

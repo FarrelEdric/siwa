@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\bansosController;
 use App\Http\Controllers\organisasi;
 use App\Http\Controllers\sosial;
 use App\Http\Controllers\surat;
@@ -128,12 +129,16 @@ Route::get('penduduk', [penduduk::class, 'index'])->name('penduduk');
 Route::post('penduduk/list', [penduduk::class, 'list']);
 
 // route bansos
-Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk');
-Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
-Route::get('/strukturOrganisasi', [organisasiController::class, 'index']);
-Route::get('bantuanSosial', [bantuan_sosial::class, 'index'])->name('penduduk')->middleware('noRT');
-Route::post('bantuanSosial/list', [bantuan_sosial::class, 'list']);
-
+// Group route for bansos
+Route::prefix('bansos')->group(function () {
+    Route::get('/', [bansosController::class, 'index'])->name('bansos.index');
+    Route::post('/list', [bansosController::class, 'list'])->name('bansos.list');
+    Route::get('/create', [bansosController::class, 'create'])->name('bansos.create');
+    Route::post('/store', [bansosController::class, 'store'])->name('bansos.store');
+    Route::get('/edit/{id}', [bansosController::class, 'edit'])->name('bansos.edit');
+    Route::put('/update/{id}', [bansosController::class, 'update'])->name('bansos.update');
+    Route::delete('/delete/{id}', [bansosController::class, 'destroy'])->name('bansos.destroy');
+});
 
 //admin
 Route::group(['middleware' => 'auth'], function () {

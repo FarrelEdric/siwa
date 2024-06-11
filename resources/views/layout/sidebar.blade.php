@@ -82,39 +82,12 @@
       </li>
 
       <li class="{{Auth::user()->level_id == '3' ? 'd-none':''}} nav-item mt-2 {{Auth::user()->isAdmin() ? '':'d-none'}}" >
-        <a href="#" class="nav-link " style="color: white;">
+        <a href="{{url('/bansos')}}" class="nav-link " style="color: white;">
           <i class="nav-icon fas fa-hands-helping"></i>
           <p>
             Bantuan Sosial
-            <i class="right fas fa-angle-left"></i>
           </p>
         </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="#" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Data Faktor</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{url('/bantuanSosial')}}" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Kriteria</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Alternatif</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link" style="color: white;">
-              <i class="nav-icon fas"></i>
-              <p>Alternatif</p>
-            </a>
-          </li>
-        </ul>
       </li>
 
 
