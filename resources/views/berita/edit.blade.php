@@ -1,4 +1,4 @@
-[15.15, 6/6/2024] Ratna 2c: @extends('layout.template')
+@extends('layout.template')
 
 @section('content')
 @if ($errors->any())
