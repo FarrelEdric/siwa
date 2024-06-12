@@ -15,8 +15,8 @@ class sosialController extends Controller
     public function index()
     {
         $breadcrumb = (object)[
-            'title' => 'Data sosial',
-            'list' => ['Home', 'Data sosial']
+            'title' => 'Data Sosialisasi',
+            'list' => ['Home', 'Data Sosialisasi']
         ];
 
         $page = (object)[
@@ -55,12 +55,12 @@ class sosialController extends Controller
     public function create()
     {
         $breadcrumb = (object)[
-            'title' => 'Tambah Data sosial',
-            'list' => ['Home', 'Data sosial', 'Tambah Data sosial']
+            'title' => 'Tambah Data Sosialisasi',
+            'list' => ['Home', 'Data Sosialiasi', 'Tambah Data Sosialisasi']
         ];
 
         $page = (object)[
-            'title' => 'Tambah Data sosial'
+            'title' => 'Tambah Data Sosialisasi'
         ];
 
         $activeMenu = 'sosial';

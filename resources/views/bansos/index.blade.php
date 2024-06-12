@@ -25,7 +25,7 @@
                     <th>Jumlah Anggota Keluarga</th>
                     <th>Penghasilan</th>
                     <th>Jenis Pekerjaan</th>
-                    <th>Keadaan Anggota Keluarga</th>
+                    <th>Anggota Keluarga Lansia/Disabilitas</th>
                     <th>Jumlah Anak Sekolah</th>
                     <th>Aksi</th>
                 </tr>

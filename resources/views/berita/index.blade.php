@@ -3,11 +3,11 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-        <div class="card card-outline card-primary">
+        <div class="card card-outline">
             <div class="card-header">
                 <h3 class="card-title">Daftar Berita Kegiatan Warga</h3>
                 <div class="card-tools">
-                    <a class="btn btn-sm btn-primary mt-1" href="{{ url('kegiatan/create') }}">Tambah</a>
+                    <a class="btn btn-sm mt-1" href="{{ url('kegiatan/create') }}" style="background-color: #1D3752; color: white;">Tambah</a>
                 </div>
             </div>
             <div class="card-body">

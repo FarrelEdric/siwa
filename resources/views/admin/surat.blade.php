@@ -24,9 +24,8 @@
                   <td> {{$user->status}} </td>
             
                   <td class="d-flex gap-2 justify-content-center">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{$user->id_surat}}">
-                        Detail
-                      </button>
+                    <button type="button" class="btn btn-sm mb-1" data-toggle="modal" data-target="#exampleModal-{{$user->id_surat}}" style="margin-right: 5px; width: 80px; background-color: #1D3752; color: white;"><i class="fas fa-eye"></i> Detail</button>
+
                       
                       <!-- Modal -->
                       <div class="modal fade" id="exampleModal-{{$user->id_surat}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -119,7 +119,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="c7" class="control-label">Keadaan Anggota Keluarga</label>
+                <label for="c7" class="control-label">Anggota Keluarga Lansia/Disabilitas</label>
                 <div class="input-group mt-2">
                     <select class="form-control" id="c7" name="c7" required>
                         <option value="">-- Pilih --</option>

@@ -38,8 +38,8 @@ class organisasiController extends Controller
             ->addIndexColumn()
             ->addColumn('aksi', function ($organisasi) {
                 if (Auth::user()->level_id == 1) {
-                    $btn = '<a   href="' . url('/organisasi/' . $organisasi->id_organisasi) . '" class="btn btn-primary" >Detail</a> ';
-                    $btn .= '<a   href="' . url('/organisasi/edit/' . $organisasi->id_organisasi) . '" class="btn btn-warning" >edit</a> ';
+                    $btn = '<a   href="' . url('/organisasi/' . $organisasi->id_organisasi) . '" class="btn btn-sm mb-1" style="margin-right: 5px; width: 80px; background-color: #1D3752; color: white;"><i class="fas fa-eye"></i> Detail</a>';
+                    $btn .= '<a   href="' . url('/organisasi/edit/' . $organisasi->id_organisasi) . '" class="btn btn-warning btn-sm mb-1" style="margin-right: 5px; width: 80px;"><i class="fas fa-edit"></i> Edit</a>';
                 } else {
                     $btn = '<a   href="' . url('/organisasi/' . $organisasi->id_organisasi) . '" class="btn btn-primary" >Detail</a> ';
                 }
