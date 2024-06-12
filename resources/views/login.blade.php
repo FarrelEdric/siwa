@@ -48,6 +48,8 @@
 
         .form-container .btn-primary {
             width: 100%;
+            background-color: #1D3752;
+            border-color: #1D3752;
         }
 
         .alert {
@@ -60,7 +62,7 @@
     <div class="container">
         <div class="form-container">
             <h1 class="text-center fw-bold">Selamat Datang</h1>
-            <h2 class="text-center fw-semibold"><span style="color: #3498db" class="fw-bold">SiWa</span></h2>
+            <h2 class="text-center fw-semibold"><span style="color: #F7C232" class="fw-bold">SiWa</span></h2>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -70,7 +72,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{route('proses_login')}}" method="POST">
+            <form action="{{ route('proses_login') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
